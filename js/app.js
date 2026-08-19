@@ -82,31 +82,38 @@ document.addEventListener("DOMContentLoaded", function () {
         .trim();
 
 
-let mensaje =
-  "\uD83C\uDF82 CONFIRMACIÓN CUMPLEAÑOS ATHENA \uD83C\uDF82\n\n" +
-  "\uD83E\uDDD2 Niño/a invitado:\n" +
-  nino +
-  "\n\n" +
-  "\uD83D\uDC64 Adulto responsable:\n" +
-  adulto1 +
-  "\n\n" +
-  "\uD83D\uDC65 Adultos asistentes:\n" +
-  cantidadAdultos;
+    let mensaje =
+      "🎂 CONFIRMACIÓN CUMPLEAÑOS ATHENA 🎂\n\n" +
+      "🧒 Niño/a invitado:\n" +
+      nino +
+      "\n\n" +
+      "👤 Adulto responsable:\n" +
+      adulto1 +
+      "\n\n" +
+      "👥 Adultos asistentes:\n" +
+      cantidadAdultos;
 
-if (cantidadAdultos === "2") {
-  mensaje +=
-    "\n\n\uD83D\uDC64 Segundo adulto:\n" +
-    segundoAdulto;
-}
 
-if (comentario !== "") {
-  mensaje +=
-    "\n\n\uD83D\uDCAC Comentario:\n" +
-    comentario;
-}
+    if (cantidadAdultos === "2") {
 
-mensaje +=
-  "\n\n\u2705 Confirmamos nuestra asistencia";
+      mensaje +=
+        "\n\n👤 Segundo adulto:\n" +
+        segundoAdulto;
+
+    }
+
+
+    if (comentario !== "") {
+
+      mensaje +=
+        "\n\n💬 Comentario:\n" +
+        comentario;
+
+    }
+
+
+    mensaje +=
+      "\n\n✅ Confirmamos nuestra asistencia";
 
 
     if (
