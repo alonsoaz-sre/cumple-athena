@@ -6,46 +6,72 @@
 
   <title>Confirmación cumpleaños Athena</title>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260819-3">
 </head>
 
 <body>
 
   <main class="page">
 
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
     <section class="hero">
 
       <img
         class="logo"
-        src="assets/img/b6c4c6b7-d521-40f3-a83a-da5635ef8311.png"
+        src="assets/img/Athena4sf.png"
         alt="Athena 4 años"
+        loading="eager"
+        decoding="async"
       >
 
       <div class="hero-text">
-        <h1>¡Estás invitado a mi cumpleaños!</h1>
+
+        <h1>
+          ¡Estás invitado a mi cumpleaños!
+        </h1>
 
         <p>
           Tu confirmación nos ayudará a organizar
           un día inolvidable. 💗
         </p>
+
       </div>
 
     </section>
 
 
+    <!-- =====================================================
+         CONTENIDO
+         ===================================================== -->
+
     <section class="content">
+
+
+      <!-- ===================================================
+           FORMULARIO
+           =================================================== -->
 
       <section class="card form-card">
 
-        <h2>Confirma tu asistencia</h2>
+        <h2>
+          Confirma tu asistencia
+        </h2>
 
         <p class="subtitle">
           Por favor, completa tus datos para registrarte.
         </p>
 
+
         <form id="formAsistencia">
 
+
+          <!-- NIÑO -->
+
           <div class="field">
+
             <label for="nino">
               Nombre y apellido del niño/a invitado *
             </label>
@@ -56,11 +82,16 @@
               name="nino"
               placeholder="Ej. Sofía Valentina Pérez García"
               required
+              autocomplete="name"
             >
+
           </div>
 
 
+          <!-- ADULTO 1 -->
+
           <div class="field">
+
             <label for="adulto1">
               Nombre y apellido del adulto responsable *
             </label>
@@ -71,9 +102,13 @@
               name="adulto1"
               placeholder="Ej. María Fernanda García López"
               required
+              autocomplete="name"
             >
+
           </div>
 
+
+          <!-- CANTIDAD DE ADULTOS -->
 
           <fieldset class="adult-selector">
 
@@ -81,7 +116,9 @@
               ¿Cuántos adultos asistirán? *
             </legend>
 
+
             <label class="adult-option">
+
               <input
                 type="radio"
                 name="adultos"
@@ -93,10 +130,12 @@
                 <strong>1</strong>
                 Un adulto
               </span>
+
             </label>
 
 
             <label class="adult-option">
+
               <input
                 type="radio"
                 name="adultos"
@@ -107,10 +146,13 @@
                 <strong>2</strong>
                 Dos adultos
               </span>
+
             </label>
 
           </fieldset>
 
+
+          <!-- ADULTO 2 -->
 
           <div
             class="field hidden"
@@ -126,10 +168,13 @@
               id="adulto2"
               name="adulto2"
               placeholder="Ej. Carlos Alberto Pérez García"
+              autocomplete="name"
             >
 
           </div>
 
+
+          <!-- COMENTARIO -->
 
           <div class="field">
 
@@ -148,12 +193,15 @@
           </div>
 
 
+          <!-- BOTÓN -->
+
           <button
             type="submit"
             class="confirm-button"
           >
-            Confirmar asistencia por WhatsApp 💗
+            Confirmar asistencia por WhatsApp
           </button>
+
 
           <p class="privacy">
             Al confirmar, se abrirá WhatsApp con un mensaje
@@ -165,32 +213,153 @@
       </section>
 
 
+      <!-- ===================================================
+           COLUMNA DERECHA
+           =================================================== -->
+
       <aside class="card event-card">
 
-        <h2>Detalles del evento 💗</h2>
+        <h2>
+          Detalles del evento
+        </h2>
+
 
         <div class="event-item">
-          <strong>📅 Fecha</strong>
-          <span>Completar fecha</span>
+
+          <strong>
+            Fecha
+          </strong>
+
+          <span>
+            Completar fecha
+          </span>
+
         </div>
 
-        <div class="event-item">
-          <strong>🕒 Hora</strong>
-          <span>Completar horario</span>
-        </div>
 
         <div class="event-item">
-          <strong>📍 Lugar</strong>
-          <span>Completar lugar</span>
+
+          <strong>
+            Hora
+          </strong>
+
+          <span>
+            Completar horario
+          </span>
+
         </div>
+
+
+        <div class="event-item">
+
+          <strong>
+            Lugar
+          </strong>
+
+          <span>
+            Go Enjoy City
+          </span>
+
+        </div>
+
+
+        <!-- =================================================
+             GO ENJOY CITY
+             ================================================= -->
+
+        <div class="venue-social">
+
+          <p class="venue-label">
+            Conoce más sobre el lugar
+          </p>
+
+
+          <a
+            class="venue-logo-link"
+            href="https://www.goenjoycity.pe/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar Go Enjoy City"
+          >
+
+            <img
+              src="assets/img/goenjoycity.png"
+              alt="Go Enjoy City"
+              class="venue-logo"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </a>
+
+
+          <a
+            class="venue-web"
+            href="https://www.goenjoycity.pe/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            www.goenjoycity.pe
+          </a>
+
+
+          <div class="venue-networks">
+
+            <span>
+              Síguelos en redes
+            </span>
+
+
+            <div class="network-buttons">
+
+              <a
+                href="https://www.instagram.com/goenjoycity/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="network-button instagram"
+                aria-label="Instagram Go Enjoy City"
+              >
+                IG
+              </a>
+
+
+              <a
+                href="https://www.tiktok.com/@goenjoycity"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="network-button tiktok"
+                aria-label="TikTok Go Enjoy City"
+              >
+                TT
+              </a>
+
+            </div>
+
+
+            <strong>
+              @goenjoycity
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             GRACIAS
+             ================================================= -->
 
         <div class="thanks">
-          <strong>¡Gracias!</strong>
+
+          <strong>
+            ¡Gracias!
+          </strong>
 
           <p>
             Tu asistencia hará que este día
             sea aún más especial para Athena.
           </p>
+
         </div>
 
       </aside>
@@ -200,8 +369,12 @@
   </main>
 
 
-<script src="js/config.js?v=2"></script>
-<script src="js/app.js?v=2"></script>
+  <!-- =====================================================
+       JS
+       ===================================================== -->
+
+  <script src="js/config.js?v=20260819-7"></script>
+  <script src="js/app.js?v=20260819-7"></script>
 
 </body>
 </html>
