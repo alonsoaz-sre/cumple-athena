@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Confirmación cumpleaños Athena</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="css/styles.css?v=20260819-3">
+  <meta
+    name="theme-color"
+    content="#fff5fb"
+  >
+
+  <title>
+    Cumpleaños de Athena | Confirmación de asistencia
+  </title>
+
+
+  <!-- CSS PRINCIPAL -->
+
+  <link
+    rel="stylesheet"
+    href="css/styles.css?v=20260819-10"
+  >
+
+
+  <!-- ICONOS FONT AWESOME -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
 </head>
+
 
 <body>
 
+
   <main class="page">
+
 
     <!-- =====================================================
          HERO
@@ -19,32 +50,60 @@
 
     <section class="hero">
 
-      <img
-        class="logo"
-        src="assets/img/Athena4sf.png"
-        alt="Athena 4 años"
-        loading="eager"
-        decoding="async"
-      >
+
+      <div class="hero-logo-wrapper">
+
+        <span
+          class="floating-decoration star star-1"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="floating-decoration star star-2"
+          aria-hidden="true"
+        ></span>
+
+        <span
+          class="floating-decoration heart heart-1"
+          aria-hidden="true"
+        ></span>
+
+
+        <img
+          class="logo"
+          src="assets/img/Athena4sf.png"
+          alt="Athena 4 años"
+          loading="eager"
+          decoding="async"
+        >
+
+      </div>
+
 
       <div class="hero-text">
+
+        <span class="hero-mini">
+          ✦ Athena cumple 4 ✦
+        </span>
 
         <h1>
           ¡Estás invitado a mi cumpleaños!
         </h1>
 
         <p>
-          Tu confirmación nos ayudará a organizar
-          un día inolvidable. 💗
+          Tu confirmación nos ayudará a preparar
+          un día muy especial.
         </p>
 
       </div>
 
+
     </section>
 
 
+
     <!-- =====================================================
-         CONTENIDO
+         CONTENIDO PRINCIPAL
          ===================================================== -->
 
     <section class="content">
@@ -56,13 +115,28 @@
 
       <section class="card form-card">
 
-        <h2>
-          Confirma tu asistencia
-        </h2>
 
-        <p class="subtitle">
-          Por favor, completa tus datos para registrarte.
-        </p>
+        <div class="section-heading">
+
+          <span class="heading-icon">
+            <i class="fa-solid fa-heart"></i>
+          </span>
+
+          <div>
+
+            <h2>
+              Confirma tu asistencia
+            </h2>
+
+            <p class="subtitle">
+              Completa los datos del niño invitado
+              y del adulto que lo acompañará.
+            </p>
+
+          </div>
+
+        </div>
+
 
 
         <form id="formAsistencia">
@@ -73,8 +147,17 @@
           <div class="field">
 
             <label for="nino">
-              Nombre y apellido del niño/a invitado *
+
+              <i class="fa-solid fa-child-reaching"></i>
+
+              Nombre y apellido del niño/a invitado
+
+              <span class="required">
+                *
+              </span>
+
             </label>
+
 
             <input
               type="text"
@@ -88,13 +171,23 @@
           </div>
 
 
-          <!-- ADULTO 1 -->
+
+          <!-- ADULTO PRINCIPAL -->
 
           <div class="field">
 
             <label for="adulto1">
-              Nombre y apellido del adulto responsable *
+
+              <i class="fa-regular fa-user"></i>
+
+              Nombre y apellido del adulto responsable
+
+              <span class="required">
+                *
+              </span>
+
             </label>
+
 
             <input
               type="text"
@@ -108,12 +201,22 @@
           </div>
 
 
+
           <!-- CANTIDAD DE ADULTOS -->
 
           <fieldset class="adult-selector">
 
+
             <legend>
-              ¿Cuántos adultos asistirán? *
+
+              <i class="fa-solid fa-user-group"></i>
+
+              ¿Cuántos adultos asistirán?
+
+              <span class="required">
+                *
+              </span>
+
             </legend>
 
 
@@ -127,11 +230,19 @@
               >
 
               <span>
-                <strong>1</strong>
-                Un adulto
+
+                <strong>
+                  1
+                </strong>
+
+                <small>
+                  Un adulto
+                </small>
+
               </span>
 
             </label>
+
 
 
             <label class="adult-option">
@@ -143,16 +254,25 @@
               >
 
               <span>
-                <strong>2</strong>
-                Dos adultos
+
+                <strong>
+                  2
+                </strong>
+
+                <small>
+                  Dos adultos
+                </small>
+
               </span>
 
             </label>
 
+
           </fieldset>
 
 
-          <!-- ADULTO 2 -->
+
+          <!-- SEGUNDO ADULTO -->
 
           <div
             class="field hidden"
@@ -160,8 +280,17 @@
           >
 
             <label for="adulto2">
-              Nombre y apellido del segundo adulto *
+
+              <i class="fa-regular fa-user"></i>
+
+              Nombre y apellido del segundo adulto
+
+              <span class="required">
+                *
+              </span>
+
             </label>
+
 
             <input
               type="text"
@@ -174,14 +303,23 @@
           </div>
 
 
+
           <!-- COMENTARIO -->
 
           <div class="field">
 
             <label for="comentario">
+
+              <i class="fa-regular fa-comment-dots"></i>
+
               Comentario
-              <span>(opcional)</span>
+
+              <span class="optional">
+                opcional
+              </span>
+
             </label>
+
 
             <textarea
               id="comentario"
@@ -193,74 +331,186 @@
           </div>
 
 
+
           <!-- BOTÓN -->
 
           <button
             type="submit"
             class="confirm-button"
           >
-            Confirmar asistencia por WhatsApp
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+            <span>
+              Confirmar asistencia por WhatsApp
+            </span>
+
           </button>
 
 
           <p class="privacy">
-            Al confirmar, se abrirá WhatsApp con un mensaje
-            con tus datos para enviárnoslo.
+
+            <i class="fa-solid fa-lock"></i>
+
+            Al confirmar se abrirá WhatsApp
+            con tus datos ya preparados para enviarlos.
+
           </p>
 
+
         </form>
+
 
       </section>
 
 
+
       <!-- ===================================================
-           COLUMNA DERECHA
+           DETALLES
            =================================================== -->
 
       <aside class="card event-card">
 
-        <h2>
-          Detalles del evento
-        </h2>
 
+        <div class="event-title">
 
-        <div class="event-item">
+          <span class="event-title-icon">
 
-          <strong>
-            Fecha
-          </strong>
+            <i class="fa-regular fa-calendar-heart"></i>
 
-          <span>
-            Completar fecha
           </span>
+
+
+          <div>
+
+            <span class="eyebrow">
+              Guarda la fecha
+            </span>
+
+            <h2>
+              Detalles del evento
+            </h2>
+
+          </div>
 
         </div>
 
 
+
+        <!-- FECHA -->
+
         <div class="event-item">
 
-          <strong>
-            Hora
-          </strong>
+          <span class="event-icon">
 
-          <span>
-            Completar horario
+            <i class="fa-regular fa-calendar"></i>
+
           </span>
+
+
+          <div>
+
+            <strong>
+              Fecha
+            </strong>
+
+            <span>
+              Jueves 10 de septiembre de 2026
+            </span>
+
+          </div>
 
         </div>
 
 
+
+        <!-- HORA -->
+
         <div class="event-item">
 
-          <strong>
-            Lugar
-          </strong>
+          <span class="event-icon">
 
-          <span>
-            Go Enjoy City
+            <i class="fa-regular fa-clock"></i>
+
           </span>
 
+
+          <div>
+
+            <strong>
+              Hora
+            </strong>
+
+            <span>
+              3:00 p. m.
+            </span>
+
+          </div>
+
         </div>
+
+
+
+        <!-- LUGAR -->
+
+        <div class="event-item">
+
+          <span class="event-icon">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </span>
+
+
+          <div>
+
+            <strong>
+              Lugar
+            </strong>
+
+            <span>
+              Salón Premium
+            </span>
+
+            <span class="event-secondary">
+              Go Enjoy City
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- UBICACION -->
+
+        <div class="event-item">
+
+          <span class="event-icon">
+
+            <i class="fa-solid fa-map-location-dot"></i>
+
+          </span>
+
+
+          <div>
+
+            <strong>
+              Ubicación
+            </strong>
+
+            <span>
+              C.C. Plaza San Miguel
+            </span>
+
+            <span class="event-secondary">
+              3.er piso
+            </span>
+
+          </div>
+
+        </div>
+
 
 
         <!-- =================================================
@@ -269,9 +519,10 @@
 
         <div class="venue-social">
 
-          <p class="venue-label">
-            Conoce más sobre el lugar
-          </p>
+
+          <span class="venue-small-title">
+            Sobre el lugar
+          </span>
 
 
           <a
@@ -279,7 +530,6 @@
             href="https://www.goenjoycity.pe/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visitar Go Enjoy City"
           >
 
             <img
@@ -293,63 +543,148 @@
           </a>
 
 
-          <a
-            class="venue-web"
-            href="https://www.goenjoycity.pe/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            www.goenjoycity.pe
-          </a>
+          <p class="venue-description">
+            Puedes conocer más sobre Go Enjoy City
+            y seguir sus redes oficiales.
+          </p>
 
 
-          <div class="venue-networks">
 
-            <span>
-              Síguelos en redes
-            </span>
+          <!-- REDES -->
 
-
-            <div class="network-buttons">
-
-              <a
-                href="https://www.instagram.com/goenjoycity/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="network-button instagram"
-                aria-label="Instagram Go Enjoy City"
-              >
-                IG
-              </a>
+          <div class="network-buttons">
 
 
-              <a
-                href="https://www.tiktok.com/@goenjoycity"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="network-button tiktok"
-                aria-label="TikTok Go Enjoy City"
-              >
-                TT
-              </a>
+            <!-- INSTAGRAM -->
 
-            </div>
+            <a
+              href="https://www.instagram.com/goenjoycity/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="network-button instagram"
+              aria-label="Instagram de Go Enjoy City"
+              title="Instagram"
+            >
+
+              <i class="fa-brands fa-instagram"></i>
+
+            </a>
 
 
-            <strong>
-              @goenjoycity
-            </strong>
+
+            <!-- FACEBOOK -->
+
+            <a
+              href="https://www.facebook.com/GoEnjoyCity"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="network-button facebook"
+              aria-label="Facebook de Go Enjoy City"
+              title="Facebook"
+            >
+
+              <i class="fa-brands fa-facebook-f"></i>
+
+            </a>
+
+
+
+            <!-- TIKTOK -->
+
+            <a
+              href="https://www.tiktok.com/@goenjoycity"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="network-button tiktok"
+              aria-label="TikTok de Go Enjoy City"
+              title="TikTok"
+            >
+
+              <i class="fa-brands fa-tiktok"></i>
+
+            </a>
+
+
+
+            <!-- WHATSAPP -->
+
+            <a
+              href="https://wa.me/51977258502"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="network-button whatsapp"
+              aria-label="WhatsApp de Go Enjoy City"
+              title="WhatsApp"
+            >
+
+              <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+
+
+            <!-- WEB -->
+
+            <a
+              href="https://www.goenjoycity.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="network-button web"
+              aria-label="Página web de Go Enjoy City"
+              title="Página web"
+            >
+
+              <i class="fa-solid fa-globe"></i>
+
+            </a>
+
 
           </div>
+
+
+
+          <div class="venue-contact-lines">
+
+            <a
+              href="https://www.instagram.com/goenjoycity/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @goenjoycity
+            </a>
+
+
+            <a
+              href="https://wa.me/51977258502"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              +51 977 258 502
+            </a>
+
+
+            <a
+              href="https://www.goenjoycity.pe/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              goenjoycity.pe
+            </a>
+
+          </div>
+
 
         </div>
 
 
-        <!-- =================================================
-             GRACIAS
-             ================================================= -->
+
+        <!-- GRACIAS -->
 
         <div class="thanks">
+
+          <span class="thanks-heart">
+            ♥
+          </span>
 
           <strong>
             ¡Gracias!
@@ -357,24 +692,33 @@
 
           <p>
             Tu asistencia hará que este día
-            sea aún más especial para Athena.
+            sea todavía más especial para Athena.
           </p>
+
+          <div class="thanks-stars">
+            ✦ ♥ ✦
+          </div>
 
         </div>
 
+
       </aside>
 
+
     </section>
+
 
   </main>
 
 
-  <!-- =====================================================
-       JS
-       ===================================================== -->
+
+  <!-- JS -->
 
   <script src="js/config.js?v=20260819-7"></script>
+
   <script src="js/app.js?v=20260819-7"></script>
 
+
 </body>
+
 </html>
