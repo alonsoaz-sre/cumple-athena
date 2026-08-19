@@ -116,7 +116,7 @@ ${comentario}`;
 
 
   const whatsappURL =
-    `https://wa.me/${CONFIG.whatsapp}?text=` +
+    `https://wa.me/${CONFIG.whatsapp}?text=` +🔥+
     encodeURIComponent(mensaje);
 
 
