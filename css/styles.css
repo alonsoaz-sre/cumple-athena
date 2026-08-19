@@ -1,724 +1,2479 @@
-<!DOCTYPE html>
-<html lang="es">
+/* =========================================================
+   ATHENA 4 AÑOS
+   ========================================================= */
 
-<head>
 
-  <meta charset="UTF-8">
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
 
-  <meta
-    name="theme-color"
-    content="#fff5fb"
-  >
+:root {
 
-  <title>
-    Cumpleaños de Athena | Confirmación de asistencia
-  </title>
+  --pink: #ff3b91;
 
+  --pink-light: #ff72b5;
 
-  <!-- CSS PRINCIPAL -->
+  --pink-pale: #fff0f7;
 
-  <link
-    rel="stylesheet"
-    href="css/styles.css?v=20260819-10"
-  >
+  --purple: #7437d0;
 
+  --purple-light: #9c66e6;
 
-  <!-- ICONOS FONT AWESOME -->
+  --purple-pale: #f5eeff;
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-  >
+  --aqua: #20cec4;
 
-</head>
+  --aqua-pale: #e8fffc;
 
+  --yellow: #ffd35e;
 
-<body>
+  --ink: #38254e;
 
+  --muted: #74677f;
 
-  <main class="page">
+  --line: #eadff2;
 
+  --white: #ffffff;
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
 
-    <section class="hero">
+  --shadow:
 
+    0 20px 55px
+    rgba(89, 45, 133, .12);
 
-      <div class="hero-logo-wrapper">
 
-        <span
-          class="floating-decoration star star-1"
-          aria-hidden="true"
-        ></span>
+  --small-shadow:
 
-        <span
-          class="floating-decoration star star-2"
-          aria-hidden="true"
-        ></span>
+    0 9px 25px
+    rgba(89, 45, 133, .10);
+}
 
-        <span
-          class="floating-decoration heart heart-1"
-          aria-hidden="true"
-        ></span>
 
 
-        <img
-          class="logo"
-          src="assets/img/Athena4sf.png"
-          alt="Athena 4 años"
-          loading="eager"
-          decoding="async"
-        >
+html {
 
-      </div>
+  scroll-behavior: smooth;
+}
 
 
-      <div class="hero-text">
 
-        <span class="hero-mini">
-          ✦ Athena cumple 4 ✦
-        </span>
+body {
 
-        <h1>
-          ¡Estás invitado a mi cumpleaños!
-        </h1>
+  margin: 0;
 
-        <p>
-          Tu confirmación nos ayudará a preparar
-          un día muy especial.
-        </p>
+  min-height: 100vh;
 
-      </div>
+  overflow-x: hidden;
 
 
-    </section>
+  font-family:
 
+    "Trebuchet MS",
+    "Arial Rounded MT Bold",
+    Arial,
+    sans-serif;
 
 
-    <!-- =====================================================
-         CONTENIDO PRINCIPAL
-         ===================================================== -->
+  color: var(--ink);
 
-    <section class="content">
 
+  background:
 
-      <!-- ===================================================
-           FORMULARIO
-           =================================================== -->
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(255, 72, 151, .10) 0 3px,
+      transparent 4px
+    ),
 
-      <section class="card form-card">
+    radial-gradient(
+      circle at 90% 16%,
+      rgba(33, 207, 197, .13) 0 4px,
+      transparent 5px
+    ),
 
+    radial-gradient(
+      circle at 25% 75%,
+      rgba(118, 56, 209, .08) 0 3px,
+      transparent 4px
+    ),
 
-        <div class="section-heading">
+    linear-gradient(
+      180deg,
+      #fff7fb 0%,
+      #ffffff 45%,
+      #faf6ff 100%
+    );
 
-          <span class="heading-icon">
-            <i class="fa-solid fa-heart"></i>
-          </span>
 
-          <div>
+  background-size:
 
-            <h2>
-              Confirma tu asistencia
-            </h2>
+    130px 130px,
+    175px 175px,
+    150px 150px,
+    auto;
+}
 
-            <p class="subtitle">
-              Completa los datos del niño invitado
-              y del adulto que lo acompañará.
-            </p>
 
-          </div>
 
-        </div>
+/* =========================================================
+   DECORACIONES GRANDES
+   ========================================================= */
 
 
+body::before {
 
-        <form id="formAsistencia">
+  content: "";
 
+  position: fixed;
 
-          <!-- NIÑO -->
+  top: -150px;
 
-          <div class="field">
+  left: -90px;
 
-            <label for="nino">
+  width: 450px;
 
-              <i class="fa-solid fa-child-reaching"></i>
+  height: 220px;
 
-              Nombre y apellido del niño/a invitado
+  border-radius: 50%;
 
-              <span class="required">
-                *
-              </span>
 
-            </label>
+  background:
 
+    linear-gradient(
+      135deg,
+      #ffd5e9,
+      #e5d3ff
+    );
 
-            <input
-              type="text"
-              id="nino"
-              name="nino"
-              placeholder="Ej. Sofía Valentina Pérez García"
-              required
-              autocomplete="name"
-            >
 
-          </div>
+  opacity: .72;
 
+  z-index: -1;
+}
 
 
-          <!-- ADULTO PRINCIPAL -->
 
-          <div class="field">
+body::after {
 
-            <label for="adulto1">
+  content: "";
 
-              <i class="fa-regular fa-user"></i>
+  position: fixed;
 
-              Nombre y apellido del adulto responsable
+  top: -160px;
 
-              <span class="required">
-                *
-              </span>
+  right: -120px;
 
-            </label>
+  width: 490px;
 
+  height: 225px;
 
-            <input
-              type="text"
-              id="adulto1"
-              name="adulto1"
-              placeholder="Ej. María Fernanda García López"
-              required
-              autocomplete="name"
-            >
+  border-radius: 50%;
 
-          </div>
 
+  background:
 
+    linear-gradient(
+      135deg,
+      #e8d3ff,
+      #ffd0e7
+    );
 
-          <!-- CANTIDAD DE ADULTOS -->
 
-          <fieldset class="adult-selector">
+  opacity: .72;
 
+  z-index: -1;
+}
 
-            <legend>
 
-              <i class="fa-solid fa-user-group"></i>
 
-              ¿Cuántos adultos asistirán?
+/* =========================================================
+   PAGE
+   ========================================================= */
 
-              <span class="required">
-                *
-              </span>
 
-            </legend>
+.page {
 
+  position: relative;
 
-            <label class="adult-option">
 
-              <input
-                type="radio"
-                name="adultos"
-                value="1"
-                checked
-              >
+  width:
 
-              <span>
+    min(
+      1130px,
+      calc(100% - 34px)
+    );
 
-                <strong>
-                  1
-                </strong>
 
-                <small>
-                  Un adulto
-                </small>
+  margin: 0 auto;
 
-              </span>
 
-            </label>
+  padding:
 
+    36px
+    0
+    80px;
+}
 
 
-            <label class="adult-option">
 
-              <input
-                type="radio"
-                name="adultos"
-                value="2"
-              >
+/* =========================================================
+   HERO
+   ========================================================= */
 
-              <span>
 
-                <strong>
-                  2
-                </strong>
+.hero {
 
-                <small>
-                  Dos adultos
-                </small>
+  display: grid;
 
-              </span>
 
-            </label>
+  grid-template-columns:
 
+    minmax(300px, 470px)
+    1fr;
 
-          </fieldset>
 
+  align-items: center;
 
 
-          <!-- SEGUNDO ADULTO -->
+  gap: 52px;
 
-          <div
-            class="field hidden"
-            id="adulto2Container"
-          >
 
-            <label for="adulto2">
+  min-height: 390px;
 
-              <i class="fa-regular fa-user"></i>
 
-              Nombre y apellido del segundo adulto
+  margin-bottom: 28px;
+}
 
-              <span class="required">
-                *
-              </span>
 
-            </label>
 
+.hero-logo-wrapper {
 
-            <input
-              type="text"
-              id="adulto2"
-              name="adulto2"
-              placeholder="Ej. Carlos Alberto Pérez García"
-              autocomplete="name"
-            >
+  position: relative;
+}
 
-          </div>
 
 
+.logo {
 
-          <!-- COMENTARIO -->
+  display: block;
 
-          <div class="field">
 
-            <label for="comentario">
+  width: 100%;
 
-              <i class="fa-regular fa-comment-dots"></i>
 
-              Comentario
+  max-width: 440px;
 
-              <span class="optional">
-                opcional
-              </span>
 
-            </label>
+  height: auto;
 
 
-            <textarea
-              id="comentario"
-              name="comentario"
-              rows="4"
-              placeholder="Alguna información adicional que quieras compartirnos..."
-            ></textarea>
+  margin: 0 auto;
 
-          </div>
 
+  object-fit: contain;
 
 
-          <!-- BOTÓN -->
+  filter:
 
-          <button
-            type="submit"
-            class="confirm-button"
-          >
+    drop-shadow(
+      0 15px 19px
+      rgba(94, 46, 139, .14)
+    );
 
-            <i class="fa-brands fa-whatsapp"></i>
 
-            <span>
-              Confirmar asistencia por WhatsApp
-            </span>
+  animation:
 
-          </button>
+    logoFloat
+    4.5s
+    ease-in-out
+    infinite;
+}
 
 
-          <p class="privacy">
 
-            <i class="fa-solid fa-lock"></i>
+/* =========================================================
+   HERO DECORATIONS
+   ========================================================= */
 
-            Al confirmar se abrirá WhatsApp
-            con tus datos ya preparados para enviarlos.
 
-          </p>
+.floating-decoration {
 
+  position: absolute;
 
-        </form>
+  display: block;
 
+  pointer-events: none;
+}
 
-      </section>
 
 
+.star {
 
-      <!-- ===================================================
-           DETALLES
-           =================================================== -->
+  width: 22px;
 
-      <aside class="card event-card">
+  height: 22px;
 
 
-        <div class="event-title">
+  background: var(--aqua);
 
-          <span class="event-title-icon">
 
-            <i class="fa-regular fa-calendar-heart"></i>
+  clip-path:
 
-          </span>
+    polygon(
+      50% 0,
+      62% 37%,
+      100% 50%,
+      62% 63%,
+      50% 100%,
+      38% 63%,
+      0 50%,
+      38% 37%
+    );
 
 
-          <div>
+  animation:
 
-            <span class="eyebrow">
-              Guarda la fecha
-            </span>
+    sparkle
+    2.7s
+    ease-in-out
+    infinite;
+}
 
-            <h2>
-              Detalles del evento
-            </h2>
 
-          </div>
 
-        </div>
+.star-1 {
 
+  top: 15%;
 
+  left: -5px;
+}
 
-        <!-- FECHA -->
 
-        <div class="event-item">
 
-          <span class="event-icon">
+.star-2 {
 
-            <i class="fa-regular fa-calendar"></i>
+  right: 5%;
 
-          </span>
+  bottom: 12%;
 
 
-          <div>
+  background: var(--pink);
 
-            <strong>
-              Fecha
-            </strong>
 
-            <span>
-              Jueves 10 de septiembre de 2026
-            </span>
+  animation-delay: 1s;
+}
 
-          </div>
 
-        </div>
 
+.heart {
 
+  width: 18px;
 
-        <!-- HORA -->
+  height: 18px;
 
-        <div class="event-item">
 
-          <span class="event-icon">
+  background: var(--pink);
 
-            <i class="fa-regular fa-clock"></i>
 
-          </span>
+  transform: rotate(45deg);
 
 
-          <div>
+  animation:
 
-            <strong>
-              Hora
-            </strong>
+    heartPulse
+    2.5s
+    infinite;
+}
 
-            <span>
-              3:00 p. m.
-            </span>
 
-          </div>
 
-        </div>
+.heart::before,
+.heart::after {
 
+  content: "";
 
+  position: absolute;
 
-        <!-- LUGAR -->
+  width: 18px;
 
-        <div class="event-item">
+  height: 18px;
 
-          <span class="event-icon">
+  border-radius: 50%;
 
-            <i class="fa-solid fa-location-dot"></i>
+  background: inherit;
+}
 
-          </span>
 
 
-          <div>
+.heart::before {
 
-            <strong>
-              Lugar
-            </strong>
+  left: -9px;
+}
 
-            <span>
-              Salón Premium
-            </span>
 
-            <span class="event-secondary">
-              Go Enjoy City
-            </span>
 
-          </div>
+.heart::after {
 
-        </div>
+  top: -9px;
+}
 
 
 
-        <!-- UBICACION -->
+.heart-1 {
 
-        <div class="event-item">
+  right: 2%;
 
-          <span class="event-icon">
+  top: 10%;
+}
 
-            <i class="fa-solid fa-map-location-dot"></i>
 
-          </span>
 
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
 
-          <div>
 
-            <strong>
-              Ubicación
-            </strong>
+.hero-text {
 
-            <span>
-              C.C. Plaza San Miguel
-            </span>
+  position: relative;
 
-            <span class="event-secondary">
-              3.er piso
-            </span>
+  text-align: center;
+}
 
-          </div>
 
-        </div>
 
+.hero-mini {
 
+  display: inline-block;
 
-        <!-- =================================================
-             GO ENJOY CITY
-             ================================================= -->
 
-        <div class="venue-social">
+  margin-bottom: 13px;
 
 
-          <span class="venue-small-title">
-            Sobre el lugar
-          </span>
+  padding:
 
+    7px
+    15px;
 
-          <a
-            class="venue-logo-link"
-            href="https://www.goenjoycity.pe/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
 
-            <img
-              src="assets/img/goenjoycity.png"
-              alt="Go Enjoy City"
-              class="venue-logo"
-              loading="lazy"
-              decoding="async"
-            >
+  border-radius: 999px;
 
-          </a>
 
+  background:
 
-          <p class="venue-description">
-            Puedes conocer más sobre Go Enjoy City
-            y seguir sus redes oficiales.
-          </p>
+    linear-gradient(
+      135deg,
+      #fff0f8,
+      #f5edff
+    );
 
 
+  color: var(--pink);
 
-          <!-- REDES -->
 
-          <div class="network-buttons">
+  font-size: 13px;
 
+  font-weight: 900;
 
-            <!-- INSTAGRAM -->
+  letter-spacing: .3px;
+}
 
-            <a
-              href="https://www.instagram.com/goenjoycity/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="network-button instagram"
-              aria-label="Instagram de Go Enjoy City"
-              title="Instagram"
-            >
 
-              <i class="fa-brands fa-instagram"></i>
 
-            </a>
+.hero-text h1 {
 
+  max-width: 590px;
 
 
-            <!-- FACEBOOK -->
+  margin:
 
-            <a
-              href="https://www.facebook.com/GoEnjoyCity"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="network-button facebook"
-              aria-label="Facebook de Go Enjoy City"
-              title="Facebook"
-            >
+    0
+    auto
+    20px;
 
-              <i class="fa-brands fa-facebook-f"></i>
 
-            </a>
+  color: var(--purple);
 
 
+  font-size:
 
-            <!-- TIKTOK -->
+    clamp(
+      38px,
+      5vw,
+      60px
+    );
 
-            <a
-              href="https://www.tiktok.com/@goenjoycity"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="network-button tiktok"
-              aria-label="TikTok de Go Enjoy City"
-              title="TikTok"
-            >
 
-              <i class="fa-brands fa-tiktok"></i>
+  line-height: 1.01;
 
-            </a>
 
+  letter-spacing: -1.6px;
 
 
-            <!-- WHATSAPP -->
+  text-shadow:
 
-            <a
-              href="https://wa.me/51977258502"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="network-button whatsapp"
-              aria-label="WhatsApp de Go Enjoy City"
-              title="WhatsApp"
-            >
+    0 3px 0 white,
 
-              <i class="fa-brands fa-whatsapp"></i>
+    0 9px 22px
+    rgba(114, 54, 204, .10);
+}
 
-            </a>
 
 
+.hero-text p {
 
-            <!-- WEB -->
+  max-width: 500px;
 
-            <a
-              href="https://www.goenjoycity.pe/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="network-button web"
-              aria-label="Página web de Go Enjoy City"
-              title="Página web"
-            >
 
-              <i class="fa-solid fa-globe"></i>
+  margin: auto;
 
-            </a>
 
+  color: #5a4d65;
 
-          </div>
 
+  font-size: 20px;
 
 
-          <div class="venue-contact-lines">
+  line-height: 1.55;
+}
 
-            <a
-              href="https://www.instagram.com/goenjoycity/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @goenjoycity
-            </a>
 
 
-            <a
-              href="https://wa.me/51977258502"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              +51 977 258 502
-            </a>
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
 
 
-            <a
-              href="https://www.goenjoycity.pe/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              goenjoycity.pe
-            </a>
+.content {
 
-          </div>
+  display: grid;
 
 
-        </div>
+  grid-template-columns:
 
+    minmax(0, 1.8fr)
+    minmax(300px, .9fr);
 
 
-        <!-- GRACIAS -->
+  gap: 28px;
 
-        <div class="thanks">
 
-          <span class="thanks-heart">
-            ♥
-          </span>
+  align-items: start;
+}
 
-          <strong>
-            ¡Gracias!
-          </strong>
 
-          <p>
-            Tu asistencia hará que este día
-            sea todavía más especial para Athena.
-          </p>
 
-          <div class="thanks-stars">
-            ✦ ♥ ✦
-          </div>
+/* =========================================================
+   CARDS
+   ========================================================= */
 
-        </div>
 
+.card {
 
-      </aside>
+  position: relative;
 
 
-    </section>
+  padding: 34px;
 
 
-  </main>
+  border:
 
+    1px solid
+    rgba(147, 91, 211, .19);
 
 
-  <!-- JS -->
+  border-radius: 30px;
 
-  <script src="js/config.js?v=20260819-7"></script>
 
-  <script src="js/app.js?v=20260819-7"></script>
+  background:
 
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .98),
+      rgba(255, 250, 253, .97)
+    );
 
-</body>
 
-</html>
+  box-shadow: var(--shadow);
+}
+
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+
+.section-heading {
+
+  display: flex;
+
+  gap: 15px;
+
+  align-items: flex-start;
+
+
+  margin-bottom: 30px;
+}
+
+
+
+.heading-icon {
+
+  flex:
+
+    0 0
+    42px;
+
+
+  display: grid;
+
+  place-items: center;
+
+
+  width: 42px;
+
+  height: 42px;
+
+
+  border-radius: 14px;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--pink),
+      #ff7ab9
+    );
+
+
+  color: white;
+
+
+  font-size: 18px;
+
+
+  box-shadow:
+
+    0 8px 19px
+    rgba(255, 61, 145, .24);
+
+
+  transform:
+
+    rotate(-5deg);
+}
+
+
+
+.section-heading h2 {
+
+  margin:
+
+    2px
+    0
+    7px;
+
+
+  color: var(--purple);
+
+
+  font-size: 30px;
+}
+
+
+
+.subtitle {
+
+  margin: 0;
+
+
+  color: var(--muted);
+
+
+  font-size: 15px;
+
+
+  line-height: 1.5;
+}
+
+
+
+/* =========================================================
+   FIELDS
+   ========================================================= */
+
+
+.field {
+
+  margin-bottom: 25px;
+}
+
+
+
+.field label,
+.adult-selector legend {
+
+  display: block;
+
+
+  margin-bottom: 9px;
+
+
+  color: #593487;
+
+
+  font-size: 15px;
+
+
+  font-weight: 800;
+}
+
+
+
+.field label i,
+.adult-selector legend i {
+
+  width: 22px;
+
+
+  color: var(--pink);
+}
+
+
+
+.required {
+
+  color: var(--pink);
+}
+
+
+
+.optional {
+
+  margin-left: 4px;
+
+
+  color: var(--muted);
+
+
+  font-size: 12px;
+
+
+  font-weight: 500;
+}
+
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+
+input,
+textarea {
+
+  width: 100%;
+
+
+  padding:
+
+    15px
+    16px;
+
+
+  border:
+
+    2px solid
+    #e8ddf2;
+
+
+  border-radius: 15px;
+
+
+  outline: none;
+
+
+  background:
+
+    rgba(255,255,255,.97);
+
+
+  color: var(--ink);
+
+
+  font:
+
+    inherit;
+
+
+  transition:
+
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+
+
+input::placeholder,
+textarea::placeholder {
+
+  color: #ada2b6;
+}
+
+
+
+input:hover,
+textarea:hover {
+
+  border-color: #d9c3ec;
+}
+
+
+
+input:focus,
+textarea:focus {
+
+  border-color: var(--pink);
+
+
+  box-shadow:
+
+    0 0 0 4px
+    rgba(255, 63, 145, .09);
+
+
+  transform:
+
+    translateY(-1px);
+}
+
+
+
+textarea {
+
+  min-height: 110px;
+
+
+  resize: vertical;
+}
+
+
+
+/* =========================================================
+   ADULT SELECTOR
+   ========================================================= */
+
+
+.adult-selector {
+
+  display: grid;
+
+
+  grid-template-columns:
+
+    repeat(2, 1fr);
+
+
+  gap: 12px;
+
+
+  padding: 0;
+
+
+  margin:
+
+    0
+    0
+    25px;
+
+
+  border: 0;
+}
+
+
+
+.adult-selector legend {
+
+  grid-column:
+
+    1 / -1;
+
+
+  width: 100%;
+}
+
+
+
+.adult-option {
+
+  position: relative;
+
+  cursor: pointer;
+}
+
+
+
+.adult-option input {
+
+  position: absolute;
+
+
+  width: 1px;
+
+  height: 1px;
+
+
+  opacity: 0;
+
+
+  pointer-events: none;
+}
+
+
+
+.adult-option span {
+
+  display: flex;
+
+
+  flex-direction: column;
+
+
+  align-items: center;
+
+
+  justify-content: center;
+
+
+  min-height: 90px;
+
+
+  padding: 13px;
+
+
+  border:
+
+    2px solid
+    #e7dbee;
+
+
+  border-radius: 18px;
+
+
+  background: white;
+
+
+  text-align: center;
+
+
+  transition:
+
+    .18s ease;
+}
+
+
+
+.adult-option span::before {
+
+  content: "";
+
+
+  width: 18px;
+
+  height: 18px;
+
+
+  margin-bottom: 6px;
+
+
+  border:
+
+    2px solid
+    #d7cae0;
+
+
+  border-radius: 50%;
+
+
+  background: white;
+
+
+  box-shadow:
+
+    inset 0 0 0 4px white;
+}
+
+
+
+.adult-option strong {
+
+  color: var(--purple);
+
+
+  font-size: 22px;
+}
+
+
+
+.adult-option small {
+
+  margin-top: 2px;
+
+
+  color: #75687f;
+
+
+  font-size: 12px;
+}
+
+
+
+.adult-option:hover span {
+
+  transform:
+
+    translateY(-2px);
+
+
+  border-color: #d7baea;
+
+
+  box-shadow: var(--small-shadow);
+}
+
+
+
+.adult-option input:checked + span {
+
+  border-color: var(--pink);
+
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #fff6fa,
+      #fff0f7
+    );
+
+
+  box-shadow:
+
+    0 9px 23px
+    rgba(255, 58, 144, .10);
+}
+
+
+
+.adult-option input:checked + span::before {
+
+  border-color: var(--pink);
+
+
+  background: var(--pink);
+
+
+  box-shadow:
+
+    inset
+    0
+    0
+    0
+    4px
+    white;
+}
+
+
+
+.adult-option input:checked + span strong {
+
+  color: var(--pink);
+}
+
+
+
+/* =========================================================
+   ADULTO 2
+   ========================================================= */
+
+
+#adulto2Container {
+
+  padding: 18px;
+
+
+  border:
+
+    2px dashed
+    rgba(255, 61, 145, .28);
+
+
+  border-radius: 18px;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #fffafd,
+      #fff2f8
+    );
+
+
+  animation:
+
+    fieldAppear
+    .25s
+    ease;
+}
+
+
+
+#adulto2Container.hidden {
+
+  display: none;
+}
+
+
+
+/* =========================================================
+   CONFIRM BUTTON
+   ========================================================= */
+
+
+.confirm-button {
+
+  position: relative;
+
+
+  display: flex;
+
+
+  align-items: center;
+
+
+  justify-content: center;
+
+
+  gap: 11px;
+
+
+  width: 100%;
+
+
+  min-height: 61px;
+
+
+  overflow: hidden;
+
+
+  border: 0;
+
+
+  border-radius: 20px;
+
+
+  padding:
+
+    17px
+    23px;
+
+
+  background:
+
+    linear-gradient(
+      100deg,
+      #ff2684,
+      #ff4b9d 55%,
+      #ec41ae
+    );
+
+
+  color: white;
+
+
+  font-size: 18px;
+
+
+  font-weight: 900;
+
+
+  cursor: pointer;
+
+
+  box-shadow:
+
+    0 13px 29px
+    rgba(235, 43, 132, .25);
+
+
+  transition:
+
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+
+
+.confirm-button i {
+
+  font-size: 25px;
+}
+
+
+
+.confirm-button::before {
+
+  content: "";
+
+
+  position: absolute;
+
+
+  width: 80px;
+
+  height: 250%;
+
+
+  left: -120px;
+
+  top: -75%;
+
+
+  transform:
+
+    rotate(22deg);
+
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.30),
+      transparent
+    );
+
+
+  transition:
+
+    left .65s ease;
+}
+
+
+
+.confirm-button:hover {
+
+  transform:
+
+    translateY(-2px);
+
+
+  box-shadow:
+
+    0 17px 33px
+    rgba(235, 43, 132, .31);
+}
+
+
+
+.confirm-button:hover::before {
+
+  left:
+
+    calc(100% + 50px);
+}
+
+
+
+.confirm-button:active {
+
+  transform:
+
+    translateY(1px);
+}
+
+
+
+/* =========================================================
+   PRIVACY
+   ========================================================= */
+
+
+.privacy {
+
+  margin:
+
+    14px
+    auto
+    0;
+
+
+  max-width: 500px;
+
+
+  color: #8a7c94;
+
+
+  font-size: 12px;
+
+
+  line-height: 1.45;
+
+
+  text-align: center;
+}
+
+
+
+.privacy i {
+
+  margin-right: 5px;
+
+
+  color: #b89dcd;
+}
+
+
+
+/* =========================================================
+   EVENT CARD
+   ========================================================= */
+
+
+.event-card {
+
+  position: sticky;
+
+
+  top: 18px;
+
+
+  overflow: hidden;
+}
+
+
+
+.event-title {
+
+  display: flex;
+
+
+  align-items: center;
+
+
+  gap: 13px;
+
+
+  padding-bottom: 20px;
+
+
+  margin-bottom: 2px;
+
+
+  border-bottom:
+
+    2px dashed
+    rgba(255, 63, 145, .20);
+}
+
+
+
+.event-title-icon {
+
+  display: grid;
+
+
+  place-items: center;
+
+
+  flex:
+
+    0 0
+    42px;
+
+
+  width: 42px;
+
+  height: 42px;
+
+
+  border-radius: 14px;
+
+
+  color: white;
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--purple),
+      #a365ec
+    );
+
+
+  font-size: 18px;
+}
+
+
+
+.eyebrow {
+
+  display: block;
+
+
+  margin-bottom: 3px;
+
+
+  color: var(--pink);
+
+
+  font-size: 11px;
+
+
+  font-weight: 900;
+
+
+  text-transform: uppercase;
+
+
+  letter-spacing: .8px;
+}
+
+
+
+.event-title h2 {
+
+  margin: 0;
+
+
+  color: var(--purple);
+
+
+  font-size: 25px;
+}
+
+
+
+/* =========================================================
+   EVENT ITEMS
+   ========================================================= */
+
+
+.event-item {
+
+  display: flex;
+
+
+  align-items: flex-start;
+
+
+  gap: 13px;
+
+
+  padding:
+
+    18px
+    1px;
+
+
+  border-bottom:
+
+    1px solid
+    #eee4f4;
+}
+
+
+
+.event-icon {
+
+  display: grid;
+
+
+  place-items: center;
+
+
+  flex:
+
+    0 0
+    37px;
+
+
+  width: 37px;
+
+  height: 37px;
+
+
+  border-radius: 12px;
+
+
+  color: var(--purple);
+
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #f3e9ff,
+      #fff0f7
+    );
+
+
+  font-size: 16px;
+}
+
+
+
+.event-item strong {
+
+  display: block;
+
+
+  margin-bottom: 4px;
+
+
+  color: var(--purple);
+
+
+  font-size: 14px;
+}
+
+
+
+.event-item span:not(.event-icon) {
+
+  display: block;
+
+
+  color: #51445c;
+
+
+  font-size: 14px;
+
+
+  line-height: 1.45;
+}
+
+
+
+.event-item .event-secondary {
+
+  margin-top: 2px;
+
+
+  color: var(--muted);
+
+
+  font-size: 13px;
+}
+
+
+
+/* =========================================================
+   GO ENJOY
+   ========================================================= */
+
+
+.venue-social {
+
+  position: relative;
+
+
+  margin-top: 26px;
+
+
+  padding:
+
+    24px
+    17px;
+
+
+  border:
+
+    2px dashed
+    rgba(255, 63, 145, .21);
+
+
+  border-radius: 22px;
+
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #fff9fc,
+      #f8f2ff
+    );
+
+
+  text-align: center;
+}
+
+
+
+.venue-social::before {
+
+  content: "✦";
+
+
+  position: absolute;
+
+
+  top: 12px;
+
+  left: 14px;
+
+
+  color: var(--aqua);
+
+
+  font-size: 19px;
+
+
+  animation:
+
+    sparkle
+    2.8s
+    infinite;
+}
+
+
+
+.venue-social::after {
+
+  content: "♥";
+
+
+  position: absolute;
+
+
+  right: 13px;
+
+  bottom: 11px;
+
+
+  color:
+
+    rgba(255, 63, 145, .32);
+
+
+  font-size: 22px;
+}
+
+
+
+.venue-small-title {
+
+  display: block;
+
+
+  margin-bottom: 13px;
+
+
+  color: var(--purple);
+
+
+  font-size: 12px;
+
+
+  font-weight: 900;
+
+
+  text-transform: uppercase;
+
+
+  letter-spacing: .8px;
+}
+
+
+
+.venue-logo-link {
+
+  display: block;
+
+
+  width: fit-content;
+
+
+  margin:
+
+    0
+    auto
+    10px;
+}
+
+
+
+.venue-logo {
+
+  display: block;
+
+
+  width: 115px;
+
+
+  max-width: 100%;
+
+
+  height: auto;
+
+
+  margin: auto;
+
+
+  object-fit: contain;
+
+
+  transition:
+
+    transform .2s ease,
+    filter .2s ease;
+}
+
+
+
+.venue-logo-link:hover .venue-logo {
+
+  transform:
+
+    translateY(-3px)
+    scale(1.04);
+
+
+  filter:
+
+    drop-shadow(
+      0 7px 12px
+      rgba(90, 43, 134, .16)
+    );
+}
+
+
+
+.venue-description {
+
+  max-width: 240px;
+
+
+  margin:
+
+    0
+    auto
+    17px;
+
+
+  color: #74677e;
+
+
+  font-size: 12px;
+
+
+  line-height: 1.5;
+}
+
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+
+.network-buttons {
+
+  display: flex;
+
+
+  align-items: center;
+
+
+  justify-content: center;
+
+
+  flex-wrap: wrap;
+
+
+  gap: 9px;
+
+
+  margin-bottom: 13px;
+}
+
+
+
+.network-button {
+
+  display: grid;
+
+
+  place-items: center;
+
+
+  width: 42px;
+
+  height: 42px;
+
+
+  border-radius: 13px;
+
+
+  color: white;
+
+
+  font-size: 20px;
+
+
+  text-decoration: none;
+
+
+  box-shadow:
+
+    0 6px 14px
+    rgba(64, 39, 84, .11);
+
+
+  transition:
+
+    transform .17s ease,
+    box-shadow .17s ease;
+}
+
+
+
+.network-button:hover {
+
+  transform:
+
+    translateY(-3px)
+    scale(1.04);
+
+
+  box-shadow:
+
+    0 9px 18px
+    rgba(64, 39, 84, .17);
+}
+
+
+
+.network-button.instagram {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #833ab4,
+      #fd1d1d 55%,
+      #fcb045
+    );
+}
+
+
+
+.network-button.facebook {
+
+  background:
+
+    #1877f2;
+}
+
+
+
+.network-button.tiktok {
+
+  background:
+
+    #151318;
+}
+
+
+
+.network-button.whatsapp {
+
+  background:
+
+    #25d366;
+}
+
+
+
+.network-button.web {
+
+  background:
+
+    linear-gradient(
+      135deg,
+      var(--purple),
+      var(--purple-light)
+    );
+}
+
+
+
+/* =========================================================
+   VENUE CONTACT
+   ========================================================= */
+
+
+.venue-contact-lines {
+
+  display: flex;
+
+
+  flex-direction: column;
+
+
+  gap: 6px;
+
+
+  align-items: center;
+}
+
+
+
+.venue-contact-lines a {
+
+  color: #5f4d6b;
+
+
+  font-size: 12px;
+
+
+  font-weight: 700;
+
+
+  text-decoration: none;
+}
+
+
+
+.venue-contact-lines a:hover {
+
+  color: var(--pink);
+
+
+  text-decoration: underline;
+}
+
+
+
+/* =========================================================
+   THANKS
+   ========================================================= */
+
+
+.thanks {
+
+  position: relative;
+
+
+  margin-top: 25px;
+
+
+  padding:
+
+    25px
+    18px;
+
+
+  border:
+
+    1px solid
+    #e1cef5;
+
+
+  border-radius: 20px;
+
+
+  background:
+
+    linear-gradient(
+      145deg,
+      #fbf8ff,
+      #f4eaff
+    );
+
+
+  text-align: center;
+}
+
+
+
+.thanks-heart {
+
+  display: block;
+
+
+  margin-bottom: 5px;
+
+
+  color: var(--pink);
+
+
+  font-size: 25px;
+
+
+  animation:
+
+    heartPulse
+    2s
+    infinite;
+}
+
+
+
+.thanks strong {
+
+  color: var(--purple);
+
+
+  font-size: 22px;
+}
+
+
+
+.thanks p {
+
+  margin:
+
+    8px
+    0;
+
+
+  color: #65586e;
+
+
+  font-size: 13px;
+
+
+  line-height: 1.55;
+}
+
+
+
+.thanks-stars {
+
+  margin-top: 9px;
+
+
+  color: var(--aqua);
+
+
+  font-size: 14px;
+}
+
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+
+    transform:
+
+      translateY(0);
+  }
+
+
+  50% {
+
+    transform:
+
+      translateY(-7px);
+  }
+
+}
+
+
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+
+    transform:
+
+      rotate(0)
+      scale(.85);
+
+
+    opacity: .45;
+  }
+
+
+  50% {
+
+    transform:
+
+      rotate(90deg)
+      scale(1.15);
+
+
+    opacity: 1;
+  }
+
+}
+
+
+
+@keyframes heartPulse {
+
+  0%,
+  100% {
+
+    transform:
+
+      scale(1);
+  }
+
+
+  50% {
+
+    transform:
+
+      scale(1.13);
+  }
+
+}
+
+
+
+@keyframes fieldAppear {
+
+  from {
+
+    opacity: 0;
+
+
+    transform:
+
+      translateY(-7px);
+  }
+
+
+  to {
+
+    opacity: 1;
+
+
+    transform:
+
+      translateY(0);
+  }
+
+}
+
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+
+@media (max-width: 900px) {
+
+
+  .hero {
+
+    grid-template-columns:
+
+      minmax(260px, 390px)
+      1fr;
+
+
+    gap: 25px;
+  }
+
+
+  .content {
+
+    grid-template-columns:
+
+      minmax(0, 1.55fr)
+      minmax(270px, .9fr);
+  }
+
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+
+@media (max-width: 760px) {
+
+
+  .page {
+
+    width:
+
+      min(
+        calc(100% - 20px),
+        600px
+      );
+
+
+    padding:
+
+      18px
+      0
+      55px;
+  }
+
+
+
+  .hero {
+
+    display: flex;
+
+
+    flex-direction: column;
+
+
+    min-height: auto;
+
+
+    gap: 8px;
+
+
+    margin-bottom: 24px;
+  }
+
+
+
+  .logo {
+
+    max-width: 320px;
+
+
+    max-height: 295px;
+  }
+
+
+
+  .hero-text {
+
+    padding:
+
+      5px
+      8px
+      15px;
+  }
+
+
+
+  .hero-text h1 {
+
+    max-width: 400px;
+
+
+    font-size:
+
+      clamp(
+        34px,
+        10vw,
+        45px
+      );
+
+
+    line-height: 1.03;
+  }
+
+
+
+  .hero-text p {
+
+    max-width: 390px;
+
+
+    font-size: 17px;
+  }
+
+
+
+  .content {
+
+    display: flex;
+
+
+    flex-direction: column;
+
+
+    gap: 19px;
+  }
+
+
+
+  .card {
+
+    width: 100%;
+
+
+    padding:
+
+      23px
+      19px;
+
+
+    border-radius: 24px;
+  }
+
+
+
+  .section-heading h2 {
+
+    font-size: 27px;
+  }
+
+
+
+  input,
+  textarea {
+
+    font-size: 16px;
+  }
+
+
+
+  .event-card {
+
+    position: static;
+  }
+
+
+
+  .network-button {
+
+    width: 44px;
+
+    height: 44px;
+
+
+    font-size: 21px;
+  }
+
+
+}
+
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+
+@media (max-width: 440px) {
+
+
+  .page {
+
+    width:
+
+      calc(100% - 14px);
+  }
+
+
+
+  .logo {
+
+    max-width: 285px;
+  }
+
+
+
+  .hero-text h1 {
+
+    font-size: 34px;
+  }
+
+
+
+  .card {
+
+    padding:
+
+      21px
+      16px;
+  }
+
+
+
+  .adult-selector {
+
+    gap: 8px;
+  }
+
+
+
+  .adult-option span {
+
+    min-height: 82px;
+
+
+    padding:
+
+      11px
+      7px;
+  }
+
+
+
+  .confirm-button {
+
+    padding:
+
+      15px
+      12px;
+
+
+    font-size: 16px;
+  }
+
+
+}
+
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+
+@media (prefers-reduced-motion: reduce) {
+
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration:
+
+      .01ms !important;
+
+
+    animation-iteration-count:
+
+      1 !important;
+
+
+    scroll-behavior:
+
+      auto !important;
+  }
+
+
+}
