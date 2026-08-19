@@ -1,125 +1,144 @@
-const form = document.getElementById("formAsistencia");
+document.addEventListener("DOMContentLoaded", function () {
 
-const adulto2Container =
-  document.getElementById("adulto2Container");
+  const form = document.getElementById("formAsistencia");
+  const adulto2Container = document.getElementById("adulto2Container");
+  const adulto2 = document.getElementById("adulto2");
 
-const adulto2 =
-  document.getElementById("adulto2");
-
-const opcionesAdultos =
-  document.querySelectorAll(
-    'input[name="adultos"]'
-  );
+  const opcionesAdultos =
+    document.querySelectorAll('input[name="adultos"]');
 
 
-opcionesAdultos.forEach(opcion => {
+  function actualizarSegundoAdulto() {
 
-  opcion.addEventListener("change", () => {
-
-    const cantidad =
+    const seleccion =
       document.querySelector(
         'input[name="adultos"]:checked'
-      ).value;
+      );
 
-    if (cantidad === "2") {
+    if (!seleccion) return;
+
+    if (seleccion.value === "2") {
 
       adulto2Container.classList.remove("hidden");
-
       adulto2.required = true;
 
     } else {
 
       adulto2Container.classList.add("hidden");
-
       adulto2.required = false;
-
       adulto2.value = "";
 
     }
+  }
+
+
+  opcionesAdultos.forEach(function (opcion) {
+
+    opcion.addEventListener(
+      "change",
+      actualizarSegundoAdulto
+    );
 
   });
 
-});
+
+  actualizarSegundoAdulto();
 
 
-form.addEventListener("submit", function(event) {
+  form.addEventListener("submit", function (event) {
 
-  event.preventDefault();
-
-  if (!form.checkValidity()) {
-
-    form.reportValidity();
-
-    return;
-  }
+    event.preventDefault();
 
 
-  const nino =
-    document.getElementById("nino")
-      .value
-      .trim();
+    if (!form.checkValidity()) {
 
-  const adulto1 =
-    document.getElementById("adulto1")
-      .value
-      .trim();
+      form.reportValidity();
+      return;
 
-  const cantidadAdultos =
-    document.querySelector(
-      'input[name="adultos"]:checked'
-    ).value;
-
-  const segundoAdulto =
-    adulto2.value.trim();
-
-  const comentario =
-    document.getElementById("comentario")
-      .value
-      .trim();
+    }
 
 
-  let mensaje = `🎂 CONFIRMACIÓN CUMPLEAÑOS ATHENA 🎂
+    const nino =
+      document.getElementById("nino")
+        .value
+        .trim();
 
-🧒 Niño/a invitado:
-${nino}
+    const adulto1 =
+      document.getElementById("adulto1")
+        .value
+        .trim();
 
-👤 Adulto responsable:
-${adulto1}
+    const cantidadAdultos =
+      document.querySelector(
+        'input[name="adultos"]:checked'
+      ).value;
 
-👥 Adultos asistentes:
-${cantidadAdultos}`;
+    const segundoAdulto =
+      adulto2.value.trim();
 
-
-  if (cantidadAdultos === "2") {
-
-    mensaje += `
-
-👤 Segundo adulto:
-${segundoAdulto}`;
-
-  }
-
-
-  if (comentario) {
-
-    mensaje += `
-
-💬 Comentario:
-${comentario}`;
-
-  }
+    const comentario =
+      document.getElementById("comentario")
+        .value
+        .trim();
 
 
-  mensaje += `
+    let mensaje =
+      "🎂 CONFIRMACIÓN CUMPLEAÑOS ATHENA 🎂\n\n" +
+      "🧒 Niño/a invitado:\n" +
+      nino +
+      "\n\n" +
+      "👤 Adulto responsable:\n" +
+      adulto1 +
+      "\n\n" +
+      "👥 Adultos asistentes:\n" +
+      cantidadAdultos;
 
-✅ Confirmamos nuestra asistencia`;
+
+    if (cantidadAdultos === "2") {
+
+      mensaje +=
+        "\n\n👤 Segundo adulto:\n" +
+        segundoAdulto;
+
+    }
 
 
-  const whatsappURL =
-    `https://wa.me/${CONFIG.whatsapp}?text=` +
-    encodeURIComponent(mensaje);
+    if (comentario !== "") {
+
+      mensaje +=
+        "\n\n💬 Comentario:\n" +
+        comentario;
+
+    }
 
 
-  window.location.href = whatsappURL;
+    mensaje +=
+      "\n\n✅ Confirmamos nuestra asistencia";
+
+
+    if (
+      typeof CONFIG === "undefined" ||
+      !CONFIG.whatsapp
+    ) {
+
+      alert(
+        "No está configurado el número de WhatsApp."
+      );
+
+      return;
+
+    }
+
+
+    const whatsappURL =
+      "https://wa.me/" +
+      CONFIG.whatsapp +
+      "?text=" +
+      encodeURIComponent(mensaje);
+
+
+    window.location.href = whatsappURL;
+
+  });
 
 });
