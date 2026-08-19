@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const whatsappURL =
       "https://wa.me/" +
       CONFIG.whatsapp +
-      "?text=" +a+
+      "?text=" +a✅ +
       encodeURIComponent(mensaje);
 
 
