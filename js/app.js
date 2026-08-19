@@ -126,7 +126,7 @@ mensaje +=
     const whatsappURL =
       "https://wa.me/" +
       CONFIG.whatsapp +
-      "?text=" +a✅ +
+      "?text=" +
       encodeURIComponent(mensaje);
 
 
