@@ -1,6 +1,5 @@
 /* =========================================================
-   ATHENA 4 AÑOS
-   CSS RESPONSIVE - SIN ICONOS EXTERNOS
+   RESET
    ========================================================= */
 
 *,
@@ -9,7 +8,9 @@
   box-sizing: border-box;
 }
 
+
 :root {
+
   --pink: #ff3f91;
   --pink-2: #ff72b2;
   --pink-soft: #fff0f7;
@@ -19,7 +20,6 @@
   --purple-soft: #f6efff;
 
   --aqua: #21cfc5;
-  --yellow: #ffd765;
 
   --ink: #35244d;
   --muted: #776a87;
@@ -28,24 +28,31 @@
   --border: #eadcf8;
 
   --shadow:
-    0 20px 55px rgba(92, 48, 145, 0.12);
+    0 20px 55px
+    rgba(92, 48, 145, 0.12);
 
   --shadow-small:
-    0 8px 24px rgba(92, 48, 145, 0.09);
+    0 8px 24px
+    rgba(92, 48, 145, 0.09);
 }
 
 
 /* =========================================================
-   BODY
+   GLOBAL
    ========================================================= */
 
 html {
   scroll-behavior: smooth;
 }
 
+
 body {
+
   margin: 0;
+
   min-height: 100vh;
+
+  overflow-x: hidden;
 
   font-family:
     "Trebuchet MS",
@@ -55,9 +62,8 @@ body {
 
   color: var(--ink);
 
-  overflow-x: hidden;
-
   background:
+
     radial-gradient(
       circle at 10% 12%,
       rgba(255, 92, 166, .10) 0 3px,
@@ -92,10 +98,11 @@ body {
 
 
 /* =========================================================
-   DECORACIÓN SUPERIOR
+   DECORACIÓN FONDO
    ========================================================= */
 
 body::before {
+
   content: "";
 
   position: fixed;
@@ -106,7 +113,11 @@ body::before {
   top: -130px;
   left: -80px;
 
+  z-index: -1;
+
   border-radius: 50%;
+
+  opacity: .75;
 
   background:
     linear-gradient(
@@ -114,15 +125,11 @@ body::before {
       #ffd7eb,
       #e7d2ff
     );
-
-  filter: blur(1px);
-
-  opacity: .75;
-
-  z-index: -1;
 }
 
+
 body::after {
+
   content: "";
 
   position: fixed;
@@ -133,7 +140,11 @@ body::after {
   right: -120px;
   top: -145px;
 
+  z-index: -1;
+
   border-radius: 50%;
+
+  opacity: .75;
 
   background:
     linear-gradient(
@@ -141,18 +152,15 @@ body::after {
       #e4d1ff,
       #ffd3e9
     );
-
-  opacity: .75;
-
-  z-index: -1;
 }
 
 
 /* =========================================================
-   CONTENEDOR
+   PAGE
    ========================================================= */
 
 .page {
+
   position: relative;
 
   width:
@@ -171,11 +179,12 @@ body::after {
 
 
 /* =========================================================
-   ESTRELLITAS CSS
+   ESTRELLAS CSS
    ========================================================= */
 
 .page::before,
 .page::after {
+
   content: "";
 
   position: absolute;
@@ -185,34 +194,44 @@ body::after {
 
   background: var(--aqua);
 
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    100% 50%,
-    61% 65%,
-    50% 100%,
-    39% 65%,
-    0% 50%,
-    39% 35%
-  );
+  clip-path:
+    polygon(
+      50% 0%,
+      61% 35%,
+      100% 50%,
+      61% 65%,
+      50% 100%,
+      39% 65%,
+      0% 50%,
+      39% 35%
+    );
 
   opacity: .8;
 
-  animation:
-    sparkle 3s ease-in-out infinite;
-
   pointer-events: none;
+
+  animation:
+    sparkle
+    3s
+    ease-in-out
+    infinite;
 }
 
+
 .page::before {
+
   top: 110px;
   left: -15px;
 }
 
+
 .page::after {
+
   top: 310px;
   right: 3%;
+
   background: var(--pink);
+
   animation-delay: 1.2s;
 }
 
@@ -222,6 +241,7 @@ body::after {
    ========================================================= */
 
 .hero {
+
   position: relative;
 
   display: grid;
@@ -241,13 +261,15 @@ body::after {
 
 
 /* =========================================================
-   LOGO
+   LOGO ATHENA
    ========================================================= */
 
 .logo {
+
   display: block;
 
   width: 100%;
+
   max-width: 440px;
 
   height: auto;
@@ -271,18 +293,23 @@ body::after {
 
 
 /* =========================================================
-   TEXTO HERO
+   HERO TEXT
    ========================================================= */
 
 .hero-text {
+
   position: relative;
 
   text-align: center;
 
-  padding: 25px 10px;
+  padding:
+    25px
+    10px;
 }
 
+
 .hero-text::before {
+
   content: "♥";
 
   position: absolute;
@@ -294,7 +321,8 @@ body::after {
 
   font-size: 30px;
 
-  transform: rotate(12deg);
+  transform:
+    rotate(12deg);
 
   animation:
     heartBeat
@@ -303,7 +331,9 @@ body::after {
     infinite;
 }
 
+
 .hero-text::after {
+
   content: "✦";
 
   position: absolute;
@@ -322,15 +352,17 @@ body::after {
     infinite;
 }
 
+
 .hero-text h1 {
+
   position: relative;
+
+  max-width: 570px;
 
   margin:
     0
     auto
     22px;
-
-  max-width: 570px;
 
   font-size:
     clamp(
@@ -350,7 +382,9 @@ body::after {
     0 8px 20px rgba(115, 55, 207, .10);
 }
 
+
 .hero-text h1::before {
+
   content: "✦";
 
   position: absolute;
@@ -363,7 +397,9 @@ body::after {
   font-size: 25px;
 }
 
+
 .hero-text h1::after {
+
   content: "✦";
 
   position: absolute;
@@ -376,7 +412,9 @@ body::after {
   font-size: 25px;
 }
 
+
 .hero-text p {
+
   max-width: 520px;
 
   margin: 0 auto;
@@ -390,10 +428,11 @@ body::after {
 
 
 /* =========================================================
-   CONTENIDO PRINCIPAL
+   LAYOUT
    ========================================================= */
 
 .content {
+
   display: grid;
 
   grid-template-columns:
@@ -411,6 +450,7 @@ body::after {
    ========================================================= */
 
 .card {
+
   position: relative;
 
   overflow: hidden;
@@ -433,7 +473,9 @@ body::after {
   box-shadow: var(--shadow);
 }
 
+
 .card::before {
+
   content: "";
 
   position: absolute;
@@ -456,7 +498,9 @@ body::after {
   pointer-events: none;
 }
 
+
 .card h2 {
+
   position: relative;
 
   margin:
@@ -473,14 +517,17 @@ body::after {
 
 
 /* =========================================================
-   TITULO FORMULARIO CON ICONO CSS
+   FORM TITLE
    ========================================================= */
 
 .form-card > h2 {
+
   padding-left: 50px;
 }
 
+
 .form-card > h2::before {
+
   content: "✓";
 
   position: absolute;
@@ -491,12 +538,13 @@ body::after {
   width: 38px;
   height: 38px;
 
+  display: grid;
+
+  place-items: center;
+
   transform:
     translateY(-50%)
     rotate(-8deg);
-
-  display: grid;
-  place-items: center;
 
   border-radius: 50%;
 
@@ -516,7 +564,9 @@ body::after {
     rgba(255, 63, 145, .25);
 }
 
+
 .subtitle {
+
   margin:
     0
     0
@@ -535,13 +585,16 @@ body::after {
    ========================================================= */
 
 .field {
+
   position: relative;
 
   margin-bottom: 25px;
 }
 
+
 .field label,
 .adult-selector legend {
+
   display: block;
 
   margin-bottom: 9px;
@@ -553,7 +606,9 @@ body::after {
   color: #57328b;
 }
 
+
 .field label span {
+
   font-weight: 500;
 
   color: var(--muted);
@@ -566,6 +621,7 @@ body::after {
 
 input,
 textarea {
+
   width: 100%;
 
   padding:
@@ -594,18 +650,24 @@ textarea {
     background .2s ease;
 }
 
+
 input::placeholder,
 textarea::placeholder {
+
   color: #aaa0b5;
 }
 
+
 input:hover,
 textarea:hover {
+
   border-color: #d9c3ed;
 }
 
+
 input:focus,
 textarea:focus {
+
   border-color: var(--pink);
 
   background: white;
@@ -618,7 +680,9 @@ textarea:focus {
     translateY(-1px);
 }
 
+
 textarea {
+
   min-height: 110px;
 
   resize: vertical;
@@ -630,6 +694,7 @@ textarea {
    ========================================================= */
 
 .adult-selector {
+
   display: grid;
 
   grid-template-columns:
@@ -647,7 +712,9 @@ textarea {
   border: 0;
 }
 
+
 .adult-selector legend {
+
   grid-column: 1 / -1;
 
   width: 100%;
@@ -655,7 +722,9 @@ textarea {
   margin-bottom: 2px;
 }
 
+
 .adult-option {
+
   position: relative;
 
   display: block;
@@ -667,7 +736,9 @@ textarea {
   cursor: pointer;
 }
 
+
 .adult-option input {
+
   position: absolute;
 
   opacity: 0;
@@ -678,7 +749,9 @@ textarea {
   pointer-events: none;
 }
 
+
 .adult-option span {
+
   position: relative;
 
   display: flex;
@@ -712,7 +785,9 @@ textarea {
     box-shadow .18s ease;
 }
 
+
 .adult-option span::before {
+
   content: "";
 
   width: 18px;
@@ -734,7 +809,9 @@ textarea {
   transition: .2s ease;
 }
 
+
 .adult-option strong {
+
   margin-bottom: 3px;
 
   color: var(--purple);
@@ -742,7 +819,9 @@ textarea {
   font-size: 22px;
 }
 
+
 .adult-option:hover span {
+
   transform:
     translateY(-2px);
 
@@ -753,7 +832,9 @@ textarea {
     var(--shadow-small);
 }
 
+
 .adult-option input:checked + span {
+
   border-color: var(--pink);
 
   background:
@@ -770,7 +851,9 @@ textarea {
     rgba(255, 63, 145, .10);
 }
 
+
 .adult-option input:checked + span::before {
+
   border-color: var(--pink);
 
   background: var(--pink);
@@ -779,7 +862,9 @@ textarea {
     inset 0 0 0 4px white;
 }
 
+
 .adult-option input:checked + span strong {
+
   color: var(--pink);
 }
 
@@ -789,6 +874,7 @@ textarea {
    ========================================================= */
 
 #adulto2Container {
+
   padding: 18px;
 
   border:
@@ -806,19 +892,23 @@ textarea {
 
   animation:
     revealField
-    .28s ease;
+    .28s
+    ease;
 }
 
+
 #adulto2Container.hidden {
+
   display: none;
 }
 
 
 /* =========================================================
-   BOTÓN WHATSAPP
+   BOTÓN
    ========================================================= */
 
 .confirm-button {
+
   position: relative;
 
   isolation: isolate;
@@ -862,7 +952,9 @@ textarea {
     box-shadow .18s ease;
 }
 
+
 .confirm-button::before {
+
   content: "";
 
   position: absolute;
@@ -890,7 +982,9 @@ textarea {
     left .65s ease;
 }
 
+
 .confirm-button::after {
+
   content: "♥";
 
   display: inline-block;
@@ -905,7 +999,9 @@ textarea {
     infinite;
 }
 
+
 .confirm-button:hover {
+
   transform:
     translateY(-2px);
 
@@ -914,11 +1010,18 @@ textarea {
     rgba(238, 49, 135, .30);
 }
 
+
 .confirm-button:hover::before {
-  left: calc(100% + 50px);
+
+  left:
+    calc(
+      100% + 50px
+    );
 }
 
+
 .confirm-button:active {
+
   transform:
     translateY(1px)
     scale(.995);
@@ -926,11 +1029,10 @@ textarea {
 
 
 /* =========================================================
-   TEXTO PRIVACIDAD
+   PRIVACIDAD
    ========================================================= */
 
 .privacy {
-  position: relative;
 
   max-width: 480px;
 
@@ -938,8 +1040,6 @@ textarea {
     14px
     auto
     0;
-
-  padding-left: 18px;
 
   text-align: center;
 
@@ -950,7 +1050,9 @@ textarea {
   line-height: 1.45;
 }
 
+
 .privacy::before {
+
   content: "♥";
 
   margin-right: 6px;
@@ -960,10 +1062,11 @@ textarea {
 
 
 /* =========================================================
-   DETALLES EVENTO
+   EVENT CARD
    ========================================================= */
 
 .event-card {
+
   position: sticky;
 
   top: 20px;
@@ -971,7 +1074,9 @@ textarea {
   overflow: visible;
 }
 
+
 .event-card h2 {
+
   padding-bottom: 17px;
 
   border-bottom:
@@ -979,7 +1084,9 @@ textarea {
     #f2c7df;
 }
 
+
 .event-card h2::after {
+
   content: "♥";
 
   margin-left: 7px;
@@ -989,7 +1096,13 @@ textarea {
   font-size: 18px;
 }
 
+
+/* =========================================================
+   EVENT ITEMS
+   ========================================================= */
+
 .event-item {
+
   position: relative;
 
   padding:
@@ -1003,7 +1116,9 @@ textarea {
     #eee4f5;
 }
 
+
 .event-item::before {
+
   content: "";
 
   position: absolute;
@@ -1028,7 +1143,9 @@ textarea {
     rgba(116, 56, 209, .08);
 }
 
+
 .event-item::after {
+
   content: "✦";
 
   position: absolute;
@@ -1041,12 +1158,16 @@ textarea {
   font-size: 17px;
 }
 
+
 .event-item strong,
 .event-item span {
+
   display: block;
 }
 
+
 .event-item strong {
+
   margin-bottom: 5px;
 
   color: var(--purple);
@@ -1054,7 +1175,9 @@ textarea {
   font-size: 15px;
 }
 
+
 .event-item span {
+
   color: #55485f;
 
   line-height: 1.45;
@@ -1062,10 +1185,283 @@ textarea {
 
 
 /* =========================================================
-   GRACIAS
+   GO ENJOY CITY
+   ========================================================= */
+
+.venue-social {
+
+  position: relative;
+
+  margin-top: 28px;
+
+  padding:
+    24px
+    18px;
+
+  overflow: hidden;
+
+  border:
+    2px dashed
+    rgba(255, 63, 145, .23);
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff8fc,
+      #f8f3ff
+    );
+
+  text-align: center;
+}
+
+
+.venue-social::before {
+
+  content: "✦";
+
+  position: absolute;
+
+  top: 14px;
+  left: 15px;
+
+  color: var(--aqua);
+
+  font-size: 20px;
+
+  animation:
+    sparkle
+    3s
+    infinite;
+}
+
+
+.venue-social::after {
+
+  content: "♥";
+
+  position: absolute;
+
+  right: 15px;
+  bottom: 14px;
+
+  color: rgba(255, 63, 145, .4);
+
+  font-size: 24px;
+}
+
+
+.venue-label {
+
+  margin:
+    0
+    0
+    16px;
+
+  color: var(--purple);
+
+  font-size: 14px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   LOGO GO ENJOY CITY
+   ========================================================= */
+
+.venue-logo-link {
+
+  display: block;
+
+  width: fit-content;
+
+  margin:
+    0
+    auto
+    10px;
+
+  text-decoration: none;
+}
+
+
+.venue-logo {
+
+  display: block;
+
+  width: 115px;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: auto;
+
+  object-fit: contain;
+
+  transition:
+    transform .2s ease,
+    filter .2s ease;
+}
+
+
+.venue-logo-link:hover .venue-logo {
+
+  transform:
+    translateY(-3px)
+    scale(1.05);
+
+  filter:
+    drop-shadow(
+      0 8px 12px
+      rgba(80, 42, 130, .15)
+    );
+}
+
+
+/* =========================================================
+   WEB GO ENJOY
+   ========================================================= */
+
+.venue-web {
+
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  color: var(--purple);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    color .2s ease;
+}
+
+
+.venue-web:hover {
+
+  color: var(--pink);
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   REDES
+   ========================================================= */
+
+.venue-networks {
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid
+    rgba(116, 56, 209, .10);
+}
+
+
+.venue-networks > span {
+
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #887795;
+
+  font-size: 12px;
+}
+
+
+.network-buttons {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 9px;
+}
+
+
+.network-button {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  text-decoration: none;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+
+.network-button:hover {
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 8px 16px
+    rgba(70, 40, 100, .18);
+}
+
+
+.network-button.instagram {
+
+  background:
+    linear-gradient(
+      135deg,
+      #833ab4,
+      #fd1d1d,
+      #fcb045
+    );
+}
+
+
+.network-button.tiktok {
+
+  background:
+    linear-gradient(
+      145deg,
+      #19151c,
+      #302936
+    );
+}
+
+
+.venue-networks strong {
+
+  color: var(--ink);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   THANKS
    ========================================================= */
 
 .thanks {
+
   position: relative;
 
   overflow: hidden;
@@ -1092,7 +1488,9 @@ textarea {
   text-align: center;
 }
 
+
 .thanks::before {
+
   content: "♥";
 
   display: block;
@@ -1109,7 +1507,9 @@ textarea {
     infinite;
 }
 
+
 .thanks::after {
+
   content: "✦";
 
   position: absolute;
@@ -1122,13 +1522,17 @@ textarea {
   font-size: 20px;
 }
 
+
 .thanks strong {
+
   color: var(--purple);
 
   font-size: 23px;
 }
 
+
 .thanks p {
+
   margin:
     10px
     0
@@ -1141,10 +1545,11 @@ textarea {
 
 
 /* =========================================================
-   CORAZONES DECORATIVOS
+   CORAZÓN DECORATIVO FORM
    ========================================================= */
 
 .form-card::after {
+
   content: "♥";
 
   position: absolute;
@@ -1152,7 +1557,13 @@ textarea {
   right: 25px;
   top: 25px;
 
-  color: rgba(255, 63, 145, .18);
+  color:
+    rgba(
+      255,
+      63,
+      145,
+      .18
+    );
 
   font-size: 55px;
 
@@ -1171,11 +1582,13 @@ textarea {
 
   0%,
   100% {
+
     transform:
       translateY(0);
   }
 
   50% {
+
     transform:
       translateY(-7px);
   }
@@ -1187,11 +1600,13 @@ textarea {
 
   0%,
   100% {
+
     transform:
       scale(1);
   }
 
   50% {
+
     transform:
       scale(1.14);
   }
@@ -1203,6 +1618,7 @@ textarea {
 
   0%,
   100% {
+
     transform:
       rotate(0deg)
       scale(.85);
@@ -1211,6 +1627,7 @@ textarea {
   }
 
   50% {
+
     transform:
       rotate(90deg)
       scale(1.15);
@@ -1224,6 +1641,7 @@ textarea {
 @keyframes revealField {
 
   from {
+
     opacity: 0;
 
     transform:
@@ -1231,6 +1649,7 @@ textarea {
   }
 
   to {
+
     opacity: 1;
 
     transform:
@@ -1247,6 +1666,7 @@ textarea {
 @media (max-width: 900px) {
 
   .hero {
+
     grid-template-columns:
       minmax(250px, 390px)
       1fr;
@@ -1254,7 +1674,9 @@ textarea {
     gap: 25px;
   }
 
+
   .hero-text h1 {
+
     font-size:
       clamp(
         34px,
@@ -1263,7 +1685,9 @@ textarea {
       );
   }
 
+
   .content {
+
     grid-template-columns:
       minmax(0, 1.7fr)
       minmax(250px, .9fr);
@@ -1273,12 +1697,13 @@ textarea {
 
 
 /* =========================================================
-   MÓVIL
+   MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
 
   body::before {
+
     width: 250px;
     height: 120px;
 
@@ -1286,7 +1711,9 @@ textarea {
     left: -70px;
   }
 
+
   body::after {
+
     width: 270px;
     height: 130px;
 
@@ -1296,6 +1723,7 @@ textarea {
 
 
   .page {
+
     width:
       min(
         calc(100% - 22px),
@@ -1310,6 +1738,7 @@ textarea {
 
 
   .hero {
+
     display: flex;
 
     flex-direction: column;
@@ -1323,6 +1752,7 @@ textarea {
 
 
   .logo {
+
     max-width: 330px;
 
     max-height: 290px;
@@ -1330,6 +1760,7 @@ textarea {
 
 
   .hero-text {
+
     padding:
       10px
       8px
@@ -1338,6 +1769,7 @@ textarea {
 
 
   .hero-text h1 {
+
     max-width: 390px;
 
     margin-bottom: 15px;
@@ -1355,11 +1787,13 @@ textarea {
 
   .hero-text h1::before,
   .hero-text h1::after {
+
     display: none;
   }
 
 
   .hero-text p {
+
     max-width: 390px;
 
     font-size: 17px;
@@ -1369,6 +1803,7 @@ textarea {
 
 
   .content {
+
     display: flex;
 
     flex-direction: column;
@@ -1378,25 +1813,31 @@ textarea {
 
 
   .card {
+
     width: 100%;
 
-    padding: 24px 20px;
+    padding:
+      24px
+      20px;
 
     border-radius: 24px;
   }
 
 
   .card h2 {
+
     font-size: 27px;
   }
 
 
   .form-card > h2 {
+
     padding-left: 44px;
   }
 
 
   .form-card > h2::before {
+
     width: 34px;
     height: 34px;
 
@@ -1405,6 +1846,7 @@ textarea {
 
 
   .subtitle {
+
     padding-left: 0;
 
     margin-top: 14px;
@@ -1413,6 +1855,7 @@ textarea {
 
   input,
   textarea {
+
     font-size: 16px;
 
     padding:
@@ -1422,11 +1865,13 @@ textarea {
 
 
   .event-card {
+
     position: static;
   }
 
 
   .confirm-button {
+
     min-height: 58px;
 
     padding:
@@ -1436,32 +1881,42 @@ textarea {
     font-size: 17px;
   }
 
+
+  .venue-logo {
+
+    width: 105px;
+  }
+
 }
 
 
 /* =========================================================
-   MÓVIL PEQUEÑO
+   MOBILE SMALL
    ========================================================= */
 
 @media (max-width: 440px) {
 
   .page {
+
     width:
       calc(100% - 16px);
   }
 
 
   .logo {
+
     max-width: 285px;
   }
 
 
   .hero-text h1 {
+
     font-size: 34px;
   }
 
 
   .card {
+
     padding:
       22px
       17px;
@@ -1469,6 +1924,7 @@ textarea {
 
 
   .adult-selector {
+
     grid-template-columns:
       repeat(2, 1fr);
 
@@ -1477,6 +1933,7 @@ textarea {
 
 
   .adult-option span {
+
     min-height: 82px;
 
     padding:
@@ -1486,6 +1943,7 @@ textarea {
 
 
   .confirm-button {
+
     border-radius: 17px;
 
     font-size: 16px;
@@ -1495,7 +1953,6 @@ textarea {
 
 
 /* =========================================================
-   ACCESIBILIDAD:
    REDUCIR MOVIMIENTO
    ========================================================= */
 
@@ -1504,6 +1961,7 @@ textarea {
   *,
   *::before,
   *::after {
+
     animation-duration:
       0.01ms !important;
 
