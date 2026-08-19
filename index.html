@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Confirmación cumpleaños Athena</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <main class="page">
+
+    <section class="hero">
+
+      <img
+        class="logo"
+        src="assets/img/athena.png"
+        alt="Athena 4 años"
+      >
+
+      <div class="hero-text">
+        <h1>¡Estás invitado a mi cumpleaños!</h1>
+
+        <p>
+          Tu confirmación nos ayudará a organizar
+          un día inolvidable. 💗
+        </p>
+      </div>
+
+    </section>
+
+
+    <section class="content">
+
+      <section class="card form-card">
+
+        <h2>Confirma tu asistencia</h2>
+
+        <p class="subtitle">
+          Por favor, completa tus datos para registrarte.
+        </p>
+
+        <form id="formAsistencia">
+
+          <div class="field">
+            <label for="nino">
+              Nombre y apellido del niño/a invitado *
+            </label>
+
+            <input
+              type="text"
+              id="nino"
+              name="nino"
+              placeholder="Ej. Sofía Valentina Pérez García"
+              required
+            >
+          </div>
+
+
+          <div class="field">
+            <label for="adulto1">
+              Nombre y apellido del adulto responsable *
+            </label>
+
+            <input
+              type="text"
+              id="adulto1"
+              name="adulto1"
+              placeholder="Ej. María Fernanda García López"
+              required
+            >
+          </div>
+
+
+          <fieldset class="adult-selector">
+
+            <legend>
+              ¿Cuántos adultos asistirán? *
+            </legend>
+
+            <label class="adult-option">
+              <input
+                type="radio"
+                name="adultos"
+                value="1"
+                checked
+              >
+
+              <span>
+                <strong>1</strong>
+                Un adulto
+              </span>
+            </label>
+
+
+            <label class="adult-option">
+              <input
+                type="radio"
+                name="adultos"
+                value="2"
+              >
+
+              <span>
+                <strong>2</strong>
+                Dos adultos
+              </span>
+            </label>
+
+          </fieldset>
+
+
+          <div
+            class="field hidden"
+            id="adulto2Container"
+          >
+
+            <label for="adulto2">
+              Nombre y apellido del segundo adulto *
+            </label>
+
+            <input
+              type="text"
+              id="adulto2"
+              name="adulto2"
+              placeholder="Ej. Carlos Alberto Pérez García"
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="comentario">
+              Comentario
+              <span>(opcional)</span>
+            </label>
+
+            <textarea
+              id="comentario"
+              name="comentario"
+              rows="4"
+              placeholder="Alguna información adicional que quieras compartirnos..."
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="confirm-button"
+          >
+            Confirmar asistencia por WhatsApp 💗
+          </button>
+
+          <p class="privacy">
+            Al confirmar, se abrirá WhatsApp con un mensaje
+            con tus datos para enviárnoslo.
+          </p>
+
+        </form>
+
+      </section>
+
+
+      <aside class="card event-card">
+
+        <h2>Detalles del evento 💗</h2>
+
+        <div class="event-item">
+          <strong>📅 Fecha</strong>
+          <span>Completar fecha</span>
+        </div>
+
+        <div class="event-item">
+          <strong>🕒 Hora</strong>
+          <span>Completar horario</span>
+        </div>
+
+        <div class="event-item">
+          <strong>📍 Lugar</strong>
+          <span>Completar lugar</span>
+        </div>
+
+        <div class="thanks">
+          <strong>¡Gracias!</strong>
+
+          <p>
+            Tu asistencia hará que este día
+            sea aún más especial para Athena.
+          </p>
+        </div>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
