@@ -1,1517 +1,304 @@
-/* =========================================================
-   ATHENA 4 AÑOS
-   CSS RESPONSIVE - SIN ICONOS EXTERNOS
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+  console.log("APP VERSION 7 - WHATSAPP WEB");
 
-:root {
-  --pink: #ff3f91;
-  --pink-2: #ff72b2;
-  --pink-soft: #fff0f7;
+  // =====================================================
+  // ELEMENTOS DEL FORMULARIO
+  // =====================================================
 
-  --purple: #7438d1;
-  --purple-2: #9a62e8;
-  --purple-soft: #f6efff;
+  const form =
+    document.getElementById("formAsistencia");
 
-  --aqua: #21cfc5;
-  --yellow: #ffd765;
+  const adulto2Container =
+    document.getElementById("adulto2Container");
 
-  --ink: #35244d;
-  --muted: #776a87;
+  const adulto2 =
+    document.getElementById("adulto2");
 
-  --white: #ffffff;
-  --border: #eadcf8;
-
-  --shadow:
-    0 20px 55px rgba(92, 48, 145, 0.12);
-
-  --shadow-small:
-    0 8px 24px rgba(92, 48, 145, 0.09);
-}
-
-
-/* =========================================================
-   BODY
-   ========================================================= */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-
-  font-family:
-    "Trebuchet MS",
-    "Arial Rounded MT Bold",
-    Arial,
-    sans-serif;
-
-  color: var(--ink);
-
-  overflow-x: hidden;
-
-  background:
-    radial-gradient(
-      circle at 10% 12%,
-      rgba(255, 92, 166, .10) 0 3px,
-      transparent 4px
-    ),
-
-    radial-gradient(
-      circle at 88% 18%,
-      rgba(35, 207, 197, .13) 0 4px,
-      transparent 5px
-    ),
-
-    radial-gradient(
-      circle at 20% 80%,
-      rgba(122, 57, 210, .08) 0 4px,
-      transparent 5px
-    ),
-
-    linear-gradient(
-      180deg,
-      #fff7fb 0%,
-      #ffffff 45%,
-      #faf5ff 100%
+  const opcionesAdultos =
+    document.querySelectorAll(
+      'input[name="adultos"]'
     );
 
-  background-size:
-    130px 130px,
-    180px 180px,
-    160px 160px,
-    auto;
-}
 
+  // =====================================================
+  // EMOJIS
+  // =====================================================
 
-/* =========================================================
-   DECORACIÓN SUPERIOR
-   ========================================================= */
+  const pastel =
+    String.fromCodePoint(0x1F382); // 🎂
 
-body::before {
-  content: "";
+  const ninoIcon =
+    String.fromCodePoint(0x1F9D2); // 🧒
 
-  position: fixed;
+  const persona =
+    String.fromCodePoint(0x1F464); // 👤
 
-  width: 420px;
-  height: 190px;
+  const grupo =
+    String.fromCodePoint(0x1F465); // 👥
 
-  top: -130px;
-  left: -80px;
+  const comentarioIcon =
+    String.fromCodePoint(0x1F4AC); // 💬
 
-  border-radius: 50%;
+  const check =
+    String.fromCodePoint(0x2705); // ✅
 
-  background:
-    linear-gradient(
-      135deg,
-      #ffd7eb,
-      #e7d2ff
-    );
 
-  filter: blur(1px);
+  // =====================================================
+  // MOSTRAR / OCULTAR SEGUNDO ADULTO
+  // =====================================================
 
-  opacity: .75;
+  function actualizarSegundoAdulto() {
 
-  z-index: -1;
-}
-
-body::after {
-  content: "";
-
-  position: fixed;
-
-  width: 480px;
-  height: 210px;
-
-  right: -120px;
-  top: -145px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #e4d1ff,
-      #ffd3e9
-    );
-
-  opacity: .75;
-
-  z-index: -1;
-}
-
-
-/* =========================================================
-   CONTENEDOR
-   ========================================================= */
-
-.page {
-  position: relative;
-
-  width:
-    min(
-      1120px,
-      calc(100% - 34px)
-    );
-
-  margin: 0 auto;
-
-  padding:
-    36px
-    0
-    80px;
-}
-
-
-/* =========================================================
-   ESTRELLITAS CSS
-   ========================================================= */
-
-.page::before,
-.page::after {
-  content: "";
-
-  position: absolute;
-
-  width: 22px;
-  height: 22px;
-
-  background: var(--aqua);
-
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    100% 50%,
-    61% 65%,
-    50% 100%,
-    39% 65%,
-    0% 50%,
-    39% 35%
-  );
-
-  opacity: .8;
-
-  animation:
-    sparkle 3s ease-in-out infinite;
-
-  pointer-events: none;
-}
-
-.page::before {
-  top: 110px;
-  left: -15px;
-}
-
-.page::after {
-  top: 310px;
-  right: 3%;
-  background: var(--pink);
-  animation-delay: 1.2s;
-}
-
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-  position: relative;
-
-  display: grid;
-
-  grid-template-columns:
-    minmax(280px, 480px)
-    1fr;
-
-  align-items: center;
-
-  gap: 55px;
-
-  min-height: 390px;
-
-  margin-bottom: 24px;
-}
-
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.logo {
-  display: block;
-
-  width: 100%;
-  max-width: 440px;
-
-  height: auto;
-
-  margin: 0 auto;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(
-      0 14px 18px
-      rgba(96, 48, 143, .13)
-    );
-
-  animation:
-    logoFloat
-    4.5s
-    ease-in-out
-    infinite;
-}
-
-
-/* =========================================================
-   TEXTO HERO
-   ========================================================= */
-
-.hero-text {
-  position: relative;
-
-  text-align: center;
-
-  padding: 25px 10px;
-}
-
-.hero-text::before {
-  content: "♥";
-
-  position: absolute;
-
-  top: -4px;
-  right: 8%;
-
-  color: var(--pink);
-
-  font-size: 30px;
-
-  transform: rotate(12deg);
-
-  animation:
-    heartBeat
-    2.4s
-    ease-in-out
-    infinite;
-}
-
-.hero-text::after {
-  content: "✦";
-
-  position: absolute;
-
-  left: 4%;
-  bottom: 10%;
-
-  color: var(--aqua);
-
-  font-size: 32px;
-
-  animation:
-    sparkle
-    2.8s
-    ease-in-out
-    infinite;
-}
-
-.hero-text h1 {
-  position: relative;
-
-  margin:
-    0
-    auto
-    22px;
-
-  max-width: 570px;
-
-  font-size:
-    clamp(
-      36px,
-      5vw,
-      58px
-    );
-
-  line-height: 1.02;
-
-  letter-spacing: -1.5px;
-
-  color: var(--purple);
-
-  text-shadow:
-    0 3px 0 #ffffff,
-    0 8px 20px rgba(115, 55, 207, .10);
-}
-
-.hero-text h1::before {
-  content: "✦";
-
-  position: absolute;
-
-  left: -35px;
-  top: 45%;
-
-  color: var(--pink);
-
-  font-size: 25px;
-}
-
-.hero-text h1::after {
-  content: "✦";
-
-  position: absolute;
-
-  right: -30px;
-  top: 45%;
-
-  color: var(--pink);
-
-  font-size: 25px;
-}
-
-.hero-text p {
-  max-width: 520px;
-
-  margin: 0 auto;
-
-  font-size: 20px;
-
-  line-height: 1.55;
-
-  color: #574a67;
-}
-
-
-/* =========================================================
-   CONTENIDO PRINCIPAL
-   ========================================================= */
-
-.content {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 2fr)
-    minmax(280px, .9fr);
-
-  gap: 28px;
-
-  align-items: start;
-}
-
-
-/* =========================================================
-   CARDS
-   ========================================================= */
-
-.card {
-  position: relative;
-
-  overflow: hidden;
-
-  padding: 34px;
-
-  border:
-    1px solid
-    rgba(151, 96, 219, .20);
-
-  border-radius: 30px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.98),
-      rgba(255,250,253,.96)
-    );
-
-  box-shadow: var(--shadow);
-}
-
-.card::before {
-  content: "";
-
-  position: absolute;
-
-  width: 160px;
-  height: 160px;
-
-  top: -90px;
-  right: -70px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 74, 154, .12),
-      transparent 70%
-    );
-
-  pointer-events: none;
-}
-
-.card h2 {
-  position: relative;
-
-  margin:
-    0
-    0
-    10px;
-
-  color: var(--purple);
-
-  font-size: 30px;
-
-  line-height: 1.1;
-}
-
-
-/* =========================================================
-   TITULO FORMULARIO CON ICONO CSS
-   ========================================================= */
-
-.form-card > h2 {
-  padding-left: 50px;
-}
-
-.form-card > h2::before {
-  content: "✓";
-
-  position: absolute;
-
-  left: 0;
-  top: 50%;
-
-  width: 38px;
-  height: 38px;
-
-  transform:
-    translateY(-50%)
-    rotate(-8deg);
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff4b9b,
-      #ff80ba
-    );
-
-  color: white;
-
-  font-size: 21px;
-
-  box-shadow:
-    0 7px 16px
-    rgba(255, 63, 145, .25);
-}
-
-.subtitle {
-  margin:
-    0
-    0
-    30px;
-
-  padding-left: 50px;
-
-  color: var(--muted);
-
-  font-size: 16px;
-}
-
-
-/* =========================================================
-   CAMPOS
-   ========================================================= */
-
-.field {
-  position: relative;
-
-  margin-bottom: 25px;
-}
-
-.field label,
-.adult-selector legend {
-  display: block;
-
-  margin-bottom: 9px;
-
-  font-size: 15px;
-
-  font-weight: 800;
-
-  color: #57328b;
-}
-
-.field label span {
-  font-weight: 500;
-
-  color: var(--muted);
-}
-
-
-/* =========================================================
-   INPUTS
-   ========================================================= */
-
-input,
-textarea {
-  width: 100%;
-
-  padding:
-    15px
-    17px;
-
-  border:
-    2px solid
-    #e9ddf5;
-
-  border-radius: 15px;
-
-  outline: none;
-
-  background:
-    rgba(255,255,255,.94);
-
-  color: var(--ink);
-
-  font: inherit;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease,
-    transform .2s ease,
-    background .2s ease;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #aaa0b5;
-}
-
-input:hover,
-textarea:hover {
-  border-color: #d9c3ed;
-}
-
-input:focus,
-textarea:focus {
-  border-color: var(--pink);
-
-  background: white;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(255, 63, 145, .09);
-
-  transform:
-    translateY(-1px);
-}
-
-textarea {
-  min-height: 110px;
-
-  resize: vertical;
-}
-
-
-/* =========================================================
-   SELECTOR ADULTOS
-   ========================================================= */
-
-.adult-selector {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 13px;
-
-  padding: 0;
-
-  margin:
-    0
-    0
-    25px;
-
-  border: 0;
-}
-
-.adult-selector legend {
-  grid-column: 1 / -1;
-
-  width: 100%;
-
-  margin-bottom: 2px;
-}
-
-.adult-option {
-  position: relative;
-
-  display: block;
-
-  width: 100%;
-
-  margin: 0;
-
-  cursor: pointer;
-}
-
-.adult-option input {
-  position: absolute;
-
-  opacity: 0;
-
-  width: 1px;
-  height: 1px;
-
-  pointer-events: none;
-}
-
-.adult-option span {
-  position: relative;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 88px;
-
-  padding: 15px;
-
-  border:
-    2px solid
-    #e9ddf3;
-
-  border-radius: 18px;
-
-  background: #fff;
-
-  color: #655872;
-
-  text-align: center;
-
-  transition:
-    transform .18s ease,
-    border-color .18s ease,
-    background .18s ease,
-    box-shadow .18s ease;
-}
-
-.adult-option span::before {
-  content: "";
-
-  width: 18px;
-  height: 18px;
-
-  margin-bottom: 6px;
-
-  border:
-    2px solid
-    #d8cbe5;
-
-  border-radius: 50%;
-
-  background: white;
-
-  box-shadow:
-    inset 0 0 0 4px white;
-
-  transition: .2s ease;
-}
-
-.adult-option strong {
-  margin-bottom: 3px;
-
-  color: var(--purple);
-
-  font-size: 22px;
-}
-
-.adult-option:hover span {
-  transform:
-    translateY(-2px);
-
-  border-color:
-    #d7b9ef;
-
-  box-shadow:
-    var(--shadow-small);
-}
-
-.adult-option input:checked + span {
-  border-color: var(--pink);
-
-  background:
-    linear-gradient(
-      145deg,
-      #fff5fa,
-      #fff0f7
-    );
-
-  color: #573c65;
-
-  box-shadow:
-    0 8px 20px
-    rgba(255, 63, 145, .10);
-}
-
-.adult-option input:checked + span::before {
-  border-color: var(--pink);
-
-  background: var(--pink);
-
-  box-shadow:
-    inset 0 0 0 4px white;
-}
-
-.adult-option input:checked + span strong {
-  color: var(--pink);
-}
-
-
-/* =========================================================
-   SEGUNDO ADULTO
-   ========================================================= */
-
-#adulto2Container {
-  padding: 18px;
-
-  border:
-    2px dashed
-    rgba(255, 63, 145, .28);
-
-  border-radius: 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff9fc,
-      #fff3f8
-    );
-
-  animation:
-    revealField
-    .28s ease;
-}
-
-#adulto2Container.hidden {
-  display: none;
-}
-
-
-/* =========================================================
-   BOTÓN WHATSAPP
-   ========================================================= */
-
-.confirm-button {
-  position: relative;
-
-  isolation: isolate;
-
-  width: 100%;
-
-  overflow: hidden;
-
-  border: 0;
-
-  border-radius: 20px;
-
-  padding:
-    19px
-    25px;
-
-  background:
-    linear-gradient(
-      100deg,
-      #ff2685 0%,
-      #ff4799 50%,
-      #ec3eae 100%
-    );
-
-  color: white;
-
-  font-size: 19px;
-
-  font-weight: 900;
-
-  letter-spacing: -.2px;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 13px 28px
-    rgba(238, 49, 135, .25);
-
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease;
-}
-
-.confirm-button::before {
-  content: "";
-
-  position: absolute;
-
-  z-index: -1;
-
-  width: 90px;
-  height: 250%;
-
-  top: -75%;
-  left: -120px;
-
-  transform:
-    rotate(22deg);
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.32),
-      transparent
-    );
-
-  transition:
-    left .65s ease;
-}
-
-.confirm-button::after {
-  content: "♥";
-
-  display: inline-block;
-
-  margin-left: 8px;
-
-  color: #fff;
-
-  animation:
-    heartBeat
-    1.8s
-    infinite;
-}
-
-.confirm-button:hover {
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 17px 34px
-    rgba(238, 49, 135, .30);
-}
-
-.confirm-button:hover::before {
-  left: calc(100% + 50px);
-}
-
-.confirm-button:active {
-  transform:
-    translateY(1px)
-    scale(.995);
-}
-
-
-/* =========================================================
-   TEXTO PRIVACIDAD
-   ========================================================= */
-
-.privacy {
-  position: relative;
-
-  max-width: 480px;
-
-  margin:
-    14px
-    auto
-    0;
-
-  padding-left: 18px;
-
-  text-align: center;
-
-  color: #887b95;
-
-  font-size: 12px;
-
-  line-height: 1.45;
-}
-
-.privacy::before {
-  content: "♥";
-
-  margin-right: 6px;
-
-  color: #c6afd9;
-}
-
-
-/* =========================================================
-   DETALLES EVENTO
-   ========================================================= */
-
-.event-card {
-  position: sticky;
-
-  top: 20px;
-
-  overflow: visible;
-}
-
-.event-card h2 {
-  padding-bottom: 17px;
-
-  border-bottom:
-    2px dashed
-    #f2c7df;
-}
-
-.event-card h2::after {
-  content: "♥";
-
-  margin-left: 7px;
-
-  color: var(--pink);
-
-  font-size: 18px;
-}
-
-.event-item {
-  position: relative;
-
-  padding:
-    20px
-    5px
-    20px
-    48px;
-
-  border-bottom:
-    1px solid
-    #eee4f5;
-}
-
-.event-item::before {
-  content: "";
-
-  position: absolute;
-
-  left: 4px;
-  top: 18px;
-
-  width: 32px;
-  height: 32px;
-
-  border-radius: 11px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f3e8ff,
-      #fff0f7
-    );
-
-  box-shadow:
-    inset 0 0 0 1px
-    rgba(116, 56, 209, .08);
-}
-
-.event-item::after {
-  content: "✦";
-
-  position: absolute;
-
-  left: 13px;
-  top: 23px;
-
-  color: var(--purple);
-
-  font-size: 17px;
-}
-
-.event-item strong,
-.event-item span {
-  display: block;
-}
-
-.event-item strong {
-  margin-bottom: 5px;
-
-  color: var(--purple);
-
-  font-size: 15px;
-}
-
-.event-item span {
-  color: #55485f;
-
-  line-height: 1.45;
-}
-
-
-/* =========================================================
-   GRACIAS
-   ========================================================= */
-
-.thanks {
-  position: relative;
-
-  overflow: hidden;
-
-  margin-top: 27px;
-
-  padding:
-    26px
-    20px;
-
-  border:
-    1px solid
-    #dfc9f6;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fbf7ff,
-      #f5ebff
-    );
-
-  text-align: center;
-}
-
-.thanks::before {
-  content: "♥";
-
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: var(--pink);
-
-  font-size: 27px;
-
-  animation:
-    heartBeat
-    2s
-    infinite;
-}
-
-.thanks::after {
-  content: "✦";
-
-  position: absolute;
-
-  right: 15px;
-  top: 14px;
-
-  color: var(--aqua);
-
-  font-size: 20px;
-}
-
-.thanks strong {
-  color: var(--purple);
-
-  font-size: 23px;
-}
-
-.thanks p {
-  margin:
-    10px
-    0
-    0;
-
-  color: #655670;
-
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   CORAZONES DECORATIVOS
-   ========================================================= */
-
-.form-card::after {
-  content: "♥";
-
-  position: absolute;
-
-  right: 25px;
-  top: 25px;
-
-  color: rgba(255, 63, 145, .18);
-
-  font-size: 55px;
-
-  transform:
-    rotate(15deg);
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   ANIMACIONES
-   ========================================================= */
-
-@keyframes logoFloat {
-
-  0%,
-  100% {
-    transform:
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translateY(-7px);
-  }
-
-}
-
-
-@keyframes heartBeat {
-
-  0%,
-  100% {
-    transform:
-      scale(1);
-  }
-
-  50% {
-    transform:
-      scale(1.14);
-  }
-
-}
-
-
-@keyframes sparkle {
-
-  0%,
-  100% {
-    transform:
-      rotate(0deg)
-      scale(.85);
-
-    opacity: .45;
-  }
-
-  50% {
-    transform:
-      rotate(90deg)
-      scale(1.15);
-
-    opacity: 1;
-  }
-
-}
-
-
-@keyframes revealField {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(-7px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .hero {
-    grid-template-columns:
-      minmax(250px, 390px)
-      1fr;
-
-    gap: 25px;
-  }
-
-  .hero-text h1 {
-    font-size:
-      clamp(
-        34px,
-        5vw,
-        48px
-      );
-  }
-
-  .content {
-    grid-template-columns:
-      minmax(0, 1.7fr)
-      minmax(250px, .9fr);
-  }
-
-}
-
-
-/* =========================================================
-   MÓVIL
-   ========================================================= */
-
-@media (max-width: 760px) {
-
-  body::before {
-    width: 250px;
-    height: 120px;
-
-    top: -85px;
-    left: -70px;
-  }
-
-  body::after {
-    width: 270px;
-    height: 130px;
-
-    top: -90px;
-    right: -90px;
-  }
-
-
-  .page {
-    width:
-      min(
-        calc(100% - 22px),
-        600px
+    const seleccion =
+      document.querySelector(
+        'input[name="adultos"]:checked'
       );
 
-    padding:
-      18px
-      0
-      55px;
+    if (!seleccion) {
+      return;
+    }
+
+
+    if (seleccion.value === "2") {
+
+      adulto2Container
+        .classList
+        .remove("hidden");
+
+      adulto2.required = true;
+
+    } else {
+
+      adulto2Container
+        .classList
+        .add("hidden");
+
+      adulto2.required = false;
+
+      adulto2.value = "";
+
+    }
+
   }
 
 
-  .hero {
-    display: flex;
+  opcionesAdultos.forEach(function (opcion) {
 
-    flex-direction: column;
+    opcion.addEventListener(
+      "change",
+      actualizarSegundoAdulto
+    );
 
-    gap: 5px;
-
-    min-height: 0;
-
-    margin-bottom: 25px;
-  }
+  });
 
 
-  .logo {
-    max-width: 330px;
-
-    max-height: 290px;
-  }
+  // Estado inicial
+  actualizarSegundoAdulto();
 
 
-  .hero-text {
-    padding:
-      10px
-      8px
-      18px;
-  }
+  // =====================================================
+  // ENVÍO DEL FORMULARIO
+  // =====================================================
+
+  form.addEventListener("submit", function (event) {
+
+    event.preventDefault();
 
 
-  .hero-text h1 {
-    max-width: 390px;
+    // ---------------------------------------------------
+    // VALIDACIÓN HTML
+    // ---------------------------------------------------
 
-    margin-bottom: 15px;
+    if (!form.checkValidity()) {
 
-    font-size:
-      clamp(
-        34px,
-        10vw,
-        45px
+      form.reportValidity();
+
+      return;
+
+    }
+
+
+    // ---------------------------------------------------
+    // OBTENER DATOS
+    // ---------------------------------------------------
+
+    const nino =
+      document
+        .getElementById("nino")
+        .value
+        .trim();
+
+
+    const adulto1 =
+      document
+        .getElementById("adulto1")
+        .value
+        .trim();
+
+
+    const seleccionAdultos =
+      document.querySelector(
+        'input[name="adultos"]:checked'
       );
 
-    line-height: 1.03;
-  }
+
+    if (!seleccionAdultos) {
+
+      alert(
+        "Selecciona la cantidad de adultos."
+      );
+
+      return;
+
+    }
 
 
-  .hero-text h1::before,
-  .hero-text h1::after {
-    display: none;
-  }
+    const cantidadAdultos =
+      seleccionAdultos.value;
 
 
-  .hero-text p {
-    max-width: 390px;
-
-    font-size: 17px;
-
-    line-height: 1.5;
-  }
+    const segundoAdulto =
+      adulto2
+        .value
+        .trim();
 
 
-  .content {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-  }
+    const comentario =
+      document
+        .getElementById("comentario")
+        .value
+        .trim();
 
 
-  .card {
-    width: 100%;
+    // ---------------------------------------------------
+    // CONSTRUIR MENSAJE
+    // ---------------------------------------------------
 
-    padding: 24px 20px;
+    let mensaje =
+      pastel +
+      " *CONFIRMACIÓN CUMPLEAÑOS ATHENA* " +
+      pastel +
 
-    border-radius: 24px;
-  }
+      "\n\n" +
 
+      ninoIcon +
+      " *Niño/a invitado:*" +
+      "\n" +
+      nino +
 
-  .card h2 {
-    font-size: 27px;
-  }
+      "\n\n" +
 
+      persona +
+      " *Adulto responsable:*" +
+      "\n" +
+      adulto1 +
 
-  .form-card > h2 {
-    padding-left: 44px;
-  }
+      "\n\n" +
 
-
-  .form-card > h2::before {
-    width: 34px;
-    height: 34px;
-
-    font-size: 18px;
-  }
-
-
-  .subtitle {
-    padding-left: 0;
-
-    margin-top: 14px;
-  }
+      grupo +
+      " *Adultos asistentes:*" +
+      "\n" +
+      cantidadAdultos;
 
 
-  input,
-  textarea {
-    font-size: 16px;
+    // ---------------------------------------------------
+    // SEGUNDO ADULTO
+    // ---------------------------------------------------
 
-    padding:
-      15px
-      14px;
-  }
+    if (cantidadAdultos === "2") {
 
+      mensaje +=
+        "\n\n" +
 
-  .event-card {
-    position: static;
-  }
+        persona +
+        " *Segundo adulto:*" +
+        "\n" +
+        segundoAdulto;
 
-
-  .confirm-button {
-    min-height: 58px;
-
-    padding:
-      17px
-      15px;
-
-    font-size: 17px;
-  }
-
-}
+    }
 
 
-/* =========================================================
-   MÓVIL PEQUEÑO
-   ========================================================= */
+    // ---------------------------------------------------
+    // COMENTARIO
+    // ---------------------------------------------------
 
-@media (max-width: 440px) {
+    if (comentario !== "") {
 
-  .page {
-    width:
-      calc(100% - 16px);
-  }
+      mensaje +=
+        "\n\n" +
 
+        comentarioIcon +
+        " *Comentario:*" +
+        "\n" +
+        comentario;
 
-  .logo {
-    max-width: 285px;
-  }
-
-
-  .hero-text h1 {
-    font-size: 34px;
-  }
+    }
 
 
-  .card {
-    padding:
-      22px
-      17px;
-  }
+    // ---------------------------------------------------
+    // CIERRE
+    // ---------------------------------------------------
+
+    mensaje +=
+      "\n\n" +
+
+      check +
+      " *Confirmamos nuestra asistencia*";
 
 
-  .adult-selector {
-    grid-template-columns:
-      repeat(2, 1fr);
+    // =====================================================
+    // VALIDAR CONFIGURACIÓN
+    // =====================================================
 
-    gap: 9px;
-  }
+    if (
+      typeof CONFIG === "undefined" ||
+      !CONFIG.whatsapp
+    ) {
 
+      alert(
+        "No está configurado el número de WhatsApp."
+      );
 
-  .adult-option span {
-    min-height: 82px;
+      return;
 
-    padding:
-      12px
-      8px;
-  }
-
-
-  .confirm-button {
-    border-radius: 17px;
-
-    font-size: 16px;
-  }
-
-}
+    }
 
 
-/* =========================================================
-   ACCESIBILIDAD:
-   REDUCIR MOVIMIENTO
-   ========================================================= */
+    // =====================================================
+    // CREAR URL
+    // =====================================================
 
-@media (prefers-reduced-motion: reduce) {
+    const whatsappURL =
+      "https://web.whatsapp.com/send" +
+      "?phone=" +
+      CONFIG.whatsapp +
+      "&text=" +
+      encodeURIComponent(mensaje);
 
-  *,
-  *::before,
-  *::after {
-    animation-duration:
-      0.01ms !important;
 
-    animation-iteration-count:
-      1 !important;
+    // =====================================================
+    // DEBUG
+    // =====================================================
 
-    scroll-behavior:
-      auto !important;
-  }
+    console.log(
+      "Mensaje generado:",
+      mensaje
+    );
 
-}
+    console.log(
+      "URL WhatsApp:",
+      whatsappURL
+    );
+
+
+    // =====================================================
+    // ABRIR WHATSAPP
+    // =====================================================
+
+    window.location.href =
+      whatsappURL;
+
+  });
+
+});
