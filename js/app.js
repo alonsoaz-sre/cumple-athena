@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       let mensaje =
-        "\uD83C\uDF82 CONFIRMACIÓN CUMPLEAÑOS ATHENA \uD83C\uDF82\n\n" +
+        "%F0%9F%98%8A CONFIRMACIÓN CUMPLEAÑOS ATHENA \uD83C\uDF82\n\n" +
 
         "\uD83E\uDDD2 Niño/a invitado:\n" +
         nino +
