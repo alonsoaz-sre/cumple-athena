@@ -1,24 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("APP VERSION 6 - EMOJIS CON fromCodePoint");
+  console.log("APP VERSION 7 - WHATSAPP WEB");
 
-  const form = document.getElementById("formAsistencia");
-  const adulto2Container = document.getElementById("adulto2Container");
-  const adulto2 = document.getElementById("adulto2");
+  // =====================================================
+  // ELEMENTOS DEL FORMULARIO
+  // =====================================================
+
+  const form =
+    document.getElementById("formAsistencia");
+
+  const adulto2Container =
+    document.getElementById("adulto2Container");
+
+  const adulto2 =
+    document.getElementById("adulto2");
 
   const opcionesAdultos =
-    document.querySelectorAll('input[name="adultos"]');
+    document.querySelectorAll(
+      'input[name="adultos"]'
+    );
 
 
-  // Emojis construidos por código Unicode
-  // Así evitamos problemas de encoding en el archivo JS.
-  const pastel = String.fromCodePoint(0x1F382);      // 🎂
-  const ninoIcon = String.fromCodePoint(0x1F9D2);    // 🧒
-  const persona = String.fromCodePoint(0x1F464);     // 👤
-  const grupo = String.fromCodePoint(0x1F465);       // 👥
-  const comentarioIcon = String.fromCodePoint(0x1F4AC); // 💬
-  const check = String.fromCodePoint(0x2705);         // ✅
+  // =====================================================
+  // EMOJIS
+  // =====================================================
 
+  const pastel =
+    String.fromCodePoint(0x1F382); // 🎂
+
+  const ninoIcon =
+    String.fromCodePoint(0x1F9D2); // 🧒
+
+  const persona =
+    String.fromCodePoint(0x1F464); // 👤
+
+  const grupo =
+    String.fromCodePoint(0x1F465); // 👥
+
+  const comentarioIcon =
+    String.fromCodePoint(0x1F4AC); // 💬
+
+  const check =
+    String.fromCodePoint(0x2705); // ✅
+
+
+  // =====================================================
+  // MOSTRAR / OCULTAR SEGUNDO ADULTO
+  // =====================================================
 
   function actualizarSegundoAdulto() {
 
@@ -34,13 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (seleccion.value === "2") {
 
-      adulto2Container.classList.remove("hidden");
+      adulto2Container
+        .classList
+        .remove("hidden");
 
       adulto2.required = true;
 
     } else {
 
-      adulto2Container.classList.add("hidden");
+      adulto2Container
+        .classList
+        .add("hidden");
 
       adulto2.required = false;
 
@@ -61,14 +93,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Inicializa el estado al cargar la página
+  // Estado inicial
   actualizarSegundoAdulto();
 
+
+  // =====================================================
+  // ENVÍO DEL FORMULARIO
+  // =====================================================
 
   form.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
+
+    // ---------------------------------------------------
+    // VALIDACIÓN HTML
+    // ---------------------------------------------------
 
     if (!form.checkValidity()) {
 
@@ -78,6 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    // ---------------------------------------------------
+    // OBTENER DATOS
+    // ---------------------------------------------------
 
     const nino =
       document
@@ -93,10 +137,25 @@ document.addEventListener("DOMContentLoaded", function () {
         .trim();
 
 
-    const cantidadAdultos =
+    const seleccionAdultos =
       document.querySelector(
         'input[name="adultos"]:checked'
-      ).value;
+      );
+
+
+    if (!seleccionAdultos) {
+
+      alert(
+        "Selecciona la cantidad de adultos."
+      );
+
+      return;
+
+    }
+
+
+    const cantidadAdultos =
+      seleccionAdultos.value;
 
 
     const segundoAdulto =
@@ -111,6 +170,10 @@ document.addEventListener("DOMContentLoaded", function () {
         .value
         .trim();
 
+
+    // ---------------------------------------------------
+    // CONSTRUIR MENSAJE
+    // ---------------------------------------------------
 
     let mensaje =
       pastel +
@@ -139,6 +202,10 @@ document.addEventListener("DOMContentLoaded", function () {
       cantidadAdultos;
 
 
+    // ---------------------------------------------------
+    // SEGUNDO ADULTO
+    // ---------------------------------------------------
+
     if (cantidadAdultos === "2") {
 
       mensaje +=
@@ -151,6 +218,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+
+    // ---------------------------------------------------
+    // COMENTARIO
+    // ---------------------------------------------------
 
     if (comentario !== "") {
 
@@ -165,12 +236,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    // ---------------------------------------------------
+    // CIERRE
+    // ---------------------------------------------------
+
     mensaje +=
       "\n\n" +
 
       check +
       " *Confirmamos nuestra asistencia*";
 
+
+    // =====================================================
+    // VALIDAR CONFIGURACIÓN
+    // =====================================================
 
     if (
       typeof CONFIG === "undefined" ||
@@ -186,19 +265,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // El mensaje se codifica UNA SOLA VEZ aquí.
+    // =====================================================
+    // CREAR URL
+    // =====================================================
+
     const whatsappURL =
-      "https://wa.me/" +
+      "https://web.whatsapp.com/send" +
+      "?phone=" +
       CONFIG.whatsapp +
-      "?text=" +
+      "&text=" +
       encodeURIComponent(mensaje);
 
 
-    console.log("Mensaje:", mensaje);
-    console.log("URL WhatsApp:", whatsappURL);
+    // =====================================================
+    // DEBUG
+    // =====================================================
+
+    console.log(
+      "Mensaje generado:",
+      mensaje
+    );
+
+    console.log(
+      "URL WhatsApp:",
+      whatsappURL
+    );
 
 
-    window.location.href = whatsappURL;
+    // =====================================================
+    // ABRIR WHATSAPP
+    // =====================================================
+
+    window.location.href =
+      whatsappURL;
 
   });
 
