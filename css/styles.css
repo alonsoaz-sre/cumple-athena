@@ -2477,3 +2477,511 @@ textarea {
 
 
 }
+
+/* =========================================================
+   ATHENA CUMPLE 4 - HERO DESTACADO
+   ========================================================= */
+
+.birthday-badge {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+  padding: 14px 28px 16px;
+
+  border: 2px solid rgba(255, 63, 145, .18);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 241, 248, .96),
+      rgba(246, 237, 255, .96)
+    );
+
+  box-shadow:
+    0 12px 28px rgba(116, 55, 208, .10);
+
+  transform: rotate(-1deg);
+}
+
+.birthday-badge::before,
+.birthday-badge::after {
+  content: "✦";
+
+  position: absolute;
+
+  color: var(--aqua);
+
+  font-size: 25px;
+
+  animation:
+    sparkle
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+.birthday-badge::before {
+  left: -18px;
+  top: 9px;
+}
+
+.birthday-badge::after {
+  right: -18px;
+  bottom: 8px;
+
+  color: var(--pink);
+
+  animation-delay: .8s;
+}
+
+.birthday-small {
+  color: var(--pink);
+
+  font-size:
+    clamp(
+      18px,
+      2vw,
+      25px
+    );
+
+  font-weight: 900;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+}
+
+.birthday-main {
+  display: block;
+
+  margin-top: 2px;
+
+  color: var(--purple);
+
+  font-size:
+    clamp(
+      42px,
+      6vw,
+      74px
+    );
+
+  font-weight: 1000;
+
+  line-height: .95;
+
+  letter-spacing: -2px;
+
+  text-shadow:
+    0 3px 0 white,
+    0 6px 0 rgba(255, 63, 145, .08),
+    0 13px 25px rgba(116, 55, 208, .14);
+}
+
+.birthday-sparkles {
+  margin-top: 8px;
+
+  color: var(--pink);
+
+  font-size: 17px;
+
+  letter-spacing: 8px;
+}
+
+
+/* =========================================================
+   CONFETTI / PICA PICA
+   ========================================================= */
+
+.confetti-layer {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -1;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+
+  width: 10px;
+  height: 18px;
+
+  border-radius: 4px;
+
+  opacity: .75;
+
+  animation:
+    confettiFall
+    linear
+    infinite;
+}
+
+.c1 {
+  left: 4%;
+  top: -30px;
+
+  background: var(--pink);
+
+  animation-duration: 9s;
+}
+
+.c2 {
+  left: 12%;
+  top: -70px;
+
+  background: var(--aqua);
+
+  animation-duration: 11s;
+  animation-delay: 1s;
+}
+
+.c3 {
+  left: 21%;
+  top: -45px;
+
+  background: #ffd35e;
+
+  animation-duration: 8.5s;
+  animation-delay: 2s;
+}
+
+.c4 {
+  left: 31%;
+  top: -90px;
+
+  background: var(--purple-light);
+
+  animation-duration: 12s;
+  animation-delay: .5s;
+}
+
+.c5 {
+  left: 42%;
+  top: -50px;
+
+  background: #ff8cc1;
+
+  animation-duration: 10s;
+  animation-delay: 3s;
+}
+
+.c6 {
+  left: 51%;
+  top: -80px;
+
+  background: var(--aqua);
+
+  animation-duration: 9.5s;
+  animation-delay: 1.8s;
+}
+
+.c7 {
+  left: 61%;
+  top: -40px;
+
+  background: #ffd35e;
+
+  animation-duration: 11.5s;
+  animation-delay: 2.5s;
+}
+
+.c8 {
+  left: 70%;
+  top: -60px;
+
+  background: var(--pink);
+
+  animation-duration: 8.8s;
+  animation-delay: .8s;
+}
+
+.c9 {
+  left: 78%;
+  top: -100px;
+
+  background: var(--purple-light);
+
+  animation-duration: 12.2s;
+  animation-delay: 3.2s;
+}
+
+.c10 {
+  left: 86%;
+  top: -55px;
+
+  background: var(--aqua);
+
+  animation-duration: 9.8s;
+  animation-delay: 1.2s;
+}
+
+.c11 {
+  left: 93%;
+  top: -75px;
+
+  background: #ff8cc1;
+
+  animation-duration: 10.8s;
+  animation-delay: 2.8s;
+}
+
+.c12 {
+  left: 97%;
+  top: -35px;
+
+  background: #ffd35e;
+
+  animation-duration: 9.2s;
+  animation-delay: .3s;
+}
+
+
+/* =========================================================
+   FIREWORKS CSS
+   ========================================================= */
+
+.fireworks {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.firework {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  animation:
+    fireworkBurst
+    3.4s
+    ease-out
+    infinite;
+}
+
+.firework::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 -42px 0 0 #ff4b9d,
+    30px -30px 0 0 #21cec4,
+    42px 0 0 0 #ffd35e,
+    30px 30px 0 0 #9c66e6,
+    0 42px 0 0 #ff7ab9,
+    -30px 30px 0 0 #21cec4,
+    -42px 0 0 0 #ffd35e,
+    -30px -30px 0 0 #7437d0,
+
+    0 -22px 0 -2px rgba(255, 75, 157, .65),
+    16px -16px 0 -2px rgba(33, 206, 196, .65),
+    22px 0 0 -2px rgba(255, 211, 94, .65),
+    16px 16px 0 -2px rgba(156, 102, 230, .65),
+    0 22px 0 -2px rgba(255, 122, 185, .65),
+    -16px 16px 0 -2px rgba(33, 206, 196, .65),
+    -22px 0 0 -2px rgba(255, 211, 94, .65),
+    -16px -16px 0 -2px rgba(116, 55, 208, .65);
+}
+
+.firework-1 {
+  top: 9%;
+  left: 8%;
+
+  animation-delay: 0s;
+}
+
+.firework-2 {
+  top: 13%;
+  right: 8%;
+
+  animation-delay: 1.2s;
+}
+
+.firework-3 {
+  top: 35%;
+  right: 20%;
+
+  animation-delay: 2.1s;
+}
+
+
+/* =========================================================
+   MÁS DECORACIÓN EN CARDS
+   ========================================================= */
+
+.form-card::before {
+  content: "✦";
+
+  position: absolute;
+
+  left: 14px;
+  bottom: 18px;
+
+  color: rgba(33, 206, 196, .35);
+
+  font-size: 24px;
+
+  animation:
+    sparkle
+    2.8s
+    infinite;
+}
+
+.event-card::before {
+  content: "♥";
+
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  color: rgba(255, 63, 145, .20);
+
+  font-size: 40px;
+
+  transform: rotate(12deg);
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes confettiFall {
+
+  0% {
+    transform:
+      translateY(-8vh)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .8;
+  }
+
+  100% {
+    transform:
+      translateY(115vh)
+      rotate(720deg);
+
+    opacity: .2;
+  }
+}
+
+
+@keyframes fireworkBurst {
+
+  0% {
+    transform:
+      scale(.15);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  55% {
+    transform:
+      scale(1);
+
+    opacity: .9;
+  }
+
+  100% {
+    transform:
+      scale(1.2);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .birthday-badge {
+    padding:
+      12px
+      19px
+      14px;
+
+    margin-bottom: 15px;
+  }
+
+  .birthday-main {
+    font-size:
+      clamp(
+        44px,
+        13vw,
+        62px
+      );
+  }
+
+  .birthday-small {
+    font-size: 17px;
+
+    letter-spacing: 3px;
+  }
+
+  .firework-1 {
+    top: 6%;
+    left: 8%;
+  }
+
+  .firework-2 {
+    top: 10%;
+    right: 9%;
+  }
+
+  .firework-3 {
+    display: none;
+  }
+
+  .confetti {
+    opacity: .55;
+  }
+
+}
+
+
+/* =========================================================
+   RESPETO A REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .confetti,
+  .firework {
+    display: none;
+  }
+
+}
