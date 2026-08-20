@@ -1,5 +1,5 @@
 @import url(
-  "https://fonts.googleapis.com/css2?family=Chewy&family=Patrick+Hand&display=swap"
+  "https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@500;600;700&family=Patrick+Hand&display=swap"
 );
 
 
@@ -107,7 +107,7 @@ body {
 
 
 /* =========================================================
-   DECORACIONES FONDO
+   FONDO
    ========================================================= */
 
 body::before {
@@ -342,29 +342,6 @@ body::after {
 }
 
 
-@keyframes logoSpark {
-
-  0%,
-  100% {
-
-    opacity: .45;
-
-    transform:
-      scale(.75)
-      rotate(0deg);
-  }
-
-  50% {
-
-    opacity: 1;
-
-    transform:
-      scale(1.25)
-      rotate(90deg);
-  }
-}
-
-
 .logo-heart {
 
   position: absolute;
@@ -377,8 +354,7 @@ body::after {
 
   background: var(--pink);
 
-  transform:
-    rotate(45deg);
+  transform: rotate(45deg);
 
   animation:
     miniHeart
@@ -410,6 +386,29 @@ body::after {
 
 .logo-heart::after {
   top: -11px;
+}
+
+
+@keyframes logoSpark {
+
+  0%,
+  100% {
+
+    opacity: .45;
+
+    transform:
+      scale(.75)
+      rotate(0deg);
+  }
+
+  50% {
+
+    opacity: 1;
+
+    transform:
+      scale(1.25)
+      rotate(90deg);
+  }
 }
 
 
@@ -527,7 +526,7 @@ body::after {
 
 
 /* =========================================================
-   HOY TENGO ALGO QUE CONTARTE
+   KICKER
    ========================================================= */
 
 .birthday-kicker {
@@ -560,7 +559,7 @@ body::after {
 
 
 /* =========================================================
-   CUMPLO 4 AÑOS
+   CUMPLO 4
    ========================================================= */
 
 .birthday-main {
@@ -613,15 +612,9 @@ body::after {
 
   min-width: 90px;
 
-  font-family:
-    "Chewy",
-    cursive;
-
   color: var(--pink);
 
   font-size: 1.22em;
-
-  font-weight: 400;
 
   line-height: .8;
 
@@ -629,32 +622,6 @@ body::after {
     rotate(3deg);
 }
 
-
-.birthday-main strong::after {
-
-  content: "";
-
-  position: absolute;
-
-  z-index: -1;
-
-  width: 90px;
-  height: 90px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,94,169,.15),
-      transparent 70%
-    );
-}
-
-
-/* =========================================================
-   QUESTION
-   ========================================================= */
 
 .birthday-question {
 
@@ -674,16 +641,8 @@ body::after {
       2.4vw,
       31px
     );
-
-  font-weight: 400;
-
-  letter-spacing: .4px;
 }
 
-
-/* =========================================================
-   INVITADO
-   ========================================================= */
 
 .hero-text h1 {
 
@@ -710,13 +669,6 @@ body::after {
   font-weight: 400;
 
   line-height: .95;
-
-  letter-spacing: .5px;
-
-  text-shadow:
-    0 4px 0 white,
-    0 9px 0 rgba(255,61,145,.07),
-    0 13px 24px rgba(114,54,204,.12);
 }
 
 
@@ -740,6 +692,44 @@ body::after {
     );
 
   line-height: 1.25;
+}
+
+
+/* =========================================================
+   HERO FX
+   ========================================================= */
+
+@keyframes signSpark {
+
+  0%,
+  100% {
+
+    transform:
+      rotate(0)
+      scale(.8);
+  }
+
+  50% {
+
+    transform:
+      rotate(95deg)
+      scale(1.15);
+  }
+}
+
+
+@keyframes signHeart {
+
+  0%,
+  100% {
+    transform:
+      scale(1);
+  }
+
+  50% {
+    transform:
+      scale(1.17);
+  }
 }
 
 
@@ -793,34 +783,17 @@ body::after {
   box-shadow:
 
     0 -70px 0 2px #ff4095,
-
     27px -63px 0 1px #22d0c4,
-
     51px -49px 0 1px #ffd360,
-
     67px -22px 0 1px #9e68e9,
-
     71px 5px 0 1px #ff69ab,
-
     61px 34px 0 1px #26cfc4,
-
     43px 56px 0 1px #ffd360,
-
     16px 69px 0 1px #9b61e5,
-
     -14px 69px 0 1px #ff4597,
-
     -42px 57px 0 1px #29cfc7,
-
     -61px 35px 0 1px #ffd768,
-
-    -71px 5px 0 1px #9762e5,
-
-    -66px -26px 0 1px #ff68aa,
-
-    -49px -52px 0 1px #2bcfc7,
-
-    -23px -67px 0 1px #ffd366;
+    -71px 5px 0 1px #9762e5;
 }
 
 
@@ -837,93 +810,24 @@ body::after {
   box-shadow:
 
     0 -41px 0 -1px rgba(255,63,145,.85),
-
     29px -29px 0 -1px rgba(33,207,197,.85),
-
     41px 0 0 -1px rgba(255,210,95,.85),
-
     29px 29px 0 -1px rgba(157,100,231,.85),
-
     0 41px 0 -1px rgba(255,98,168,.85),
-
     -29px 29px 0 -1px rgba(33,207,197,.85),
-
     -41px 0 0 -1px rgba(255,210,95,.85),
-
     -29px -29px 0 -1px rgba(157,100,231,.85);
 }
 
 
-.fw1 {
-
-  left: 3%;
-  top: 13%;
-
-  animation-delay: .1s;
-}
-
-
-.fw2 {
-
-  left: 29%;
-  top: 3%;
-
-  animation-delay: 1.7s;
-}
-
-
-.fw3 {
-
-  right: 7%;
-  top: 7%;
-
-  animation-delay: .8s;
-}
-
-
-.fw4 {
-
-  left: 11%;
-  top: 63%;
-
-  animation-delay: 2.6s;
-}
-
-
-.fw5 {
-
-  right: 32%;
-  top: 70%;
-
-  animation-delay: 3.3s;
-}
-
-
-.fw6 {
-
-  right: 1%;
-  top: 49%;
-
-  animation-delay: 2s;
-}
-
-
-.fw7 {
-
-  left: 45%;
-  top: 31%;
-
-  animation-delay: 3.8s;
-}
-
-
-.fw8 {
-
-  right: 16%;
-  top: 34%;
-
-  animation-delay: 1.4s;
-}
+.fw1 { left: 3%; top: 13%; animation-delay: .1s; }
+.fw2 { left: 29%; top: 3%; animation-delay: 1.7s; }
+.fw3 { right: 7%; top: 7%; animation-delay: .8s; }
+.fw4 { left: 11%; top: 63%; animation-delay: 2.6s; }
+.fw5 { right: 32%; top: 70%; animation-delay: 3.3s; }
+.fw6 { right: 1%; top: 49%; animation-delay: 2s; }
+.fw7 { left: 45%; top: 31%; animation-delay: 3.8s; }
+.fw8 { right: 16%; top: 34%; animation-delay: 1.4s; }
 
 
 @keyframes bigFirework {
@@ -933,8 +837,7 @@ body::after {
     opacity: 0;
 
     transform:
-      scale(.08)
-      rotate(0deg);
+      scale(.08);
   }
 
   12% {
@@ -948,15 +851,6 @@ body::after {
     transform:
       scale(1)
       rotate(12deg);
-  }
-
-  76% {
-
-    opacity: .25;
-
-    transform:
-      scale(1.13)
-      rotate(17deg);
   }
 
   100% {
@@ -1007,138 +901,36 @@ body::after {
 }
 
 
-.cp1 {
-  top: 3%;
-  left: 8%;
-  background: var(--pink);
-}
-
-
-.cp2 {
-  top: 15%;
-  left: 29%;
-  background: var(--aqua);
-  animation-delay: .7s;
-}
-
-
-.cp3 {
-  top: 7%;
-  right: 20%;
-  background: #ffd767;
-  animation-delay: 1.3s;
-}
-
-
-.cp4 {
-  top: 32%;
-  right: 2%;
-  background: var(--purple-light);
-  animation-delay: 2s;
-}
-
-
-.cp5 {
-  bottom: 17%;
-  right: 16%;
-  background: var(--pink);
-  animation-delay: 1s;
-}
-
-
-.cp6 {
-  bottom: 4%;
-  right: 45%;
-  background: var(--aqua);
-  animation-delay: 1.8s;
-}
-
-
-.cp7 {
-  bottom: 11%;
-  left: 24%;
-  background: #ffd767;
-  animation-delay: 2.7s;
-}
-
-
-.cp8 {
-  top: 42%;
-  left: 2%;
-  background: #ff89be;
-  animation-delay: .4s;
-}
-
-
-.cp9 {
-  top: 22%;
-  left: 52%;
-  background: #9c66e6;
-  animation-delay: 1.2s;
-}
-
-
-.cp10 {
-  bottom: 6%;
-  left: 7%;
-  background: var(--pink);
-  animation-delay: 3s;
-}
-
-
-.cp11 {
-  top: 55%;
-  right: 4%;
-  background: var(--aqua);
-  animation-delay: 2.1s;
-}
-
-
-.cp12 {
-  top: 2%;
-  right: 40%;
-  background: var(--yellow);
-  animation-delay: .9s;
-}
+.cp1 { top: 3%; left: 8%; background: var(--pink); }
+.cp2 { top: 15%; left: 29%; background: var(--aqua); }
+.cp3 { top: 7%; right: 20%; background: #ffd767; }
+.cp4 { top: 32%; right: 2%; background: var(--purple-light); }
+.cp5 { bottom: 17%; right: 16%; background: var(--pink); }
+.cp6 { bottom: 4%; right: 45%; background: var(--aqua); }
+.cp7 { bottom: 11%; left: 24%; background: #ffd767; }
+.cp8 { top: 42%; left: 2%; background: #ff89be; }
+.cp9 { top: 22%; left: 52%; background: #9c66e6; }
+.cp10 { bottom: 6%; left: 7%; background: var(--pink); }
+.cp11 { top: 55%; right: 4%; background: var(--aqua); }
+.cp12 { top: 2%; right: 40%; background: var(--yellow); }
 
 
 @keyframes confettiDance {
 
   0%,
   100% {
-
-    translate:
-      0
-      0;
-
-    rotate:
-      0deg;
+    translate: 0 0;
   }
 
-  30% {
-
-    translate:
-      5px
-      12px;
-
-    rotate:
-      100deg;
-  }
-
-  65% {
-
-    translate:
-      -8px
-      -5px;
-
-    rotate:
-      230deg;
+  50% {
+    translate: 8px 15px;
+    rotate: 180deg;
   }
 }
 
 
 /* =========================================================
-   CARDS
+   CONTENT
    ========================================================= */
 
 .content {
@@ -1172,18 +964,14 @@ body::after {
   border-radius: 30px;
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.98),
-      rgba(255,250,253,.97)
-    );
+    rgba(255,255,255,.97);
 
   box-shadow: var(--shadow);
 }
 
 
 /* =========================================================
-   FORM TITLE
+   FORM
    ========================================================= */
 
 .section-heading {
@@ -1192,37 +980,28 @@ body::after {
 
   gap: 15px;
 
-  align-items: flex-start;
-
   margin-bottom: 30px;
 }
 
 
 .heading-icon {
 
-  flex:
-    0 0
-    42px;
-
   display: grid;
 
   place-items: center;
+
+  flex:
+    0 0
+    42px;
 
   width: 42px;
   height: 42px;
 
   border-radius: 14px;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      #ff7ab9
-    );
+  background: var(--pink);
 
   color: white;
-
-  font-size: 18px;
 }
 
 
@@ -1245,15 +1024,9 @@ body::after {
 
   color: var(--muted);
 
-  font-size: 15px;
-
   line-height: 1.5;
 }
 
-
-/* =========================================================
-   FORM
-   ========================================================= */
 
 .field {
   margin-bottom: 25px;
@@ -1291,13 +1064,9 @@ body::after {
 
 .optional {
 
-  margin-left: 4px;
-
   color: var(--muted);
 
   font-size: 12px;
-
-  font-weight: 500;
 }
 
 
@@ -1320,12 +1089,7 @@ textarea {
 
   background: white;
 
-  color: var(--ink);
-
   font: inherit;
-
-  transition:
-    .18s ease;
 }
 
 
@@ -1349,7 +1113,7 @@ textarea {
 
 
 /* =========================================================
-   ADULT SELECTOR
+   ADULTOS
    ========================================================= */
 
 .adult-selector {
@@ -1376,23 +1140,17 @@ textarea {
 
   grid-column:
     1 / -1;
-
-  width: 100%;
 }
 
 
 .adult-option {
   position: relative;
-  cursor: pointer;
 }
 
 
 .adult-option input {
 
   position: absolute;
-
-  width: 1px;
-  height: 1px;
 
   opacity: 0;
 }
@@ -1420,9 +1178,7 @@ textarea {
 
   background: white;
 
-  text-align: center;
-
-  transition: .18s;
+  cursor: pointer;
 }
 
 
@@ -1438,8 +1194,7 @@ textarea {
 
   border-color: var(--pink);
 
-  background:
-    var(--pink-pale);
+  background: var(--pink-pale);
 }
 
 
@@ -1447,10 +1202,6 @@ textarea {
   color: var(--pink);
 }
 
-
-/* =========================================================
-   SECOND ADULT
-   ========================================================= */
 
 #adulto2Container {
 
@@ -1472,12 +1223,10 @@ textarea {
 
 
 /* =========================================================
-   CONFIRM BUTTON
+   BUTTON
    ========================================================= */
 
 .confirm-button {
-
-  position: relative;
 
   display: flex;
 
@@ -1503,7 +1252,7 @@ textarea {
     linear-gradient(
       100deg,
       #ff2684,
-      #ff4b9d 55%,
+      #ff4b9d,
       #ec41ae
     );
 
@@ -1518,16 +1267,6 @@ textarea {
   box-shadow:
     0 13px 29px
     rgba(235,43,132,.25);
-
-  transition:
-    transform .18s ease;
-}
-
-
-.confirm-button:hover {
-
-  transform:
-    translateY(-2px);
 }
 
 
@@ -1535,34 +1274,26 @@ textarea {
 
   display: flex;
 
-  align-items: center;
-
   gap: 7px;
+
+  align-items: center;
 
   font-size: 22px;
 }
 
 
 .button-icons .fa-whatsapp {
-
   font-size: 26px;
 }
 
 
 .privacy {
 
-  margin:
-    14px
-    auto
-    0;
-
-  max-width: 500px;
+  margin-top: 14px;
 
   color: #8a7c94;
 
   font-size: 12px;
-
-  line-height: 1.45;
 
   text-align: center;
 }
@@ -1577,8 +1308,6 @@ textarea {
   position: sticky;
 
   top: 18px;
-
-  overflow: hidden;
 }
 
 
@@ -1604,21 +1333,16 @@ textarea {
 
   place-items: center;
 
-  width: 42px;
-  height: 42px;
-
   flex:
     0 0
     42px;
 
+  width: 42px;
+  height: 42px;
+
   border-radius: 14px;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--purple),
-      #a365ec
-    );
+  background: var(--purple);
 
   color: white;
 }
@@ -1634,15 +1358,18 @@ textarea {
 
   font-weight: 900;
 
-  text-transform: uppercase;
-
   letter-spacing: .8px;
+
+  text-transform: uppercase;
 }
 
 
 .event-title h2 {
 
-  margin: 2px 0 0;
+  margin:
+    2px
+    0
+    0;
 
   color: var(--purple);
 
@@ -1650,20 +1377,16 @@ textarea {
 }
 
 
-/* =========================================================
-   EVENT CLICKABLE ITEMS
-   ========================================================= */
-
 .event-item {
 
   display: flex;
 
-  align-items: flex-start;
-
   gap: 13px;
 
+  align-items: flex-start;
+
   padding:
-    18px
+    20px
     4px;
 
   border-bottom:
@@ -1678,11 +1401,7 @@ textarea {
 
   text-decoration: none;
 
-  border-radius: 15px;
-
-  transition:
-    background .18s ease,
-    transform .18s ease;
+  border-radius: 16px;
 }
 
 
@@ -1691,16 +1410,182 @@ textarea {
   background:
     linear-gradient(
       90deg,
-      rgba(255,239,247,.65),
-      rgba(246,238,255,.65)
+      #fff5fa,
+      #f8f3ff
     );
+}
+
+
+.event-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  flex:
+    0 0
+    40px;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f3e9ff,
+      #fff0f7
+    );
+
+  color: var(--purple);
+}
+
+
+.event-info {
+  flex: 1;
+}
+
+
+.event-item strong {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--purple);
+
+  font-size: 15px;
+}
+
+
+.event-item span:not(.event-icon) {
+
+  display: block;
+
+  color: #51445c;
+
+  line-height: 1.45;
+}
+
+
+.event-secondary {
+
+  margin-top: 2px;
+
+  color: var(--muted) !important;
+
+  font-size: 13px;
+}
+
+
+.event-action {
+
+  display: inline-flex !important;
+
+  align-items: center;
+
+  gap: 6px;
+
+  margin-top: 9px;
+
+  color: var(--pink) !important;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CALENDAR PICKER
+   ========================================================= */
+
+.calendar-picker {
+
+  margin-top: 3px;
+}
+
+
+.calendar-picker > summary {
+
+  list-style: none;
+}
+
+
+.calendar-picker > summary::-webkit-details-marker {
+  display: none;
+}
+
+
+.calendar-picker[open] > summary {
+
+  margin-bottom: 13px;
+}
+
+
+.calendar-options {
+
+  display: grid;
+
+  gap: 9px;
+
+  padding:
+    12px;
+
+  border:
+    1px solid
+    #eadcf5;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffafd,
+      #f9f4ff
+    );
+
+  box-shadow:
+    var(--small-shadow);
+}
+
+
+.calendar-option {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding:
+    11px;
+
+  border-radius: 14px;
+
+  color: var(--ink);
+
+  text-decoration: none;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+}
+
+
+.calendar-option:hover {
+
+  background: white;
 
   transform:
     translateX(2px);
 }
 
 
-.event-icon {
+.calendar-icon {
 
   display: grid;
 
@@ -1713,65 +1598,53 @@ textarea {
   width: 37px;
   height: 37px;
 
-  border-radius: 12px;
+  border-radius: 11px;
 
-  color: var(--purple);
+  color: white;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f3e9ff,
-      #fff0f7
-    );
+  font-size: 17px;
 }
 
 
-.event-item strong {
+.google-icon {
+  background: #4285f4;
+}
+
+
+.outlook-icon {
+  background: #0078d4;
+}
+
+
+.apple-icon {
+  background: #161616;
+}
+
+
+.ics-icon {
+  background: var(--purple);
+}
+
+
+.calendar-option strong {
 
   display: block;
 
-  margin-bottom: 4px;
-
   color: var(--purple);
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 
-.event-item span:not(.event-icon) {
+.calendar-option small {
 
   display: block;
 
-  color: #51445c;
+  margin-top: 2px;
 
-  font-size: 14px;
+  color: var(--muted);
 
-  line-height: 1.45;
-}
-
-
-.event-secondary {
-
-  color: var(--muted) !important;
-
-  font-size: 13px !important;
-}
-
-
-.event-action {
-
-  margin-top: 7px;
-
-  color: var(--pink) !important;
-
-  font-size: 11px !important;
-
-  font-weight: 800;
-}
-
-
-.event-action i {
-  margin-right: 3px;
+  font-size: 11px;
 }
 
 
@@ -1783,23 +1656,23 @@ textarea {
 
   position: relative;
 
-  margin-top: 26px;
+  margin-top: 27px;
 
   padding:
-    25px
-    17px;
+    28px
+    20px;
 
   border:
-    2px dashed
-    rgba(255,63,145,.21);
+    3px dashed
+    rgba(255,63,145,.24);
 
-  border-radius: 22px;
+  border-radius: 26px;
 
   background:
     linear-gradient(
       145deg,
       #fff9fc,
-      #f8f2ff
+      #f8f0ff
     );
 
   text-align: center;
@@ -1810,17 +1683,48 @@ textarea {
 
   display: block;
 
-  margin-bottom: 13px;
+  margin-bottom: 18px;
+
+  font-family:
+    "Fredoka",
+    sans-serif;
 
   color: var(--purple);
 
-  font-size: 12px;
+  font-size: 22px;
 
-  font-weight: 900;
+  font-weight: 700;
 
-  text-transform: uppercase;
+  line-height: 1.05;
+}
 
-  letter-spacing: .8px;
+
+.venue-small-title::before {
+
+  content: "¡";
+
+  color: var(--pink);
+}
+
+
+.venue-small-title::after {
+
+  content: "!";
+
+  color: var(--aqua);
+}
+
+
+.venue-logo-link {
+
+  display: block;
+
+  width: fit-content;
+
+  margin:
+    0
+    auto
+    18px;
 }
 
 
@@ -1828,14 +1732,11 @@ textarea {
 
   display: block;
 
-  width: 125px;
+  width: 150px;
+
+  max-width: 60vw;
 
   height: auto;
-
-  margin:
-    0
-    auto
-    12px;
 
   object-fit: contain;
 }
@@ -1843,18 +1744,24 @@ textarea {
 
 .venue-description {
 
-  max-width: 240px;
+  max-width: 280px;
 
   margin:
     0
     auto
-    18px;
+    20px;
 
-  color: #74677e;
+  font-family:
+    "Fredoka",
+    sans-serif;
 
-  font-size: 12px;
+  color: #65546f;
 
-  line-height: 1.5;
+  font-size: 15px;
+
+  font-weight: 500;
+
+  line-height: 1.45;
 }
 
 
@@ -1870,9 +1777,9 @@ textarea {
 
   flex-wrap: wrap;
 
-  gap: 9px;
+  gap: 10px;
 
-  margin-bottom: 14px;
+  margin-bottom: 17px;
 }
 
 
@@ -1882,8 +1789,8 @@ textarea {
 
   place-items: center;
 
-  width: 43px;
-  height: 43px;
+  width: 44px;
+  height: 44px;
 
   border-radius: 13px;
 
@@ -1892,17 +1799,6 @@ textarea {
   font-size: 20px;
 
   text-decoration: none;
-
-  transition:
-    transform .17s ease;
-}
-
-
-.network-button:hover {
-
-  transform:
-    translateY(-3px)
-    scale(1.05);
 }
 
 
@@ -1912,7 +1808,7 @@ textarea {
     linear-gradient(
       135deg,
       #833ab4,
-      #fd1d1d 55%,
+      #fd1d1d,
       #fcb045
     );
 }
@@ -1934,13 +1830,7 @@ textarea {
 
 
 .network-button.web {
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--purple),
-      var(--purple-light)
-    );
+  background: var(--purple);
 }
 
 
@@ -1950,19 +1840,23 @@ textarea {
 
   flex-direction: column;
 
-  align-items: center;
+  gap: 8px;
 
-  gap: 7px;
+  align-items: center;
 }
 
 
 .venue-contact-lines a {
 
-  color: #5f4d6b;
+  font-family:
+    "Fredoka",
+    sans-serif;
 
-  font-size: 12px;
+  color: #604c70;
 
-  font-weight: 700;
+  font-size: 14px;
+
+  font-weight: 600;
 
   text-decoration: none;
 }
@@ -2031,11 +1925,35 @@ textarea {
 
 
 /* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .hero {
+
+    grid-template-columns:
+      minmax(300px,400px)
+      1fr;
+
+    gap: 25px;
+  }
+
+
+  .content {
+
+    grid-template-columns:
+      minmax(0,1.5fr)
+      minmax(270px,.9fr);
+  }
+}
+
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
 @media (max-width: 760px) {
-
 
   .page {
 
@@ -2123,13 +2041,7 @@ textarea {
   }
 
 
-  .birthday-main strong {
-    min-width: 65px;
-  }
-
-
   .birthday-question {
-
     font-size: 25px;
   }
 
@@ -2187,12 +2099,19 @@ textarea {
   }
 
 
-  .network-button {
+  .calendar-options {
 
-    width: 45px;
-    height: 45px;
+    margin-right: 0;
+
+    margin-left: -53px;
   }
 
+
+  .network-button {
+
+    width: 46px;
+    height: 46px;
+  }
 }
 
 
@@ -2201,7 +2120,6 @@ textarea {
    ========================================================= */
 
 @media (max-width: 440px) {
-
 
   .page {
 
@@ -2262,18 +2180,19 @@ textarea {
   }
 
 
-  .confirm-button {
-
-    font-size: 16px;
-
-    gap: 10px;
+  .calendar-options {
+    margin-left: -50px;
   }
 
+
+  .confirm-button {
+    font-size: 16px;
+  }
 }
 
 
 /* =========================================================
-   ACCESSIBILITY
+   ACCESIBILIDAD
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
