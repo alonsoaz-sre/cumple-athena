@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("APP VERSION 10 - GOOGLE FORMS POST");
+  console.log("APP VERSION 11 - GOOGLE FORMS OK");
 
   const form =
     document.getElementById("formAsistencia");
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(
         'input[name="adultos"]:checked'
       );
+
 
     if (!seleccion) {
       return;
@@ -94,147 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // =====================================================
-  // ENVIAR GOOGLE FORMS
-  // =====================================================
-
-  function enviarAGoogleForms(datos) {
-
-    return new Promise(function (resolve) {
-
-      const iframe =
-        document.createElement("iframe");
-
-      const targetName =
-        "googleFormsTarget_" + Date.now();
-
-
-      iframe.name =
-        targetName;
-
-      iframe.style.display =
-        "none";
-
-
-      document.body.appendChild(
-        iframe
-      );
-
-
-      const googleForm =
-        document.createElement("form");
-
-
-      googleForm.method =
-        "POST";
-
-      googleForm.action =
-        CONFIG.googleForm.url;
-
-      googleForm.target =
-        targetName;
-
-      googleForm.style.display =
-        "none";
-
-
-      Object.entries(datos)
-        .forEach(function ([campo, valor]) {
-
-          const input =
-            document.createElement("input");
-
-          input.type =
-            "hidden";
-
-          input.name =
-            campo;
-
-          input.value =
-            valor;
-
-          googleForm.appendChild(
-            input
-          );
-
-        });
-
-
-      document.body.appendChild(
-        googleForm
-      );
-
-
-      let enviado = false;
-
-
-      iframe.addEventListener(
-        "load",
-        function () {
-
-          if (enviado) {
-
-            setTimeout(
-              function () {
-
-                googleForm.remove();
-                iframe.remove();
-
-              },
-              1000
-            );
-
-
-            resolve();
-          }
-
-        }
-      );
-
-
-      enviado = true;
-
-      googleForm.submit();
-
-
-      // Fallback:
-      // Google puede bloquear lectura del iframe,
-      // pero el POST igualmente se realiza.
-
-      setTimeout(
-        function () {
-
-          if (
-            document.body.contains(
-              googleForm
-            )
-          ) {
-
-            googleForm.remove();
-          }
-
-
-          if (
-            document.body.contains(
-              iframe
-            )
-          ) {
-
-            iframe.remove();
-          }
-
-
-          resolve();
-
-        },
-        1800
-      );
-
-    });
-  }
-
-
-  // =====================================================
-  // SUBMIT PRINCIPAL
+  // SUBMIT
   // =====================================================
 
   form.addEventListener(
@@ -244,6 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
 
 
+      // -------------------------------------------------
+      // VALIDACIÓN HTML
+      // -------------------------------------------------
+
       if (!form.checkValidity()) {
 
         form.reportValidity();
@@ -251,6 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+
+      // -------------------------------------------------
+      // CONFIG
+      // -------------------------------------------------
 
       if (
         typeof CONFIG === "undefined" ||
@@ -267,8 +136,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
+      if (!CONFIG.whatsapp) {
+
+        alert(
+          "No está configurado WhatsApp."
+        );
+
+        return;
+      }
+
+
       // =====================================================
-      // LEER DATOS
+      // DATOS
       // =====================================================
 
       const nino =
@@ -305,11 +184,17 @@ document.addEventListener("DOMContentLoaded", function () {
         seleccionAdultos.value;
 
 
+      // Adulto 2:
+      // Google Forms siempre recibe un valor.
+
       const segundoAdulto =
         cantidadAdultos === "2"
           ? adulto2.value.trim()
           : "NO";
 
+
+      // Comentario:
+      // Google Forms siempre recibe un valor.
 
       const comentarioIngresado =
         document
@@ -329,38 +214,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       // =====================================================
-      // DATOS GOOGLE FORM
+      // GOOGLE FORM
       // =====================================================
 
-      const datosGoogle = {
-
-        [CONFIG.googleForm.fields.fecha]:
-          fechaRegistro,
-
-        [CONFIG.googleForm.fields.nino]:
-          nino,
-
-        [CONFIG.googleForm.fields.adulto1]:
-          adulto1,
-
-        [CONFIG.googleForm.fields.adultos]:
-          cantidadAdultos,
-
-        [CONFIG.googleForm.fields.adulto2]:
-          segundoAdulto,
-
-        [CONFIG.googleForm.fields.comentario]:
-          comentario,
-
-        [CONFIG.googleForm.fields.origen]:
-          "WEB"
-
-      };
+      const datosGoogle =
+        new FormData();
 
 
-      console.log(
-        "Datos que enviaremos a Google:",
-        datosGoogle
+      datosGoogle.append(
+        CONFIG.googleForm.fields.fecha,
+        fechaRegistro
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.nino,
+        nino
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adulto1,
+        adulto1
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adultos,
+        cantidadAdultos
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adulto2,
+        segundoAdulto
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.comentario,
+        comentario
+      );
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.origen,
+        "WEB"
       );
 
 
@@ -378,8 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
         boton.innerHTML;
 
 
-      boton.disabled =
-        true;
+      boton.disabled = true;
 
 
       boton.innerHTML =
@@ -388,33 +286,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       // =====================================================
-      // GOOGLE FORMS
+      // ENVÍO GOOGLE FORMS
       // =====================================================
 
       try {
 
-        await enviarAGoogleForms(
-          datosGoogle
+        await fetch(
+          CONFIG.googleForm.url,
+          {
+            method: "POST",
+            mode: "no-cors",
+            body: datosGoogle
+          }
         );
+
+
+        console.log(
+          "Registro enviado a Google Forms:",
+          {
+            fecha: fechaRegistro,
+            nino: nino,
+            adulto1: adulto1,
+            adultos: cantidadAdultos,
+            adulto2: segundoAdulto,
+            comentario: comentario,
+            origen: "WEB"
+          }
+        );
+
 
       } catch (error) {
 
         console.error(
-          "Error Google Forms:",
+          "Error al registrar:",
           error
         );
 
 
-        boton.disabled =
-          false;
-
+        boton.disabled = false;
 
         boton.innerHTML =
           contenidoOriginal;
 
 
         alert(
-          "No pudimos registrar la asistencia."
+          "No pudimos registrar tu asistencia. Inténtalo nuevamente."
         );
 
         return;
@@ -483,16 +399,30 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-      boton.disabled =
-        false;
+      // =====================================================
+      // PEQUEÑA ESPERA
+      // =====================================================
+
+      /*
+       * Damos un momento al navegador para que despache
+       * el POST antes de navegar hacia WhatsApp.
+       */
+
+      setTimeout(
+        function () {
+
+          boton.disabled = false;
+
+          boton.innerHTML =
+            contenidoOriginal;
 
 
-      boton.innerHTML =
-        contenidoOriginal;
+          window.location.href =
+            whatsappURL;
 
-
-      window.location.href =
-        whatsappURL;
+        },
+        700
+      );
 
     }
   );
