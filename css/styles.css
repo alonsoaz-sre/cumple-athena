@@ -13,9 +13,7 @@
   box-sizing: border-box;
 }
 
-
 :root {
-
   --pink: #ff3b91;
   --pink-light: #ff72b5;
   --pink-pale: #fff0f7;
@@ -50,13 +48,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
-
   margin: 0;
-
   min-height: 100vh;
-
   overflow-x: hidden;
 
   font-family:
@@ -67,25 +61,21 @@ body {
   color: var(--ink);
 
   background:
-
     radial-gradient(
       circle at 8% 10%,
-      rgba(255,72,151,.10) 0 3px,
+      rgba(255, 72, 151, .10) 0 3px,
       transparent 4px
     ),
-
     radial-gradient(
       circle at 90% 16%,
-      rgba(33,207,197,.13) 0 4px,
+      rgba(33, 207, 197, .13) 0 4px,
       transparent 5px
     ),
-
     radial-gradient(
       circle at 25% 75%,
-      rgba(118,56,209,.08) 0 3px,
+      rgba(118, 56, 209, .08) 0 3px,
       transparent 4px
     ),
-
     linear-gradient(
       180deg,
       #fff7fb 0%,
@@ -106,11 +96,9 @@ body {
    ========================================================= */
 
 body::before {
-
   content: "";
 
   position: fixed;
-
   z-index: -10;
 
   top: -150px;
@@ -131,13 +119,10 @@ body::before {
   opacity: .72;
 }
 
-
 body::after {
-
   content: "";
 
   position: fixed;
-
   z-index: -10;
 
   top: -160px;
@@ -164,7 +149,6 @@ body::after {
    ========================================================= */
 
 .page {
-
   position: relative;
 
   width:
@@ -187,7 +171,6 @@ body::after {
    ========================================================= */
 
 .hero {
-
   position: relative;
 
   display: grid;
@@ -205,9 +188,7 @@ body::after {
   margin-bottom: 40px;
 }
 
-
 .hero-logo-wrapper {
-
   position: relative;
 
   z-index: 5;
@@ -215,15 +196,12 @@ body::after {
   display: flex;
 
   justify-content: center;
-
   align-items: center;
 
   min-height: 500px;
 }
 
-
 .logo {
-
   position: relative;
 
   z-index: 5;
@@ -237,7 +215,6 @@ body::after {
     );
 
   height: auto;
-
   max-height: 500px;
 
   object-fit: contain;
@@ -247,7 +224,7 @@ body::after {
   filter:
     drop-shadow(
       0 18px 23px
-      rgba(96,43,145,.18)
+      rgba(96, 43, 145, .18)
     );
 
   animation:
@@ -257,19 +234,15 @@ body::after {
     infinite;
 }
 
-
 @keyframes athenaFloat {
-
   0%,
   100% {
-
     transform:
       translateY(0)
       rotate(-.5deg);
   }
 
   50% {
-
     transform:
       translateY(-10px)
       rotate(.5deg);
@@ -282,7 +255,6 @@ body::after {
    ========================================================= */
 
 .logo-star {
-
   position: absolute;
 
   z-index: 4;
@@ -311,16 +283,12 @@ body::after {
     infinite;
 }
 
-
 .logo-star-1 {
-
   left: 3%;
   top: 18%;
 }
 
-
 .logo-star-2 {
-
   right: 5%;
   bottom: 18%;
 
@@ -332,9 +300,7 @@ body::after {
   animation-delay: 1s;
 }
 
-
 .logo-heart {
-
   position: absolute;
 
   right: 8%;
@@ -353,10 +319,8 @@ body::after {
     infinite;
 }
 
-
 .logo-heart::before,
 .logo-heart::after {
-
   content: "";
 
   position: absolute;
@@ -369,22 +333,17 @@ body::after {
   background: inherit;
 }
 
-
 .logo-heart::before {
   left: -11px;
 }
-
 
 .logo-heart::after {
   top: -11px;
 }
 
-
 @keyframes logoSpark {
-
   0%,
   100% {
-
     opacity: .45;
 
     transform:
@@ -393,7 +352,6 @@ body::after {
   }
 
   50% {
-
     opacity: 1;
 
     transform:
@@ -402,9 +360,7 @@ body::after {
   }
 }
 
-
 @keyframes miniHeart {
-
   0%,
   100% {
     scale: .9;
@@ -421,7 +377,6 @@ body::after {
    ========================================================= */
 
 .hero-text {
-
   position: relative;
 
   z-index: 8;
@@ -429,9 +384,7 @@ body::after {
   text-align: center;
 }
 
-
 .birthday-sign {
-
   position: relative;
 
   width:
@@ -452,28 +405,26 @@ body::after {
 
   border:
     3px solid
-    rgba(255,69,154,.22);
+    rgba(255, 69, 154, .22);
 
   border-radius: 30px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255,248,252,.98),
-      rgba(250,240,255,.98)
+      rgba(255, 248, 252, .98),
+      rgba(250, 240, 255, .98)
     );
 
   box-shadow:
     0 20px 45px
-    rgba(111,51,188,.12);
+    rgba(111, 51, 188, .12);
 
   transform:
     rotate(-1deg);
 }
 
-
 .birthday-sign::before {
-
   content: "✦";
 
   position: absolute;
@@ -491,9 +442,7 @@ body::after {
     infinite;
 }
 
-
 .birthday-sign::after {
-
   content: "♥";
 
   position: absolute;
@@ -511,9 +460,7 @@ body::after {
     infinite;
 }
 
-
 .birthday-kicker {
-
   display: block;
 
   margin-bottom: 13px;
@@ -536,15 +483,11 @@ body::after {
   letter-spacing: 4px;
 }
 
-
 .birthday-main {
-
   display: flex;
 
   align-items: center;
-
   justify-content: center;
-
   flex-wrap: wrap;
 
   gap:
@@ -570,13 +513,11 @@ body::after {
 
   text-shadow:
     0 5px 0 #fff,
-    0 10px 0 rgba(255,59,145,.09),
-    0 14px 22px rgba(103,47,180,.13);
+    0 10px 0 rgba(255, 59, 145, .09),
+    0 14px 22px rgba(103, 47, 180, .13);
 }
 
-
 .birthday-main strong {
-
   color: var(--pink);
 
   font-size: 1.22em;
@@ -587,9 +528,7 @@ body::after {
     rotate(3deg);
 }
 
-
 .birthday-question {
-
   display: block;
 
   margin-top: 22px;
@@ -608,9 +547,7 @@ body::after {
     );
 }
 
-
 .hero-text h1 {
-
   max-width: 650px;
 
   margin:
@@ -636,9 +573,7 @@ body::after {
   line-height: .95;
 }
 
-
 .hero-text p {
-
   max-width: 570px;
 
   margin: auto;
@@ -659,28 +594,22 @@ body::after {
   line-height: 1.25;
 }
 
-
 @keyframes signSpark {
-
   0%,
   100% {
-
     transform:
       rotate(0)
       scale(.8);
   }
 
   50% {
-
     transform:
       rotate(95deg)
       scale(1.15);
   }
 }
 
-
 @keyframes signHeart {
-
   0%,
   100% {
     transform:
@@ -699,7 +628,6 @@ body::after {
    ========================================================= */
 
 .fireworks {
-
   position: absolute;
 
   z-index: 1;
@@ -711,9 +639,7 @@ body::after {
   pointer-events: none;
 }
 
-
 .firework {
-
   position: absolute;
 
   width: 7px;
@@ -730,9 +656,7 @@ body::after {
     infinite;
 }
 
-
 .firework::before {
-
   content: "";
 
   position: absolute;
@@ -742,7 +666,6 @@ body::after {
   border-radius: inherit;
 
   box-shadow:
-
     0 -70px 0 2px #ff4095,
     27px -63px 0 1px #22d0c4,
     51px -49px 0 1px #ffd360,
@@ -757,9 +680,7 @@ body::after {
     -71px 5px 0 1px #9762e5;
 }
 
-
 .firework::after {
-
   content: "";
 
   position: absolute;
@@ -769,17 +690,15 @@ body::after {
   border-radius: inherit;
 
   box-shadow:
-
-    0 -41px 0 -1px rgba(255,63,145,.85),
-    29px -29px 0 -1px rgba(33,207,197,.85),
-    41px 0 0 -1px rgba(255,210,95,.85),
-    29px 29px 0 -1px rgba(157,100,231,.85),
-    0 41px 0 -1px rgba(255,98,168,.85),
-    -29px 29px 0 -1px rgba(33,207,197,.85),
-    -41px 0 0 -1px rgba(255,210,95,.85),
-    -29px -29px 0 -1px rgba(157,100,231,.85);
+    0 -41px 0 -1px rgba(255, 63, 145, .85),
+    29px -29px 0 -1px rgba(33, 207, 197, .85),
+    41px 0 0 -1px rgba(255, 210, 95, .85),
+    29px 29px 0 -1px rgba(157, 100, 231, .85),
+    0 41px 0 -1px rgba(255, 98, 168, .85),
+    -29px 29px 0 -1px rgba(33, 207, 197, .85),
+    -41px 0 0 -1px rgba(255, 210, 95, .85),
+    -29px -29px 0 -1px rgba(157, 100, 231, .85);
 }
-
 
 .fw1 { left: 3%; top: 13%; animation-delay: .1s; }
 .fw2 { left: 29%; top: 3%; animation-delay: 1.7s; }
@@ -790,11 +709,8 @@ body::after {
 .fw7 { left: 45%; top: 31%; animation-delay: 3.8s; }
 .fw8 { right: 16%; top: 34%; animation-delay: 1.4s; }
 
-
 @keyframes bigFirework {
-
   0% {
-
     opacity: 0;
 
     transform:
@@ -806,7 +722,6 @@ body::after {
   }
 
   50% {
-
     opacity: .87;
 
     transform:
@@ -815,7 +730,6 @@ body::after {
   }
 
   100% {
-
     opacity: 0;
 
     transform:
@@ -830,7 +744,6 @@ body::after {
    ========================================================= */
 
 .hero-confetti {
-
   position: absolute;
 
   z-index: 2;
@@ -842,9 +755,7 @@ body::after {
   pointer-events: none;
 }
 
-
 .confetti-piece {
-
   position: absolute;
 
   width: 11px;
@@ -861,7 +772,6 @@ body::after {
     infinite;
 }
 
-
 .cp1 { top: 3%; left: 8%; background: var(--pink); }
 .cp2 { top: 15%; left: 29%; background: var(--aqua); }
 .cp3 { top: 7%; right: 20%; background: #ffd767; }
@@ -875,16 +785,13 @@ body::after {
 .cp11 { top: 55%; right: 4%; background: var(--aqua); }
 .cp12 { top: 2%; right: 40%; background: var(--yellow); }
 
-
 @keyframes confettiDance {
-
   0%,
   100% {
     translate: 0 0;
   }
 
   50% {
-
     translate:
       8px
       15px;
@@ -900,7 +807,6 @@ body::after {
    ========================================================= */
 
 .content {
-
   position: relative;
 
   z-index: 6;
@@ -908,29 +814,27 @@ body::after {
   display: grid;
 
   grid-template-columns:
-    minmax(0,1.8fr)
-    minmax(300px,.9fr);
+    minmax(0, 1.8fr)
+    minmax(300px, .9fr);
 
   gap: 28px;
 
   align-items: start;
 }
 
-
 .card {
-
   position: relative;
 
   padding: 34px;
 
   border:
     1px solid
-    rgba(147,91,211,.19);
+    rgba(147, 91, 211, .19);
 
   border-radius: 30px;
 
   background:
-    rgba(255,255,255,.97);
+    rgba(255, 255, 255, .97);
 
   box-shadow: var(--shadow);
 }
@@ -941,7 +845,6 @@ body::after {
    ========================================================= */
 
 .section-heading {
-
   display: flex;
 
   gap: 15px;
@@ -949,9 +852,7 @@ body::after {
   margin-bottom: 30px;
 }
 
-
 .heading-icon {
-
   display: grid;
 
   place-items: center;
@@ -970,9 +871,7 @@ body::after {
   color: white;
 }
 
-
 .section-heading h2 {
-
   margin:
     2px
     0
@@ -983,9 +882,7 @@ body::after {
   font-size: 30px;
 }
 
-
 .subtitle {
-
   margin: 0;
 
   color: var(--muted);
@@ -993,15 +890,12 @@ body::after {
   line-height: 1.5;
 }
 
-
 .field {
   margin-bottom: 25px;
 }
 
-
 .field label,
 .adult-selector legend {
-
   display: block;
 
   margin-bottom: 9px;
@@ -1013,32 +907,25 @@ body::after {
   font-weight: 800;
 }
 
-
 .field label i,
 .adult-selector legend i {
-
   width: 22px;
 
   color: var(--pink);
 }
 
-
 .required {
   color: var(--pink);
 }
 
-
 .optional {
-
   color: var(--muted);
 
   font-size: 12px;
 }
 
-
 input,
 textarea {
-
   width: 100%;
 
   padding:
@@ -1058,20 +945,16 @@ textarea {
   font: inherit;
 }
 
-
 input:focus,
 textarea:focus {
-
   border-color: var(--pink);
 
   box-shadow:
     0 0 0 4px
-    rgba(255,63,145,.09);
+    rgba(255, 63, 145, .09);
 }
 
-
 textarea {
-
   min-height: 110px;
 
   resize: vertical;
@@ -1083,11 +966,10 @@ textarea {
    ========================================================= */
 
 .adult-selector {
-
   display: grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(2, 1fr);
 
   gap: 12px;
 
@@ -1101,27 +983,21 @@ textarea {
   border: 0;
 }
 
-
 .adult-selector legend {
   grid-column: 1 / -1;
 }
-
 
 .adult-option {
   position: relative;
 }
 
-
 .adult-option input {
-
   position: absolute;
 
   opacity: 0;
 }
 
-
 .adult-option span {
-
   display: flex;
 
   flex-direction: column;
@@ -1145,41 +1021,33 @@ textarea {
   cursor: pointer;
 }
 
-
 .adult-option strong {
-
   color: var(--purple);
 
   font-size: 22px;
 }
 
-
 .adult-option input:checked + span {
-
   border-color: var(--pink);
 
   background: var(--pink-pale);
 }
 
-
 .adult-option input:checked + span strong {
   color: var(--pink);
 }
 
-
 #adulto2Container {
-
   padding: 18px;
 
   border:
     2px dashed
-    rgba(255,61,145,.28);
+    rgba(255, 61, 145, .28);
 
   border-radius: 18px;
 
   background: #fff5fa;
 }
-
 
 #adulto2Container.hidden {
   display: none;
@@ -1191,7 +1059,6 @@ textarea {
    ========================================================= */
 
 .confirm-button {
-
   display: flex;
 
   align-items: center;
@@ -1230,12 +1097,10 @@ textarea {
 
   box-shadow:
     0 13px 29px
-    rgba(235,43,132,.25);
+    rgba(235, 43, 132, .25);
 }
 
-
 .button-icons {
-
   display: flex;
 
   gap: 7px;
@@ -1245,14 +1110,11 @@ textarea {
   font-size: 22px;
 }
 
-
 .button-icons .fa-whatsapp {
   font-size: 26px;
 }
 
-
 .privacy {
-
   margin-top: 14px;
 
   color: #8a7c94;
@@ -1268,15 +1130,12 @@ textarea {
    ========================================================= */
 
 .event-card {
-
   position: sticky;
 
   top: 18px;
 }
 
-
 .event-title {
-
   display: flex;
 
   gap: 13px;
@@ -1287,12 +1146,10 @@ textarea {
 
   border-bottom:
     2px dashed
-    rgba(255,63,145,.20);
+    rgba(255, 63, 145, .20);
 }
 
-
 .event-title-icon {
-
   display: grid;
 
   place-items: center;
@@ -1311,9 +1168,7 @@ textarea {
   color: white;
 }
 
-
 .eyebrow {
-
   display: block;
 
   color: var(--pink);
@@ -1327,9 +1182,7 @@ textarea {
   text-transform: uppercase;
 }
 
-
 .event-title h2 {
-
   margin:
     2px
     0
@@ -1340,9 +1193,7 @@ textarea {
   font-size: 25px;
 }
 
-
 .event-item {
-
   display: flex;
 
   gap: 13px;
@@ -1358,9 +1209,7 @@ textarea {
     #eee4f4;
 }
 
-
 .event-link {
-
   color: inherit;
 
   text-decoration: none;
@@ -1368,9 +1217,7 @@ textarea {
   border-radius: 16px;
 }
 
-
 .event-link:hover {
-
   background:
     linear-gradient(
       90deg,
@@ -1379,9 +1226,7 @@ textarea {
     );
 }
 
-
 .event-icon {
-
   display: grid;
 
   place-items: center;
@@ -1405,14 +1250,11 @@ textarea {
   color: var(--purple);
 }
 
-
 .event-info {
   flex: 1;
 }
 
-
 .event-item strong {
-
   display: block;
 
   margin-bottom: 5px;
@@ -1422,9 +1264,7 @@ textarea {
   font-size: 15px;
 }
 
-
 .event-item span:not(.event-icon) {
-
   display: block;
 
   color: #51445c;
@@ -1432,9 +1272,7 @@ textarea {
   line-height: 1.45;
 }
 
-
 .event-secondary {
-
   margin-top: 2px;
 
   color: var(--muted) !important;
@@ -1442,9 +1280,19 @@ textarea {
   font-size: 13px;
 }
 
+.event-time {
+  margin-top: 4px !important;
+
+  color: #66576f !important;
+
+  font-size: 15px !important;
+
+  font-weight: 700;
+
+  line-height: 1.35;
+}
 
 .event-action {
-
   display: inline-flex !important;
 
   align-items: center;
@@ -1468,42 +1316,33 @@ textarea {
    ========================================================= */
 
 .calendar-picker {
-
   margin-top: 2px;
 }
 
-
 .calendar-picker > summary {
-
   list-style: none;
 
   outline: none;
 }
 
-
 .calendar-picker > summary::-webkit-details-marker {
   display: none;
 }
 
-
 .calendar-picker[open] > summary {
-
   margin-bottom: 14px;
 }
 
-
 .calendar-options {
-
   display: grid;
 
-  gap: 5px;
+  gap: 6px;
 
-  padding:
-    10px;
+  padding: 10px;
 
   border:
     1px solid
-    rgba(116,55,208,.13);
+    rgba(116, 55, 208, .13);
 
   border-radius: 20px;
 
@@ -1516,7 +1355,7 @@ textarea {
 
   box-shadow:
     0 13px 30px
-    rgba(83,43,127,.08);
+    rgba(83, 43, 127, .08);
 }
 
 
@@ -1525,25 +1364,24 @@ textarea {
    ========================================================= */
 
 .calendar-option {
-
   display: grid;
 
   grid-template-columns:
-    48px
-    minmax(0,1fr)
-    20px;
+    54px
+    minmax(0, 1fr)
+    22px;
 
   align-items: center;
 
-  gap: 12px;
+  column-gap: 14px;
 
-  min-height: 70px;
+  min-height: 76px;
 
   padding:
-    9px
-    10px;
+    10px
+    12px;
 
-  border-radius: 15px;
+  border-radius: 17px;
 
   color: var(--ink);
 
@@ -1555,98 +1393,197 @@ textarea {
     box-shadow .16s ease;
 }
 
-
 .calendar-option:hover {
-
-  background: white;
+  background: #ffffff;
 
   transform:
     translateX(2px);
 
   box-shadow:
-    0 8px 18px
-    rgba(78,44,113,.07);
+    0 8px 20px
+    rgba(78, 44, 113, .08);
 }
 
 
 /* =========================================================
-   CALENDAR ICONS
+   CALENDAR BRAND
    ========================================================= */
 
 .calendar-brand {
+  position: relative;
 
-  display: grid;
+  display: flex !important;
 
-  place-items: center;
+  align-items: center !important;
 
-  width: 48px;
-  height: 48px;
+  justify-content: center !important;
 
-  border-radius: 15px;
+  flex:
+    0 0
+    54px;
 
-  color: white;
+  width: 54px !important;
+  height: 54px !important;
 
-  font-size: 22px;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  line-height: 1 !important;
 
   box-shadow:
-    0 6px 14px
-    rgba(61,38,85,.12);
+    0 7px 18px
+    rgba(61, 38, 85, .13);
 }
 
+.calendar-brand i {
+  position: static !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  line-height: 1 !important;
+
+  text-align: center;
+
+  transform: none !important;
+}
+
+
+/* =========================================================
+   GOOGLE CALENDAR
+   ========================================================= */
 
 .calendar-google {
+  background: #ffffff;
 
-  background:
-    linear-gradient(
-      145deg,
-      #4285f4,
-      #2b6edf
-    );
+  border:
+    1px solid
+    #e7e7e7;
+
+  color: #4285f4;
+
+  box-shadow:
+    0 7px 18px
+    rgba(66, 133, 244, .13);
 }
 
+.calendar-google i {
+  color: #4285f4 !important;
+
+  font-size: 30px !important;
+}
+
+
+/* =========================================================
+   OUTLOOK
+   ========================================================= */
 
 .calendar-outlook {
+  background: #ffffff;
 
-  background:
-    linear-gradient(
-      145deg,
-      #1490df,
-      #0078d4
-    );
+  border:
+    1px solid
+    #e4edf7;
+
+  color: #0078d4;
+
+  box-shadow:
+    0 7px 18px
+    rgba(0, 120, 212, .13);
 }
 
+.calendar-outlook i {
+  color: #0078d4 !important;
+
+  font-size: 28px !important;
+}
+
+
+/* =========================================================
+   APPLE
+   ========================================================= */
 
 .calendar-apple {
+  background: #17151a;
 
-  background:
-    linear-gradient(
-      145deg,
-      #2d2930,
-      #0f0e11
-    );
+  border:
+    1px solid
+    #17151a;
 
-  font-size: 25px;
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px
+    rgba(20, 18, 22, .18);
 }
 
+.calendar-apple i {
+  color: #ffffff !important;
+
+  font-size: 31px !important;
+}
+
+
+/* =========================================================
+   ICS
+   ========================================================= */
 
 .calendar-ics {
-
   background:
     linear-gradient(
       145deg,
-      #8e4ce5,
-      #6e2fc7
+      #8c4ee6,
+      #7131cf
     );
+
+  border:
+    1px solid
+    #7437d0;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 18px
+    rgba(116, 55, 208, .18);
 }
 
+.calendar-ics i {
+  color: #ffffff !important;
+
+  font-size: 26px !important;
+}
+
+
+/* =========================================================
+   CALENDAR TEXT
+   ========================================================= */
 
 .calendar-copy {
+  display: flex !important;
+
+  flex-direction: column;
+
+  justify-content: center;
+
   min-width: 0;
+
+  text-align: left;
 }
 
-
 .calendar-copy strong {
-
   display: block;
 
   margin: 0;
@@ -1657,31 +1594,38 @@ textarea {
     "Fredoka",
     sans-serif;
 
-  font-size: 15px;
+  font-size: 16px;
 
   font-weight: 600;
 
   line-height: 1.15;
 }
 
-
 .calendar-copy small {
-
   display: block;
 
-  margin-top: 5px;
+  margin-top: 4px;
 
   color: var(--muted);
 
-  font-size: 11px;
+  font-size: 12px;
 
   line-height: 1.3;
 }
 
-
 .calendar-arrow {
+  display: flex !important;
 
-  justify-self: end;
+  align-items: center;
+
+  justify-content: center;
+
+  justify-self: center;
+
+  width: 22px;
+  height: 22px;
+
+  margin: 0 !important;
 
   color:
     rgba(
@@ -1689,9 +1633,9 @@ textarea {
       55,
       208,
       .45
-    );
+    ) !important;
 
-  font-size: 12px;
+  font-size: 14px;
 }
 
 
@@ -1700,7 +1644,6 @@ textarea {
    ========================================================= */
 
 .venue-social {
-
   position: relative;
 
   margin-top: 27px;
@@ -1711,7 +1654,7 @@ textarea {
 
   border:
     3px dashed
-    rgba(255,63,145,.24);
+    rgba(255, 63, 145, .24);
 
   border-radius: 26px;
 
@@ -1725,9 +1668,7 @@ textarea {
   text-align: center;
 }
 
-
 .venue-small-title {
-
   display: block;
 
   margin-bottom: 18px;
@@ -1743,25 +1684,19 @@ textarea {
   font-weight: 700;
 }
 
-
 .venue-small-title::before {
-
   content: "¡";
 
   color: var(--pink);
 }
 
-
 .venue-small-title::after {
-
   content: "!";
 
   color: var(--aqua);
 }
 
-
 .venue-logo-link {
-
   display: block;
 
   width: fit-content;
@@ -1772,9 +1707,7 @@ textarea {
     18px;
 }
 
-
 .venue-logo {
-
   display: block;
 
   width: 150px;
@@ -1786,9 +1719,7 @@ textarea {
   object-fit: contain;
 }
 
-
 .venue-description {
-
   max-width: 280px;
 
   margin:
@@ -1815,7 +1746,6 @@ textarea {
    ========================================================= */
 
 .network-buttons {
-
   display: flex;
 
   justify-content: center;
@@ -1827,9 +1757,7 @@ textarea {
   margin-bottom: 17px;
 }
 
-
 .network-button {
-
   display: grid;
 
   place-items: center;
@@ -1846,9 +1774,7 @@ textarea {
   text-decoration: none;
 }
 
-
 .network-button.instagram {
-
   background:
     linear-gradient(
       135deg,
@@ -1858,29 +1784,23 @@ textarea {
     );
 }
 
-
 .network-button.facebook {
   background: #1877f2;
 }
-
 
 .network-button.tiktok {
   background: #151318;
 }
 
-
 .network-button.whatsapp {
   background: #25d366;
 }
-
 
 .network-button.web {
   background: var(--purple);
 }
 
-
 .venue-contact-lines {
-
   display: flex;
 
   flex-direction: column;
@@ -1890,9 +1810,7 @@ textarea {
   align-items: center;
 }
 
-
 .venue-contact-lines a {
-
   font-family:
     "Fredoka",
     sans-serif;
@@ -1912,7 +1830,6 @@ textarea {
    ========================================================= */
 
 .thanks {
-
   margin-top: 25px;
 
   padding:
@@ -1935,9 +1852,7 @@ textarea {
   text-align: center;
 }
 
-
 .thanks-heart {
-
   display: block;
 
   color: var(--pink);
@@ -1945,24 +1860,19 @@ textarea {
   font-size: 25px;
 }
 
-
 .thanks strong {
-
   color: var(--purple);
 
   font-size: 22px;
 }
 
-
 .thanks p {
-
   color: #65586e;
 
   font-size: 13px;
 
   line-height: 1.55;
 }
-
 
 .thanks-stars {
   color: var(--aqua);
@@ -1974,22 +1884,18 @@ textarea {
    ========================================================= */
 
 @media (max-width: 950px) {
-
   .hero {
-
     grid-template-columns:
-      minmax(300px,400px)
+      minmax(300px, 400px)
       1fr;
 
     gap: 25px;
   }
 
-
   .content {
-
     grid-template-columns:
-      minmax(0,1.5fr)
-      minmax(270px,.9fr);
+      minmax(0, 1.5fr)
+      minmax(270px, .9fr);
   }
 }
 
@@ -1999,9 +1905,7 @@ textarea {
    ========================================================= */
 
 @media (max-width: 760px) {
-
   .page {
-
     width:
       min(
         calc(100% - 20px),
@@ -2011,9 +1915,7 @@ textarea {
     padding-top: 16px;
   }
 
-
   .hero {
-
     display: flex;
 
     flex-direction: column;
@@ -2023,17 +1925,13 @@ textarea {
     min-height: auto;
   }
 
-
   .hero-logo-wrapper {
-
     width: 100%;
 
     min-height: 330px;
   }
 
-
   .logo {
-
     width:
       min(
         92vw,
@@ -2043,9 +1941,7 @@ textarea {
     max-height: 350px;
   }
 
-
   .birthday-sign {
-
     width:
       calc(
         100% - 8px
@@ -2057,9 +1953,7 @@ textarea {
       20px;
   }
 
-
   .birthday-kicker {
-
     font-size:
       clamp(
         21px,
@@ -2072,9 +1966,7 @@ textarea {
     letter-spacing: 2.5px;
   }
 
-
   .birthday-main {
-
     gap: 4px;
 
     font-size:
@@ -2085,14 +1977,11 @@ textarea {
       );
   }
 
-
   .birthday-question {
     font-size: 25px;
   }
 
-
   .hero-text h1 {
-
     font-size:
       clamp(
         43px,
@@ -2101,14 +1990,11 @@ textarea {
       );
   }
 
-
   .hero-text p {
-
     max-width: 390px;
 
     font-size: 25px;
   }
-
 
   .fw2,
   .fw5,
@@ -2116,9 +2002,7 @@ textarea {
     display: none;
   }
 
-
   .content {
-
     display: flex;
 
     flex-direction: column;
@@ -2126,9 +2010,7 @@ textarea {
     gap: 19px;
   }
 
-
   .card {
-
     width: 100%;
 
     padding:
@@ -2138,42 +2020,49 @@ textarea {
     border-radius: 24px;
   }
 
-
   .event-card {
     position: static;
   }
 
-
   .calendar-options {
-
     margin-left: -53px;
-  }
 
+    padding: 10px;
+  }
 
   .calendar-option {
-
     grid-template-columns:
-      45px
-      minmax(0,1fr)
-      18px;
+      52px
+      minmax(0, 1fr)
+      22px;
 
-    gap: 10px;
+    gap: 12px;
 
-    min-height: 67px;
+    min-height: 74px;
+
+    padding:
+      9px
+      10px;
   }
-
 
   .calendar-brand {
+    flex-basis: 52px;
 
-    width: 45px;
-    height: 45px;
+    width: 52px !important;
+    height: 52px !important;
 
-    border-radius: 14px;
+    border-radius: 15px;
   }
 
+  .calendar-copy strong {
+    font-size: 15px;
+  }
+
+  .calendar-copy small {
+    font-size: 11px;
+  }
 
   .network-button {
-
     width: 46px;
     height: 46px;
   }
@@ -2185,39 +2074,30 @@ textarea {
    ========================================================= */
 
 @media (max-width: 440px) {
-
   .page {
-
     width:
       calc(
         100% - 14px
       );
   }
 
-
   .hero-logo-wrapper {
     min-height: 285px;
   }
 
-
   .logo {
-
     max-width: 285px;
 
     max-height: 285px;
   }
 
-
   .birthday-kicker {
-
     font-size: 20px;
 
     letter-spacing: 2px;
   }
 
-
   .birthday-main {
-
     font-size:
       clamp(
         43px,
@@ -2226,42 +2106,51 @@ textarea {
       );
   }
 
-
   .hero-text h1 {
     font-size: 43px;
   }
-
 
   .hero-text p {
     font-size: 23px;
   }
 
-
   .card {
-
     padding:
       21px
       16px;
   }
 
-
   .calendar-options {
-
     margin-left: -50px;
 
     padding: 8px;
   }
 
+  .calendar-option {
+    grid-template-columns:
+      50px
+      minmax(0, 1fr)
+      20px;
+
+    gap: 10px;
+
+    min-height: 72px;
+  }
+
+  .calendar-brand {
+    flex-basis: 50px;
+
+    width: 50px !important;
+    height: 50px !important;
+  }
 
   .calendar-copy strong {
     font-size: 14px;
   }
 
-
   .calendar-copy small {
     font-size: 10px;
   }
-
 
   .confirm-button {
     font-size: 16px;
@@ -2274,11 +2163,9 @@ textarea {
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   *,
   *::before,
   *::after {
-
     animation-duration:
       .01ms !important;
 
