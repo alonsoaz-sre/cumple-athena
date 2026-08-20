@@ -1,10 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("APP VERSION 9 - GOOGLE FORM + WHATSAPP");
-
-  // =====================================================
-  // ELEMENTOS DEL FORMULARIO
-  // =====================================================
+  console.log("APP VERSION 10 - GOOGLE FORMS POST");
 
   const form =
     document.getElementById("formAsistencia");
@@ -22,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // =====================================================
-  // MOSTRAR / OCULTAR SEGUNDO ADULTO
+  // SEGUNDO ADULTO
   // =====================================================
 
   function actualizarSegundoAdulto() {
@@ -72,10 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // =====================================================
-  // FECHA Y HORA LOCAL
+  // FECHA LOCAL
   // =====================================================
 
-  function obtenerFechaHora() {
+  function obtenerFechaLocal() {
 
     const ahora = new Date();
 
@@ -92,31 +88,153 @@ document.addEventListener("DOMContentLoaded", function () {
         ahora.getDate()
       ).padStart(2, "0");
 
-    const hh =
-      String(
-        ahora.getHours()
-      ).padStart(2, "0");
 
-    const min =
-      String(
-        ahora.getMinutes()
-      ).padStart(2, "0");
-
-
-    return {
-
-      fecha:
-        `${yyyy}-${mm}-${dd}`,
-
-      hora:
-        `${hh}:${min}`
-
-    };
+    return `${yyyy}-${mm}-${dd}`;
   }
 
 
   // =====================================================
-  // SUBMIT
+  // ENVIAR GOOGLE FORMS
+  // =====================================================
+
+  function enviarAGoogleForms(datos) {
+
+    return new Promise(function (resolve) {
+
+      const iframe =
+        document.createElement("iframe");
+
+      const targetName =
+        "googleFormsTarget_" + Date.now();
+
+
+      iframe.name =
+        targetName;
+
+      iframe.style.display =
+        "none";
+
+
+      document.body.appendChild(
+        iframe
+      );
+
+
+      const googleForm =
+        document.createElement("form");
+
+
+      googleForm.method =
+        "POST";
+
+      googleForm.action =
+        CONFIG.googleForm.url;
+
+      googleForm.target =
+        targetName;
+
+      googleForm.style.display =
+        "none";
+
+
+      Object.entries(datos)
+        .forEach(function ([campo, valor]) {
+
+          const input =
+            document.createElement("input");
+
+          input.type =
+            "hidden";
+
+          input.name =
+            campo;
+
+          input.value =
+            valor;
+
+          googleForm.appendChild(
+            input
+          );
+
+        });
+
+
+      document.body.appendChild(
+        googleForm
+      );
+
+
+      let enviado = false;
+
+
+      iframe.addEventListener(
+        "load",
+        function () {
+
+          if (enviado) {
+
+            setTimeout(
+              function () {
+
+                googleForm.remove();
+                iframe.remove();
+
+              },
+              1000
+            );
+
+
+            resolve();
+          }
+
+        }
+      );
+
+
+      enviado = true;
+
+      googleForm.submit();
+
+
+      // Fallback:
+      // Google puede bloquear lectura del iframe,
+      // pero el POST igualmente se realiza.
+
+      setTimeout(
+        function () {
+
+          if (
+            document.body.contains(
+              googleForm
+            )
+          ) {
+
+            googleForm.remove();
+          }
+
+
+          if (
+            document.body.contains(
+              iframe
+            )
+          ) {
+
+            iframe.remove();
+          }
+
+
+          resolve();
+
+        },
+        1800
+      );
+
+    });
+  }
+
+
+  // =====================================================
+  // SUBMIT PRINCIPAL
   // =====================================================
 
   form.addEventListener(
@@ -126,10 +244,6 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
 
 
-      // -------------------------------------------------
-      // VALIDAR FORMULARIO HTML
-      // -------------------------------------------------
-
       if (!form.checkValidity()) {
 
         form.reportValidity();
@@ -137,10 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-
-      // -------------------------------------------------
-      // VALIDAR CONFIG
-      // -------------------------------------------------
 
       if (
         typeof CONFIG === "undefined" ||
@@ -157,18 +267,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
-      if (!CONFIG.whatsapp) {
-
-        alert(
-          "No está configurado el número de WhatsApp."
-        );
-
-        return;
-      }
-
-
       // =====================================================
-      // OBTENER DATOS
+      // LEER DATOS
       // =====================================================
 
       const nino =
@@ -205,19 +305,11 @@ document.addEventListener("DOMContentLoaded", function () {
         seleccionAdultos.value;
 
 
-      // =====================================================
-      // ADULTO 2
-      // =====================================================
-
       const segundoAdulto =
         cantidadAdultos === "2"
           ? adulto2.value.trim()
           : "NO";
 
-
-      // =====================================================
-      // COMENTARIO
-      // =====================================================
 
       const comentarioIngresado =
         document
@@ -232,72 +324,48 @@ document.addEventListener("DOMContentLoaded", function () {
           : "NO";
 
 
-      // =====================================================
-      // FECHA / HORA
-      // =====================================================
-
-      const fechaHora =
-        obtenerFechaHora();
+      const fechaRegistro =
+        obtenerFechaLocal();
 
 
       // =====================================================
-      // PREPARAR GOOGLE FORMS
+      // DATOS GOOGLE FORM
       // =====================================================
 
-      const datosGoogle =
-        new FormData();
+      const datosGoogle = {
+
+        [CONFIG.googleForm.fields.fecha]:
+          fechaRegistro,
+
+        [CONFIG.googleForm.fields.nino]:
+          nino,
+
+        [CONFIG.googleForm.fields.adulto1]:
+          adulto1,
+
+        [CONFIG.googleForm.fields.adultos]:
+          cantidadAdultos,
+
+        [CONFIG.googleForm.fields.adulto2]:
+          segundoAdulto,
+
+        [CONFIG.googleForm.fields.comentario]:
+          comentario,
+
+        [CONFIG.googleForm.fields.origen]:
+          "WEB"
+
+      };
 
 
-      datosGoogle.append(
-        CONFIG.googleForm.fields.fecha,
-        fechaHora.fecha
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.hora,
-        fechaHora.hora
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.nino,
-        nino
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.adulto1,
-        adulto1
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.adultos,
-        cantidadAdultos
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.adulto2,
-        segundoAdulto
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.comentario,
-        comentario
-      );
-
-
-      datosGoogle.append(
-        CONFIG.googleForm.fields.origen,
-        "WEB"
+      console.log(
+        "Datos que enviaremos a Google:",
+        datosGoogle
       );
 
 
       // =====================================================
-      // BOTÓN: ESTADO REGISTRANDO
+      // BOTÓN
       // =====================================================
 
       const boton =
@@ -310,7 +378,8 @@ document.addEventListener("DOMContentLoaded", function () {
         boton.innerHTML;
 
 
-      boton.disabled = true;
+      boton.disabled =
+        true;
 
 
       boton.innerHTML =
@@ -319,55 +388,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       // =====================================================
-      // ENVIAR A GOOGLE FORMS
+      // GOOGLE FORMS
       // =====================================================
 
       try {
 
-        await fetch(
-          CONFIG.googleForm.url,
-          {
-            method: "POST",
-            mode: "no-cors",
-            body: datosGoogle
-          }
+        await enviarAGoogleForms(
+          datosGoogle
         );
-
-
-        console.log(
-          "Registro enviado a Google Forms"
-        );
-
 
       } catch (error) {
 
         console.error(
-          "Error al enviar a Google Forms:",
+          "Error Google Forms:",
           error
         );
 
 
-        boton.disabled = false;
+        boton.disabled =
+          false;
+
 
         boton.innerHTML =
           contenidoOriginal;
 
 
         alert(
-          "No pudimos registrar la asistencia. Inténtalo nuevamente."
+          "No pudimos registrar la asistencia."
         );
-
 
         return;
       }
 
 
       // =====================================================
-      // CONSTRUIR MENSAJE DE WHATSAPP
+      // WHATSAPP
       // =====================================================
 
       let mensaje =
         "*CONFIRMACIÓN CUMPLEAÑOS ATHENA*" +
+
         "\n\n" +
 
         "*Niño/a invitado:*" +
@@ -387,10 +447,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cantidadAdultos;
 
 
-      // -------------------------------------------------
-      // SEGUNDO ADULTO SOLO SI EXISTE
-      // -------------------------------------------------
-
       if (cantidadAdultos === "2") {
 
         mensaje +=
@@ -401,10 +457,6 @@ document.addEventListener("DOMContentLoaded", function () {
           segundoAdulto;
       }
 
-
-      // -------------------------------------------------
-      // COMENTARIO SOLO SI EL USUARIO ESCRIBIÓ UNO
-      // -------------------------------------------------
 
       if (comentario !== "NO") {
 
@@ -422,46 +474,22 @@ document.addEventListener("DOMContentLoaded", function () {
         "*Confirmamos nuestra asistencia*";
 
 
-      // =====================================================
-      // URL WHATSAPP
-      // =====================================================
-
       const whatsappURL =
-        "https://web.whatsapp.com/send" +
-        "?phone=" +
+        "https://wa.me/" +
         CONFIG.whatsapp +
-        "&text=" +
-        encodeURIComponent(mensaje);
+        "?text=" +
+        encodeURIComponent(
+          mensaje
+        );
 
 
-      console.log(
-        "Datos enviados:",
-        {
-          fecha: fechaHora.fecha,
-          hora: fechaHora.hora,
-          nino: nino,
-          adulto1: adulto1,
-          adultos: cantidadAdultos,
-          adulto2: segundoAdulto,
-          comentario: comentario,
-          origen: "WEB"
-        }
-      );
+      boton.disabled =
+        false;
 
-
-      // =====================================================
-      // RESTAURAR BOTÓN
-      // =====================================================
-
-      boton.disabled = false;
 
       boton.innerHTML =
         contenidoOriginal;
 
-
-      // =====================================================
-      // ABRIR WHATSAPP
-      // =====================================================
 
       window.location.href =
         whatsappURL;
