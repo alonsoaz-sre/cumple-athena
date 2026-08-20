@@ -1,6 +1,6 @@
 const CONFIG = {
 
-  whatsapp: "51941730893",
+  whatsapp: "51919293148",
 
   googleForm: {
 
