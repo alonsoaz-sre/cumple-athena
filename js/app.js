@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("APP VERSION 7 - WHATSAPP WEB");
+  console.log("APP VERSION 9 - GOOGLE FORM + WHATSAPP");
 
   // =====================================================
   // ELEMENTOS DEL FORMULARIO
@@ -19,29 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(
       'input[name="adultos"]'
     );
-
-
-  // =====================================================
-  // EMOJIS
-  // =====================================================
-
-  const pastel =
-    String.fromCodePoint(0x1F382); // 🎂
-
-  const ninoIcon =
-    String.fromCodePoint(0x1F9D2); // 🧒
-
-  const persona =
-    String.fromCodePoint(0x1F464); // 👤
-
-  const grupo =
-    String.fromCodePoint(0x1F465); // 👥
-
-  const comentarioIcon =
-    String.fromCodePoint(0x1F4AC); // 💬
-
-  const check =
-    String.fromCodePoint(0x2705); // ✅
 
 
   // =====================================================
@@ -77,9 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       adulto2.required = false;
 
       adulto2.value = "";
-
     }
-
   }
 
 
@@ -93,212 +68,405 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  // Estado inicial
   actualizarSegundoAdulto();
 
 
   // =====================================================
-  // ENVÍO DEL FORMULARIO
+  // FECHA Y HORA LOCAL
   // =====================================================
 
-  form.addEventListener("submit", function (event) {
+  function obtenerFechaHora() {
 
-    event.preventDefault();
+    const ahora = new Date();
 
+    const yyyy =
+      ahora.getFullYear();
 
-    // ---------------------------------------------------
-    // VALIDACIÓN HTML
-    // ---------------------------------------------------
+    const mm =
+      String(
+        ahora.getMonth() + 1
+      ).padStart(2, "0");
 
-    if (!form.checkValidity()) {
+    const dd =
+      String(
+        ahora.getDate()
+      ).padStart(2, "0");
 
-      form.reportValidity();
+    const hh =
+      String(
+        ahora.getHours()
+      ).padStart(2, "0");
 
-      return;
-
-    }
-
-
-    // ---------------------------------------------------
-    // OBTENER DATOS
-    // ---------------------------------------------------
-
-    const nino =
-      document
-        .getElementById("nino")
-        .value
-        .trim();
-
-
-    const adulto1 =
-      document
-        .getElementById("adulto1")
-        .value
-        .trim();
+    const min =
+      String(
+        ahora.getMinutes()
+      ).padStart(2, "0");
 
 
-    const seleccionAdultos =
-      document.querySelector(
-        'input[name="adultos"]:checked'
+    return {
+
+      fecha:
+        `${yyyy}-${mm}-${dd}`,
+
+      hora:
+        `${hh}:${min}`
+
+    };
+  }
+
+
+  // =====================================================
+  // SUBMIT
+  // =====================================================
+
+  form.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      // -------------------------------------------------
+      // VALIDAR FORMULARIO HTML
+      // -------------------------------------------------
+
+      if (!form.checkValidity()) {
+
+        form.reportValidity();
+
+        return;
+      }
+
+
+      // -------------------------------------------------
+      // VALIDAR CONFIG
+      // -------------------------------------------------
+
+      if (
+        typeof CONFIG === "undefined" ||
+        !CONFIG.googleForm ||
+        !CONFIG.googleForm.url ||
+        !CONFIG.googleForm.fields
+      ) {
+
+        alert(
+          "No está configurado Google Forms."
+        );
+
+        return;
+      }
+
+
+      if (!CONFIG.whatsapp) {
+
+        alert(
+          "No está configurado el número de WhatsApp."
+        );
+
+        return;
+      }
+
+
+      // =====================================================
+      // OBTENER DATOS
+      // =====================================================
+
+      const nino =
+        document
+          .getElementById("nino")
+          .value
+          .trim();
+
+
+      const adulto1 =
+        document
+          .getElementById("adulto1")
+          .value
+          .trim();
+
+
+      const seleccionAdultos =
+        document.querySelector(
+          'input[name="adultos"]:checked'
+        );
+
+
+      if (!seleccionAdultos) {
+
+        alert(
+          "Selecciona la cantidad de adultos."
+        );
+
+        return;
+      }
+
+
+      const cantidadAdultos =
+        seleccionAdultos.value;
+
+
+      // =====================================================
+      // ADULTO 2
+      // =====================================================
+
+      const segundoAdulto =
+        cantidadAdultos === "2"
+          ? adulto2.value.trim()
+          : "NO";
+
+
+      // =====================================================
+      // COMENTARIO
+      // =====================================================
+
+      const comentarioIngresado =
+        document
+          .getElementById("comentario")
+          .value
+          .trim();
+
+
+      const comentario =
+        comentarioIngresado !== ""
+          ? comentarioIngresado
+          : "NO";
+
+
+      // =====================================================
+      // FECHA / HORA
+      // =====================================================
+
+      const fechaHora =
+        obtenerFechaHora();
+
+
+      // =====================================================
+      // PREPARAR GOOGLE FORMS
+      // =====================================================
+
+      const datosGoogle =
+        new FormData();
+
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.fecha,
+        fechaHora.fecha
       );
 
 
-    if (!seleccionAdultos) {
-
-      alert(
-        "Selecciona la cantidad de adultos."
+      datosGoogle.append(
+        CONFIG.googleForm.fields.hora,
+        fechaHora.hora
       );
 
-      return;
 
-    }
-
-
-    const cantidadAdultos =
-      seleccionAdultos.value;
+      datosGoogle.append(
+        CONFIG.googleForm.fields.nino,
+        nino
+      );
 
 
-    const segundoAdulto =
-      adulto2
-        .value
-        .trim();
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adulto1,
+        adulto1
+      );
 
 
-    const comentario =
-      document
-        .getElementById("comentario")
-        .value
-        .trim();
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adultos,
+        cantidadAdultos
+      );
 
 
-    // ---------------------------------------------------
-    // CONSTRUIR MENSAJE
-    // ---------------------------------------------------
-
-    let mensaje =
-      pastel +
-      " *CONFIRMACIÓN CUMPLEAÑOS ATHENA* " +
-      pastel +
-
-      "\n\n" +
-
-      ninoIcon +
-      " *Niño/a invitado:*" +
-      "\n" +
-      nino +
-
-      "\n\n" +
-
-      persona +
-      " *Adulto responsable:*" +
-      "\n" +
-      adulto1 +
-
-      "\n\n" +
-
-      grupo +
-      " *Adultos asistentes:*" +
-      "\n" +
-      cantidadAdultos;
+      datosGoogle.append(
+        CONFIG.googleForm.fields.adulto2,
+        segundoAdulto
+      );
 
 
-    // ---------------------------------------------------
-    // SEGUNDO ADULTO
-    // ---------------------------------------------------
+      datosGoogle.append(
+        CONFIG.googleForm.fields.comentario,
+        comentario
+      );
 
-    if (cantidadAdultos === "2") {
+
+      datosGoogle.append(
+        CONFIG.googleForm.fields.origen,
+        "WEB"
+      );
+
+
+      // =====================================================
+      // BOTÓN: ESTADO REGISTRANDO
+      // =====================================================
+
+      const boton =
+        form.querySelector(
+          'button[type="submit"]'
+        );
+
+
+      const contenidoOriginal =
+        boton.innerHTML;
+
+
+      boton.disabled = true;
+
+
+      boton.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i>' +
+        '<span>Registrando...</span>';
+
+
+      // =====================================================
+      // ENVIAR A GOOGLE FORMS
+      // =====================================================
+
+      try {
+
+        await fetch(
+          CONFIG.googleForm.url,
+          {
+            method: "POST",
+            mode: "no-cors",
+            body: datosGoogle
+          }
+        );
+
+
+        console.log(
+          "Registro enviado a Google Forms"
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Error al enviar a Google Forms:",
+          error
+        );
+
+
+        boton.disabled = false;
+
+        boton.innerHTML =
+          contenidoOriginal;
+
+
+        alert(
+          "No pudimos registrar la asistencia. Inténtalo nuevamente."
+        );
+
+
+        return;
+      }
+
+
+      // =====================================================
+      // CONSTRUIR MENSAJE DE WHATSAPP
+      // =====================================================
+
+      let mensaje =
+        "*CONFIRMACIÓN CUMPLEAÑOS ATHENA*" +
+        "\n\n" +
+
+        "*Niño/a invitado:*" +
+        "\n" +
+        nino +
+
+        "\n\n" +
+
+        "*Adulto responsable:*" +
+        "\n" +
+        adulto1 +
+
+        "\n\n" +
+
+        "*Adultos asistentes:*" +
+        "\n" +
+        cantidadAdultos;
+
+
+      // -------------------------------------------------
+      // SEGUNDO ADULTO SOLO SI EXISTE
+      // -------------------------------------------------
+
+      if (cantidadAdultos === "2") {
+
+        mensaje +=
+          "\n\n" +
+
+          "*Segundo adulto:*" +
+          "\n" +
+          segundoAdulto;
+      }
+
+
+      // -------------------------------------------------
+      // COMENTARIO SOLO SI EL USUARIO ESCRIBIÓ UNO
+      // -------------------------------------------------
+
+      if (comentario !== "NO") {
+
+        mensaje +=
+          "\n\n" +
+
+          "*Comentario:*" +
+          "\n" +
+          comentario;
+      }
+
 
       mensaje +=
         "\n\n" +
-
-        persona +
-        " *Segundo adulto:*" +
-        "\n" +
-        segundoAdulto;
-
-    }
+        "*Confirmamos nuestra asistencia*";
 
 
-    // ---------------------------------------------------
-    // COMENTARIO
-    // ---------------------------------------------------
+      // =====================================================
+      // URL WHATSAPP
+      // =====================================================
 
-    if (comentario !== "") {
-
-      mensaje +=
-        "\n\n" +
-
-        comentarioIcon +
-        " *Comentario:*" +
-        "\n" +
-        comentario;
-
-    }
+      const whatsappURL =
+        "https://web.whatsapp.com/send" +
+        "?phone=" +
+        CONFIG.whatsapp +
+        "&text=" +
+        encodeURIComponent(mensaje);
 
 
-    // ---------------------------------------------------
-    // CIERRE
-    // ---------------------------------------------------
-
-    mensaje +=
-      "\n\n" +
-
-      check +
-      " *Confirmamos nuestra asistencia*";
-
-
-    // =====================================================
-    // VALIDAR CONFIGURACIÓN
-    // =====================================================
-
-    if (
-      typeof CONFIG === "undefined" ||
-      !CONFIG.whatsapp
-    ) {
-
-      alert(
-        "No está configurado el número de WhatsApp."
+      console.log(
+        "Datos enviados:",
+        {
+          fecha: fechaHora.fecha,
+          hora: fechaHora.hora,
+          nino: nino,
+          adulto1: adulto1,
+          adultos: cantidadAdultos,
+          adulto2: segundoAdulto,
+          comentario: comentario,
+          origen: "WEB"
+        }
       );
 
-      return;
+
+      // =====================================================
+      // RESTAURAR BOTÓN
+      // =====================================================
+
+      boton.disabled = false;
+
+      boton.innerHTML =
+        contenidoOriginal;
+
+
+      // =====================================================
+      // ABRIR WHATSAPP
+      // =====================================================
+
+      window.location.href =
+        whatsappURL;
 
     }
-
-
-    // =====================================================
-    // CREAR URL
-    // =====================================================
-
-    const whatsappURL =
-      "https://web.whatsapp.com/send" +
-      "?phone=" +
-      CONFIG.whatsapp +
-      "&text=" +
-      encodeURIComponent(mensaje);
-
-
-    // =====================================================
-    // DEBUG
-    // =====================================================
-
-    console.log(
-      "Mensaje generado:",
-      mensaje
-    );
-
-    console.log(
-      "URL WhatsApp:",
-      whatsappURL
-    );
-
-
-    // =====================================================
-    // ABRIR WHATSAPP
-    // =====================================================
-
-    window.location.href =
-      whatsappURL;
-
-  });
+  );
 
 });
