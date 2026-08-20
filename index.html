@@ -21,15 +21,13 @@
 
 
   <!-- CSS PRINCIPAL -->
-
   <link
     rel="stylesheet"
-    href="css/styles.css?v=20260819-10"
+    href="css/styles.css?v=20260819-20"
   >
 
 
-  <!-- ICONOS FONT AWESOME -->
-
+  <!-- ICONOS -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -51,72 +49,121 @@
     <section class="hero">
 
 
+      <!-- FIREWORKS -->
+
+      <div
+        class="fireworks"
+        aria-hidden="true"
+      >
+
+        <span class="firework fw1"></span>
+        <span class="firework fw2"></span>
+        <span class="firework fw3"></span>
+        <span class="firework fw4"></span>
+        <span class="firework fw5"></span>
+        <span class="firework fw6"></span>
+        <span class="firework fw7"></span>
+        <span class="firework fw8"></span>
+
+      </div>
+
+
+
+      <!-- CONFETTI HERO -->
+
+      <div
+        class="hero-confetti"
+        aria-hidden="true"
+      >
+
+        <span class="confetti-piece cp1"></span>
+        <span class="confetti-piece cp2"></span>
+        <span class="confetti-piece cp3"></span>
+        <span class="confetti-piece cp4"></span>
+        <span class="confetti-piece cp5"></span>
+        <span class="confetti-piece cp6"></span>
+        <span class="confetti-piece cp7"></span>
+        <span class="confetti-piece cp8"></span>
+        <span class="confetti-piece cp9"></span>
+        <span class="confetti-piece cp10"></span>
+        <span class="confetti-piece cp11"></span>
+        <span class="confetti-piece cp12"></span>
+
+      </div>
+
+
+
+      <!-- LOGO ATHENA -->
+
       <div class="hero-logo-wrapper">
 
-        <span
-          class="floating-decoration star star-1"
-          aria-hidden="true"
-        ></span>
+        <span class="logo-star logo-star-1"></span>
 
-        <span
-          class="floating-decoration star star-2"
-          aria-hidden="true"
-        ></span>
+        <span class="logo-star logo-star-2"></span>
 
-        <span
-          class="floating-decoration heart heart-1"
-          aria-hidden="true"
-        ></span>
+        <span class="logo-heart"></span>
 
 
         <img
           class="logo"
-          src="assets/img/Athena4sf.png"
-          alt="Athena 4 años"
+          src="./assets/img/Athena4sf.png?v=20260819-20"
+          alt="Athena cumple 4 años"
+          width="500"
+          height="500"
           loading="eager"
+          fetchpriority="high"
           decoding="async"
         >
 
       </div>
 
 
+
+      <!-- TEXTO HERO -->
+
       <div class="hero-text">
 
-        <div class="birthday-badge">
-  <span class="birthday-small">ATHENA</span>
-  <span class="birthday-main">CUMPLE 4</span>
-  <span class="birthday-sparkles">✦ ♥ ✦</span>
-</div>
 
-<div class="fireworks" aria-hidden="true">
-  <span class="firework firework-1"></span>
-  <span class="firework firework-2"></span>
-  <span class="firework firework-3"></span>
-</div>
+        <div class="birthday-sign">
 
-<div class="confetti-layer" aria-hidden="true">
-  <span class="confetti c1"></span>
-  <span class="confetti c2"></span>
-  <span class="confetti c3"></span>
-  <span class="confetti c4"></span>
-  <span class="confetti c5"></span>
-  <span class="confetti c6"></span>
-  <span class="confetti c7"></span>
-  <span class="confetti c8"></span>
-  <span class="confetti c9"></span>
-  <span class="confetti c10"></span>
-  <span class="confetti c11"></span>
-  <span class="confetti c12"></span>
-</div>
+
+          <span class="birthday-kicker">
+            HOY TENGO ALGO QUE CONTARTE
+          </span>
+
+
+          <span class="birthday-main">
+
+            ¡CUMPLO
+
+            <strong>
+              4
+            </strong>
+
+            AÑOS!
+
+          </span>
+
+
+          <span class="birthday-question">
+            ¿Vienes a celebrarlo conmigo?
+          </span>
+
+
+        </div>
+
+
 
         <h1>
           ¡Estás invitado a mi cumpleaños!
         </h1>
 
+
         <p>
           Tu confirmación nos ayudará a preparar
           un día muy especial.
         </p>
+
 
       </div>
 
@@ -126,7 +173,7 @@
 
 
     <!-- =====================================================
-         CONTENIDO PRINCIPAL
+         CONTENIDO
          ===================================================== -->
 
     <section class="content">
@@ -141,9 +188,13 @@
 
         <div class="section-heading">
 
+
           <span class="heading-icon">
+
             <i class="fa-solid fa-heart"></i>
+
           </span>
+
 
           <div>
 
@@ -158,6 +209,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -168,6 +220,7 @@
           <!-- NIÑO -->
 
           <div class="field">
+
 
             <label for="nino">
 
@@ -191,6 +244,7 @@
               autocomplete="name"
             >
 
+
           </div>
 
 
@@ -198,6 +252,7 @@
           <!-- ADULTO PRINCIPAL -->
 
           <div class="field">
+
 
             <label for="adulto1">
 
@@ -221,11 +276,12 @@
               autocomplete="name"
             >
 
+
           </div>
 
 
 
-          <!-- CANTIDAD DE ADULTOS -->
+          <!-- CANTIDAD ADULTOS -->
 
           <fieldset class="adult-selector">
 
@@ -243,7 +299,9 @@
             </legend>
 
 
+
             <label class="adult-option">
+
 
               <input
                 type="radio"
@@ -251,6 +309,7 @@
                 value="1"
                 checked
               >
+
 
               <span>
 
@@ -264,17 +323,20 @@
 
               </span>
 
+
             </label>
 
 
 
             <label class="adult-option">
 
+
               <input
                 type="radio"
                 name="adultos"
                 value="2"
               >
+
 
               <span>
 
@@ -287,6 +349,7 @@
                 </small>
 
               </span>
+
 
             </label>
 
@@ -301,6 +364,7 @@
             class="field hidden"
             id="adulto2Container"
           >
+
 
             <label for="adulto2">
 
@@ -323,6 +387,7 @@
               autocomplete="name"
             >
 
+
           </div>
 
 
@@ -330,6 +395,7 @@
           <!-- COMENTARIO -->
 
           <div class="field">
+
 
             <label for="comentario">
 
@@ -351,6 +417,7 @@
               placeholder="Alguna información adicional que quieras compartirnos..."
             ></textarea>
 
+
           </div>
 
 
@@ -371,12 +438,13 @@
           </button>
 
 
+
           <p class="privacy">
 
             <i class="fa-solid fa-lock"></i>
 
             Al confirmar se abrirá WhatsApp
-            con tus datos ya preparados para enviarlos.
+            con tus datos preparados para enviarlos.
 
           </p>
 
@@ -389,7 +457,7 @@
 
 
       <!-- ===================================================
-           DETALLES
+           DETALLES DEL EVENTO
            =================================================== -->
 
       <aside class="card event-card">
@@ -397,9 +465,10 @@
 
         <div class="event-title">
 
+
           <span class="event-title-icon">
 
-            <i class="fa-regular fa-calendar-heart"></i>
+            <i class="fa-solid fa-calendar-days"></i>
 
           </span>
 
@@ -416,6 +485,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -423,6 +493,7 @@
         <!-- FECHA -->
 
         <div class="event-item">
+
 
           <span class="event-icon">
 
@@ -443,6 +514,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -450,6 +522,7 @@
         <!-- HORA -->
 
         <div class="event-item">
+
 
           <span class="event-icon">
 
@@ -470,6 +543,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -477,6 +551,7 @@
         <!-- LUGAR -->
 
         <div class="event-item">
+
 
           <span class="event-icon">
 
@@ -501,13 +576,15 @@
 
           </div>
 
+
         </div>
 
 
 
-        <!-- UBICACION -->
+        <!-- UBICACIÓN -->
 
         <div class="event-item">
+
 
           <span class="event-icon">
 
@@ -532,6 +609,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -544,8 +622,9 @@
 
 
           <span class="venue-small-title">
-            Sobre el lugar
+            Conoce el lugar
           </span>
+
 
 
           <a
@@ -553,22 +632,26 @@
             href="https://www.goenjoycity.pe/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visitar página de Go Enjoy City"
           >
 
+
             <img
-              src="assets/img/goenjoycity.png"
+              src="./assets/img/goenjoycity.png?v=20260819-20"
               alt="Go Enjoy City"
               class="venue-logo"
               loading="lazy"
               decoding="async"
             >
 
+
           </a>
 
 
+
           <p class="venue-description">
-            Puedes conocer más sobre Go Enjoy City
-            y seguir sus redes oficiales.
+            Encuentra información del local,
+            novedades y actividades en sus canales oficiales.
           </p>
 
 
@@ -585,7 +668,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="network-button instagram"
-              aria-label="Instagram de Go Enjoy City"
+              aria-label="Instagram Go Enjoy City"
               title="Instagram"
             >
 
@@ -602,7 +685,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="network-button facebook"
-              aria-label="Facebook de Go Enjoy City"
+              aria-label="Facebook Go Enjoy City"
               title="Facebook"
             >
 
@@ -619,7 +702,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="network-button tiktok"
-              aria-label="TikTok de Go Enjoy City"
+              aria-label="TikTok Go Enjoy City"
               title="TikTok"
             >
 
@@ -636,7 +719,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="network-button whatsapp"
-              aria-label="WhatsApp de Go Enjoy City"
+              aria-label="WhatsApp Go Enjoy City"
               title="WhatsApp"
             >
 
@@ -653,7 +736,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="network-button web"
-              aria-label="Página web de Go Enjoy City"
+              aria-label="Web Go Enjoy City"
               title="Página web"
             >
 
@@ -666,7 +749,10 @@
 
 
 
+          <!-- CONTACTO -->
+
           <div class="venue-contact-lines">
+
 
             <a
               href="https://www.instagram.com/goenjoycity/"
@@ -694,6 +780,7 @@
               goenjoycity.pe
             </a>
 
+
           </div>
 
 
@@ -705,22 +792,27 @@
 
         <div class="thanks">
 
+
           <span class="thanks-heart">
             ♥
           </span>
+
 
           <strong>
             ¡Gracias!
           </strong>
 
+
           <p>
             Tu asistencia hará que este día
-            sea todavía más especial para Athena.
+            sea todavía más especial.
           </p>
+
 
           <div class="thanks-stars">
             ✦ ♥ ✦
           </div>
+
 
         </div>
 
@@ -735,11 +827,13 @@
 
 
 
-  <!-- JS -->
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
 
-  <script src="js/config.js?v=20260819-7"></script>
+  <script src="js/config.js?v=20260819-20"></script>
 
-  <script src="js/app.js?v=20260819-7"></script>
+  <script src="js/app.js?v=20260819-20"></script>
 
 
 </body>
