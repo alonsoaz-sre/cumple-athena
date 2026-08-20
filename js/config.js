@@ -1,6 +1,6 @@
 const CONFIG = {
 
-  whatsapp: "51919293148",
+  whatsapp: "51941730893",
 
   googleForm: {
 
@@ -11,9 +11,6 @@ const CONFIG = {
 
       fecha:
         "entry.2083587791",
-
-      hora:
-        "entry.752415440",
 
       nino:
         "entry.1619075439",
