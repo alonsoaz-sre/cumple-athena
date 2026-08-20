@@ -7,7 +7,7 @@ BEGIN:VEVENT
 UID:athena-4-20260910@cumple-athena
 DTSTAMP:20260820T064100Z
 DTSTART;TZID=America/Lima:20260910T150000
-DTEND;TZID=America/Lima:20260910T190000
+DTEND;TZID=America/Lima:20260910T210000
 SUMMARY:Cumpleaños de Athena - 4 años
 DESCRIPTION:¡Acompáñanos a celebrar los 4 años de Athena!
 LOCATION:Salón Premium - Go Enjoy City - C.C. Plaza San Miguel - 3.er piso
